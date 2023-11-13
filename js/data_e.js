@@ -59,7 +59,7 @@ var E_value = [
 
     {pid:'0017',name:'砂漠に眠るドラウグ・ラピス<br>沉眠于沙漠之中的洞穿之石',kind:'三叶',lev:'50',atk:'12',def:'20',j:'23',n:'36',q:'3',z:'20',s:'38',end:'短縮:ULT・G1<br>不屈G3<br>忍耐力G3',endexp:'绝招的冷却速度+4%<br>防御力+70<br>耐久力+25',isJust:'1',madeIt:{tuzhi:'マルディシオン武器ボード(40级光武板子)',sucai_Q:'ルーノ',sucai_Q_num:'461400',sucai_C:['環状石','動的エングラムの欠片','ペイルアイのコア'],sucai_C_num:[15,69,15],sucai_B:'',sucai_B_num:''}},
 
-    {pid:'0018',name:'輝く牙猛る金色<br>闪光獠牙・金黄的盛怒',kind:'三叶',lev:'50',atk:'10',def:'23',j:'33',n:'11',q:'30',z:'30',s:'20',end:'アンチスキルロックG3<br>トランスG3<br>博識G3',endexp:'沉默耐性+100%<br>筋力+13 知力+13<br>知力+25',isJust:'1',madeIt:{tuzhi:'<a onclick="showFuBenWhereIs(9)">機跡の谷・自由探索</a> 开宝箱img src="./img/precious/0015.png" alt="暂缺" class="madeItWinImg">',sucai_Q:'ルーノ',sucai_Q_num:'447900',sucai_C:['さざなみ石','動的エングラムの欠片','フローティングアイの部品'],sucai_C_num:[6,69,16],sucai_B:'',sucai_B_num:''}},
+    {pid:'0018',name:'輝く牙猛る金色<br>闪光獠牙・金黄的盛怒',kind:'三叶',lev:'50',atk:'10',def:'23',j:'33',n:'11',q:'30',z:'30',s:'20',end:'アンチスキルロックG3<br>トランスG3<br>博識G3',endexp:'沉默耐性+100%<br>筋力+13 知力+13<br>知力+25',isJust:'1',madeIt:{tuzhi:'<a onclick="showFuBenWhereIs(9)">機跡の谷・自由探索</a> 开宝箱<img src="./img/precious/0015.png" alt="暂缺" class="madeItWinImg">',sucai_Q:'ルーノ',sucai_Q_num:'447900',sucai_C:['さざなみ石','動的エングラムの欠片','フローティングアイの部品'],sucai_C_num:[6,69,16],sucai_B:'',sucai_B_num:''}},
 
 
     ///////////////
