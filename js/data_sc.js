@@ -39,6 +39,8 @@ var SC_value = [
     { pid: '7029', name: '半島カナムグラ', obtain: '西バーンハルト半島', kind: '植物采集', mappic:'1', sfrom:'植物'},
     { pid: '7030', name: '氷点花', obtain: '西バーンハルト半島', kind: '植物采集', mappic:'1', sfrom:'植物'},
     { pid: '7031', name: 'カムノキの新芽', obtain: '西バーンハルト半島', kind: '植物采集', mappic:'1', sfrom:'植物'},
+    { pid: '7032', name: 'ドラファーフ草', obtain: '<a onclick="showFuBenWhereIs(13)">黄砂の入り江・自由探索</a>', kind: '植物采集', mappic:'1', sfrom:'植物'},
+    { pid: '7033', name: '山麓ナデシコ', obtain: '<a onclick="showFuBenWhereIs(14)">滝裏の盗掘痕跡・自由探索</a>', kind: '植物采集', mappic:'1', sfrom:'植物'},
     
 
     { pid: '7207', name: '水晶の原石', kind: '矿物采集', obtain: '全地图', mappic: '0', sfrom:'矿物'},
@@ -73,6 +75,8 @@ var SC_value = [
     { pid: '7236', name: 'ミダイエ鉱', kind: '矿物采集', obtain: '西バーンハルト半島', mappic: '1', sfrom:'矿物'},
     { pid: '7237', name: 'アイアンヘルムの破片', kind: '矿物采集', obtain: '西バーンハルト半島', mappic: '1', sfrom:'矿物'},
     { pid: '7238', name: 'オルドナイト', kind: '矿物采集', obtain: '西バーンハルト半島', mappic: '1', sfrom:'矿物'},
+    { pid: '7239', name: 'アランダル歯車', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(13)">黄砂の入り江・自由探索</a>', mappic: '1', sfrom:'矿物'},
+    { pid: '7240', name: 'インボルナイト', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(14)">滝裏の盗掘痕跡・自由探索</a>', mappic: '1', sfrom:'矿物'},
       
 
     { pid: '7401', name: '割れた貝殻', kind: '水栖采集', obtain: '全地图<br>[以下必掉]<br>アステリア平原<br>バハマール高原<br>モンテノール渓谷', mappic: '2', sfrom:'水栖',mapWhere:['740101','740102','740103']},
@@ -168,7 +172,7 @@ var SC_value = [
     { pid: '7579', name: '山賊の斥候の軽甲', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(2)">雨止まぬ森・自由探索</a>', mappic: '1', sfrom: '山賊の斥候' },
     { pid: '7580', name: '山賊の術士の靴', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(2)">雨止まぬ森・自由探索</a>', mappic: '1', sfrom: '山賊の術士' },
     { pid: '7581', name: 'ムークの頸毛', kind: '小怪掉落', obtain: 'モンテノール渓谷', mappic: '1', sfrom: 'ムーク' },
-    { pid: '7582', name: 'ゴブリン・グロウのたてがみ', kind: '小怪掉落', obtain: 'モンテノール渓谷', mappic: '1', sfrom: 'ゴブリン・グロウ' },
+    { pid: '7582', name: 'ゴブリン・グロウのたてがみ', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(1)">巨竜の爪痕・自由探索</a>', mappic: '1', sfrom: 'ゴブリン・グロウ' },
     { pid: '7583', name: 'ドラウグ・アルマの欠片', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(2)">雨止まぬ森・自由探索</a>', mappic: '1', sfrom: 'ドラウグ・アルマ' },
     { pid: '7584', name: 'デザートファングの毛', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(7)">風精の舞台・自由探索</a>', mappic: '1', sfrom: 'デザートファング' },
     { pid: '7585', name: 'オオカニクモの丸殻の毛', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(7)">風精の舞台・自由探索</a>', mappic: '1', sfrom: 'オオカニクモ' },
@@ -197,8 +201,16 @@ var SC_value = [
     { pid: '7608', name: 'カニクモフロストの脚', kind: '小怪掉落', obtain: '西バーンハルト半島', mappic: '1', sfrom: 'カニクモフロスト' },
     { pid: '7609', name: 'ゴーリィの尖った爪', kind: '小怪掉落', obtain: '西バーンハルト半島', mappic: '1', sfrom: 'ゴーリィ' },
     { pid: '7610', name: 'アースエレメントの不思議な核', kind: '小怪掉落', obtain: '西バーンハルト半島', mappic: '1', sfrom: 'アースエレメント' },
-    { pid: '7611', name: 'ダイアーハウルの穿牙', kind: '小怪掉落', obtain: '西バーンハルト半島', mappic: '1', sfrom: 'ダイアーハウルの穿牙' },
+    { pid: '7611', name: 'ダイアーハウルの穿牙', kind: '小怪掉落', obtain: '西バーンハルト半島', mappic: '1', sfrom: 'ダイアーハウル' },
     { pid: '7612', name: 'Ｍフォックスの妖牙', kind: '小怪掉落', obtain: '西バーンハルト半島', mappic: '1', sfrom: 'Mフォックス' },
     { pid: '7613', name: 'ドラウグ・アルマの部品', kind: '小怪掉落', obtain: '西バーンハルト半島', mappic: '1', sfrom: 'ドラウグ・アルマ' },
     { pid: '7614', name: 'ダークエレメントの核', kind: '小怪掉落', obtain: '西バーンハルト半島', mappic: '1', sfrom: 'ダークエレメント' },
+    { pid: '7615', name: 'デザートファングの獰猛牙', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(13)">黄砂の入り江・自由探索</a>', mappic: '1', sfrom: 'デザートファング' },
+    { pid: '7616', name: 'サンドバイパーの立派な殻', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(13)">黄砂の入り江・自由探索</a>', mappic: '1', sfrom: 'サンドバイパー' },
+    { pid: '7617', name: 'ランドホークの柔らかな翼', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(13)">黄砂の入り江・自由探索</a>', mappic: '1', sfrom: 'ランドホーク' },
+    { pid: '7618', name: 'サンドリザードの爪', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(13)">黄砂の入り江・自由探索</a>', mappic: '1', sfrom: 'サンドリザード' },
+    { pid: '7619', name: 'マスターゴブリンのたてがみ', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(14)">滝裏の盗掘痕跡・自由探索</a>', mappic: '1', sfrom: 'マスターゴブリン' },
+    { pid: '7620', name: 'エビキノコポイズンの尾', kind: '小怪掉落', obtain: '西バーンハルト半島', mappic: '1', sfrom: 'エビキノコポイズン' },
+    { pid: '7621', name: 'ゴブリンファイターの爪', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(14)">滝裏の盗掘痕跡・自由探索</a>', mappic: '1', sfrom: 'ゴブリンファイター' },
+    { pid: '7622', name: 'エルダーゴブリンの上たてがみ', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(14)">滝裏の盗掘痕跡・自由探索</a>', mappic: '1', sfrom: 'エルダーゴブリン' },
 ]

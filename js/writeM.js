@@ -33,6 +33,8 @@ function writeM(){
     <div>緋染めの樹林・自由探索</div>
     <div>暁の虫砦・自由探索</div>
     <div>呪霊たちの棲家・自由探索</div>
+    <div>黄砂の入り江・自由探索</div>
+    <div>滝裏の盗掘痕跡・自由探索</div>
     <p class="MshowMoreTag">[展开]</p>
 </div>
     <div class="BchoiseBoxLevel BchoiseBoxLevelWM" style="flex-wrap: wrap; padding-bottom: 10px; border: none; margin-bottom: -10px; height: 28px; overflow: hidden; transition: .5s;" id="MonsterKindShowAll">
@@ -215,8 +217,8 @@ document.getElementsByClassName('MshowMoreTag')[1].onclick=function(){
     document.getElementsByClassName('MshowMoreTag')[1].innerHTML = '[展开]'}
 }
 document.getElementsByClassName('MshowMoreTag')[0].onclick=function(){
-    if(document.getElementById('MapKindShowAll').style.height!='160px'){
-    document.getElementById('MapKindShowAll').style.height = '160px'
+    if(document.getElementById('MapKindShowAll').style.height!='196px'){
+    document.getElementById('MapKindShowAll').style.height = '196px'
     document.getElementsByClassName('MshowMoreTag')[0].innerHTML = '[收起]'}
     else{
     document.getElementById('MapKindShowAll').style.height = '28px'

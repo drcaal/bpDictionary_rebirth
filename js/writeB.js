@@ -12,7 +12,7 @@ function writeB(){
     BElement = '全部'
     var B_htmlStr = `
     <p class="windowTitle">| B - 战斗幻想</p>
-<p class="Topword">战斗幻想具有三类功能及七类属性。单击列名可进行升、降序排列。单击幻想图标可查看其制作材料及获取途径。<br>名称前标注有 * 号的为活动限定幻想。</p>
+<p class="Topword">战斗幻想具有三类功能及七类属性。单击列名可进行升、降序排列。单击幻想图标可查看其制作材料及获取途径。 <span style="color:red;">单击类型</span>可查看幻想计算词条后最终属性。<br>名称前标注有 * 号的为活动限定幻想。</p>
 
 <div class="BchoiseBox">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>
@@ -69,7 +69,7 @@ function writeB(){
         <td style="font-size: 13px;">${B_every.endexp}</td>
         <td style="font-size: 13px; padding: 8px 5px;">${B_every.skill}</td>
         <td style="font-size: 13px;">${B_every.cd}</td>
-        <td style="font-size: 13px;">${B_every.kind}</td>
+        <td style="font-size: 13px;" class="ImagineInfo" title="${index}">${B_every.kind}</td>
     </tr>`
     })
     
@@ -136,5 +136,8 @@ function writeB(){
     })
     $('#Btable img').click(function(){
         drawMakeThingWindow(B_value[this.title])
+    })
+    $('.ImagineInfo').click(function(){
+        drawImagineInfoWindow(B_value[this.title])
     })
 }
