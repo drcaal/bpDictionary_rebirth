@@ -22,7 +22,7 @@ var WTG_value = [
     {num:'21', jName:'ヤンマ系',cName:'蜻蜓系',mons_normol:[26,38], mons_boss:[18,28]},
     {num:'22', jName:'エレメント系',cName:'元素精灵系',mons_normol:[45,46,59,62,88], mons_boss:[]},
     {num:'23', jName:'山賊系',cName:'山贼系',mons_normol:[7,8,9,10,11], mons_boss:[4,24,29,32]},
-    {num:'24', jName:'ゾルキシア系',cName:'产屋军系',mons_normol:[52,53,56,57], mons_boss:[]},
-    {num:'25', jName:'バーンハルト兵系',cName:'伯恩哈特兵系',mons_normol:[94,95,96], mons_boss:[48]},
+    {num:'24', jName:'ゾルキシア兵',cName:'产屋军系',mons_normol:[52,53,56,57], mons_boss:[]},
+    {num:'25', jName:'バーンハルト兵',cName:'伯恩哈特兵系',mons_normol:[94,95,96], mons_boss:[48]},
     {num:'26', jName:'ファットマン系',cName:'肥胖兽系',mons_normol:[89,90], mons_boss:[]},
 ]

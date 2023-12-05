@@ -54,7 +54,7 @@ var B_value = [
 
     {pid:'5014',name:'鉄牙<br>铁牙',element:'无',lev:'15',atk:'5',def:'7',j:'18',n:'7',q:'17',z:'10',s:'11',end:'强击：近接攻击・G1<br>タフネスG1<br>忍耐力G1',endexp:'近战造成伤害+5%<br>筋力+3 耐久力+3<br>耐久力+5',cd:'65',skill:'使用獠牙挑击敌人，并为其施加恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'20000',sucai_C:['動的エングラム結晶片','割れた貝殻','哭竜鉱'],sucai_C_num:[8,5,3],sucai_B:'鉄牙',sucai_B_num:'1',otherWords:''}},
 
-    {pid:'5015',name:'深緑の牙<br>深绿的獠牙',element:'无',lev:'15',atk:'7',def:'5',j:'10',n:'16',q:'3',z:'17',s:'14',end:'急所感知G1<br>タフネスG1<br>剛力G1',endexp:'会心率+4%<br>筋力+3 耐久力+3<br>筋力+5',cd:'95',skill:'向前突进攻击敌人，并为其施加眩晕状态、恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'20000',sucai_C:['さざなみ石','動的エングラムの欠片','ゴブリンの棍棒'],sucai_C_num:[4,23,2], sucai_B:'深緑の牙',sucai_B_num:'1',otherWords:''}},
+    {pid:'5015',name:'深緑の牙<br>深绿之牙',element:'无',lev:'15',atk:'7',def:'5',j:'10',n:'16',q:'3',z:'17',s:'14',end:'急所感知G1<br>タフネスG1<br>剛力G1',endexp:'会心率+4%<br>筋力+3 耐久力+3<br>筋力+5',cd:'95',skill:'向前突进攻击敌人，并为其施加眩晕状态、恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'20000',sucai_C:['さざなみ石','動的エングラムの欠片','ゴブリンの棍棒'],sucai_C_num:[4,23,2], sucai_B:'深緑の牙',sucai_B_num:'1',otherWords:''}},
 
     {pid:'5016',name:'スカイサーペント<br>螣蛇',element:'冰',lev:'20',atk:'9',def:'7',j:'2',n:'14',q:'15',z:'21',s:'21',end:'気合の奔流G1<br>屈强的心身G1<br>集中G1',endexp:'ST+5<br>耐久力+3 精神力+3<br>精神力+5',cd:'60',skill:'发射冰弹对敌人造成冰属性伤害',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'47500',sucai_C:['水晶の原石','動的エングラム結晶片','道草花'],sucai_C_num:[10,12,3],sucai_B:'スカイサーペント',sucai_B_num:'1',otherWords:''}},
 
@@ -122,7 +122,7 @@ var B_value = [
 
     {pid:'5048',name:'猛る金色<br>金黄的盛怒',element:'雷',lev:'45',atk:'21',def:'11',j:'44',n:'41',q:'9',z:'29',s:'26',end:'痛击G1<br>気功G3<br>集中G3',endexp:'会心力+12<br>耐久力+13 器用+13<br>精神力+25',cd:'70',skill:'向前推进造成雷属性伤害，并施加敌人受到伤害提升・小状态、恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'371300',sucai_C:['環状石','動的エングラムの欠片','オーガの重角'],sucai_C_num:[15,74,8],sucai_B:'猛る金色',sucai_B_num:'1',otherWords:''}},
 
-    {pid:'5049',name:'オロチ<br>粉蛇',element:'火',lev:'45',atk:'15',def:'15',j:'38',n:'26',q:'35',z:'16',s:'29',end:'生命の奔流G3<br>インスピレーションG3<br>忍耐力G3',endexp:'HP+700<br>筋力+13 精神力+13<br>耐久力+25',cd:'60',skill:'向前吐息，造成火属性伤害',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'384800',sucai_C:['動的エングラム結晶片','トコヨ草','砂丘生痕'],sucai_C_num:[25,30,12],sucai_B:'オロチ',sucai_B_num:'2',otherWords:''}},
+    {pid:'5049',name:'オロチ<br>大蛇',element:'火',lev:'45',atk:'15',def:'15',j:'38',n:'26',q:'35',z:'16',s:'29',end:'生命の奔流G3<br>インスピレーションG3<br>忍耐力G3',endexp:'HP+700<br>筋力+13 精神力+13<br>耐久力+25',cd:'60',skill:'向前吐息，造成火属性伤害',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'384800',sucai_C:['動的エングラム結晶片','トコヨ草','砂丘生痕'],sucai_C_num:[25,30,12],sucai_B:'オロチ',sucai_B_num:'2',otherWords:''}},
 
     {pid:'5050',name:'ドラウグ・ラピス<br>洞穿之石・青金',element:'土',lev:'45',atk:'17',def:'14',j:'26',n:'35',q:'35',z:'29',s:'20',end:'アサルトダイブG1<br>タフネスG3<br>忍耐力G3',endexp:'高空突击（高度加成）伤害+4%<br>筋力+13 耐久力+13<br>耐久力+25',cd:'60',skill:'左右手分别射出三道光束进行攻击，造成土属性伤害',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'371300',sucai_C:['動的エングラムの欠片','グロークンシード','山賊の護衛の上着'],sucai_C_num:[74,15,8],sucai_B:'ドラウグ・ラピス',sucai_B_num:'2',otherWords:''}},
 

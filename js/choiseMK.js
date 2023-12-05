@@ -1,8 +1,10 @@
-function choiseMKind(WElement, WBox){
+function choiseMKind(WElement, WBox ,Wchoice){
     function isSubstring(a, b) {
+        if (a == 'ヒューマン') {
+          b=b.replace("デミヒューマン"," ")
+        }
         // 使用 indexOf() 方法查找字符串 a 在字符串 b 中的索引
         const index = b.indexOf(a);
-        
         // 如果 index 大于等于 0，则表示字符串 a 在字符串 b 中存在
         if (index >= 0) {
           return true;
@@ -28,7 +30,8 @@ function choiseMKind(WElement, WBox){
             var row = rows[i];
             var Wcategory1 = row.getElementsByTagName('td')[2].innerText;
             var Wcategory2 = row.getElementsByTagName('td')[5].innerText;
-            if ((WBox==Wcategory1||WBox == '全种系')&&(isSubstring(WElement,Wcategory2)||WElement == '全地域')) {
+            var Wcategory5 = row.getElementsByTagName('td')[0].children[0].alt;
+            if ((WBox==Wcategory1||WBox == '全种系')&&(isSubstring(WElement,Wcategory2)||WElement == '全地域')&&(isSubstring(Wchoice,Wcategory5) ||Wchoice =='全特性')) {
                 row.style.display = ''; 
                 Wnum+=1
             }else{
@@ -39,14 +42,15 @@ function choiseMKind(WElement, WBox){
             var row = rows2[i];
             var Wcategory3 = row.getElementsByTagName('td')[3].innerText;
             var Wcategory4 = row.getElementsByTagName('td')[4].innerText;
-            if ((WBox==Wcategory3||WBox == '全种系')&&(isSubstring(WElement,Wcategory4)||WElement == '全地域')) {
+            var Wcategory6 = row.getElementsByTagName('td')[0].children[0].alt;
+            if ((WBox==Wcategory3||WBox == '全种系')&&(isSubstring(WElement,Wcategory4)||WElement == '全地域')&&(isSubstring(Wchoice,Wcategory6) ||Wchoice =='全特性')) {
                 row.style.display = ''; 
                 Wnum+=1
             }else{
                 row.style.display = 'none'; 
             }
           }
-          document.getElementsByClassName('B_E_searchNum')[0].innerText = `${WElement} ${WBox} 共有 ${Wnum} 条数据`
+          document.getElementsByClassName('B_E_searchNum')[0].innerText = `${WElement} ${WBox} ${Wchoice}共有 ${Wnum} 条数据`
 
     // }
 }

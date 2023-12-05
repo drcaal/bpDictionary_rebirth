@@ -1,10 +1,12 @@
 
 var MkindName = '全种系'
 var Mwhere = '全地域'
+var MKinds = '全特性'
 function writeM(){
     nowPage = 1
     MkindName = '全种系'
     Mwhere = '全地域'
+    MKinds = '全特性'
     clearInterval(interevalPic)
     document.getElementsByClassName('window')[0].style.paddingTop = '85px'
 
@@ -65,7 +67,23 @@ function writeM(){
     <div>ゾルキシア系</div>
     <div>バーンハルト兵系</div>
     <p class="MshowMoreTag">[展开]</p>
-    <p class="B_E_searchNum">全部种系 共有 null 条数据</p>
+
+</div>
+    <div class="BchoiseBoxLevel BchoiseBoxLevelMK" style="flex-wrap: wrap; padding-bottom: 10px; border: none; margin-bottom: -20px; margin-top: -5px; height: 28px; overflow: hidden; transition: .5s;" id="MonsterKindsShowAll">
+    <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0); width: auto;">全特性</div>
+    <div>ヒューマン</div>
+    <div>デミヒューマン</div>
+    <div>バグ</div>
+    <div>バファリア</div>
+    <div>ビースト</div>
+    <div>クラステイシャン</div>
+    <div>グランド</div>
+    <div>フロート</div>
+    <div>フラックス</div>
+    <div>マキナ</div>
+    <div>アバリティア</div>
+    <p class="MshowMoreTag">[展开]</p>
+    <p class="B_E_searchNum" style="margin-top:100px;">全部种系 共有 null 条数据</p>
 </div>
     <p class="M_mbTile" id="xiaoguai" style="margin-top: 20px;">地图及自由探索中的小怪</p>
     <p class="Topword">以下为小怪清单，注意：<b>小怪的掉落物有区域分别，并非所有地图上的该种小怪都会掉落材料，</b>如有刷材料的需求请于材料列表中进行搜索或翻阅。</p>
@@ -87,7 +105,7 @@ function writeM(){
             imgSrcString += `<img src="./img/monster/`+M_every.mapWhere[i]+`.png" alt="暂无" style="height: 150px;">`
         }
         M_htmlStr += `<tr class="canclick">
-            <td><img src="./img/icon/m/${M_every.pid}.png" alt="暂无" style="height: 100px;"></td>
+            <td><img src="./img/icon/m/${M_every.pid}.png" alt="${M_every.monsKinds}" style="height: 100px;"></td>
             <td style="font-size: 14px;">${M_every.name}</td>
             <td style="font-size: 14px;">${M_every.monsKind}</td>
             <td style="font-size: 14px;">${M_every.moreElem}</td>
@@ -96,7 +114,6 @@ function writeM(){
             <td class="manyImgBar">${imgSrcString}</td>
         </tr>`
     })
-    
     M_htmlStr += `<tr>
     <th width="12%">样貌</th>
     <th width="12%">名称</th>
@@ -124,7 +141,7 @@ function writeM(){
     
     MB_value.forEach((MB_every)=>{
         M_htmlStr += `<tr>
-            <td><img src="./img/icon/m/${MB_every.pid}.png" alt="暂无" style="height: 110px;"></td>
+            <td><img src="./img/icon/m/${MB_every.pid}.png" alt="${MB_every.monsKinds}" style="height: 110px;"></td>
             <td style="font-size: 14px;">${MB_every.level}</td>
             <td style="font-size: 14px;">${MB_every.name}</td>
             <td style="font-size: 14px;">${MB_every.monsKind}</td>
@@ -184,7 +201,7 @@ function writeM(){
         // table.rows[i].cells[9].setAttribute('title', '精神力');
     }
     
-    document.getElementsByClassName('B_E_searchNum')[0].innerText = `全部地域 全部种系 共有 ${table.rows.length+tableB.rows.length-5} 条数据`
+    document.getElementsByClassName('B_E_searchNum')[0].innerText = `全地域 全种系 全特性 共有 ${table.rows.length+tableB.rows.length-5} 条数据`
     // document.getElementsByClassName('window')[0].innerHTML += MB_htmlStr
     showStart()
     $('.BchoiseBoxLevelWhere div').click(function(){
@@ -195,7 +212,7 @@ function writeM(){
         this.style.color='rgb(38, 41, 46)'
         this.style.borderColor='rgb(55, 194, 192, 0)'
         Mwhere = this.innerText
-        choiseMKind(Mwhere, MkindName)
+        choiseMKind(Mwhere, MkindName,MKinds)
     })
     $('.BchoiseBoxLevelWM div').click(function(){
         $('.BchoiseBoxLevelWM div').css('background-color','rgb(55, 194, 192, 0)')
@@ -205,7 +222,17 @@ function writeM(){
         this.style.color='rgb(38, 41, 46)'
         this.style.borderColor='rgb(55, 194, 192, 0)'
         MkindName = this.innerText
-        choiseMKind(Mwhere, MkindName)
+        choiseMKind(Mwhere, MkindName,MKinds)
+    })
+    $('.BchoiseBoxLevelMK div').click(function(){
+        $('.BchoiseBoxLevelMK div').css('background-color','rgb(55, 194, 192, 0)')
+        $('.BchoiseBoxLevelMK div').css('color','rgb(55, 194, 192)')
+        $('.BchoiseBoxLevelMK div').css('border-color','rgb(55, 194, 192)')
+        this.style.backgroundColor='rgb(55, 194, 192)'
+        this.style.color='rgb(38, 41, 46)'
+        this.style.borderColor='rgb(55, 194, 192, 0)'
+        MKinds = this.innerText
+        choiseMKind(Mwhere, MkindName,MKinds)
     })
     
 document.getElementsByClassName('MshowMoreTag')[1].onclick=function(){
@@ -223,5 +250,13 @@ document.getElementsByClassName('MshowMoreTag')[0].onclick=function(){
     else{
     document.getElementById('MapKindShowAll').style.height = '28px'
     document.getElementsByClassName('MshowMoreTag')[0].innerHTML = '[展开]'}
+}
+document.getElementsByClassName('MshowMoreTag')[2].onclick=function(){
+    if(document.getElementById('MonsterKindsShowAll').style.height!='72px'){
+    document.getElementById('MonsterKindsShowAll').style.height = '72px'
+    document.getElementsByClassName('MshowMoreTag')[2].innerHTML = '[收起]'}
+    else{
+    document.getElementById('MonsterKindsShowAll').style.height = '28px'
+    document.getElementsByClassName('MshowMoreTag')[2].innerHTML = '[展开]'}
 }
 }
