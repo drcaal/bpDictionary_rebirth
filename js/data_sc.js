@@ -71,7 +71,7 @@ var SC_value = [
     { pid: '7232', name: '浮かぶ車輪', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(10)">緋染めの樹林・自由探索</a>', mappic: '1', sfrom:'矿物'},
     { pid: '7233', name: '星状輝石', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(9)">機跡の谷・自由探索</a>', mappic: '1', sfrom:'矿物'},
     { pid: '7234', name: 'アミメバチ', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(11)">暁の虫砦・自由探索</a>', mappic: '1', sfrom:'矿物'},
-    { pid: '7235', name: '曇天水晶', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(12)">呪霊たちの棲家・自由探索</a>', mappic: '1', sfrom:'矿物'},
+    { pid: '7235', name: '曇天結晶', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(12)">呪霊たちの棲家・自由探索</a>', mappic: '1', sfrom:'矿物'},
     { pid: '7236', name: 'ミダイエ鉱', kind: '矿物采集', obtain: '西バーンハルト半島', mappic: '1', sfrom:'矿物'},
     { pid: '7237', name: 'アイアンヘルムの破片', kind: '矿物采集', obtain: '西バーンハルト半島', mappic: '1', sfrom:'矿物'},
     { pid: '7238', name: 'オルドナイト', kind: '矿物采集', obtain: '西バーンハルト半島', mappic: '1', sfrom:'矿物'},
