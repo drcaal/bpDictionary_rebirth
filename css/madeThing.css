@@ -112,9 +112,19 @@
     font-family: 'Times New Roman', Times, serif;
     margin-top: 5px;
 }
+.ThingWindow_d{
+    margin-left: 40px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 5px;
+}
 .madeItWinImg{
     height: 100px;
     margin-top: 5px;
     cursor: pointer;
     display: block;
+}
+.showdrop{
+    display: flex;
 }
