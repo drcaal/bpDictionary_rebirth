@@ -205,4 +205,8 @@ var B_value = [
     {pid:'5089',name:'*雪化粧の獣<br>*雪化妆之兽',element:'冰',lev:'40',atk:'19',def:'10',j:'39',n:'23',q:'17',z:'36',s:'18',end:'強撃:近接攻撃・G2<br>エキスパートG2<br>剛力G2',endexp:'近战攻击造成的伤害提高6%<br>筋力+7 器用+7<br>筋力+13',cd:'70',skill:'向前推进造成冰属性伤害,并为其施加恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'293000',sucai_C:['-'],sucai_C_num:[],sucai_B:'雪化粧の獣',sucai_B_num:'2',otherWords:''}},
 
     {pid:'5090',name:'*雪かぶりのボア<br>*积雪野猪',element:'冰',lev:'15',atk:'7',def:'5',j:'17',n:'13',q:'7',z:'16',s:'10',end:'勇猛G1<br>エキスパートG1<br>巧妙G1',endexp:'攻击力+10<br>筋力+3 器用+3<br>器用+5',cd:'60',skill:'使用獠牙挑击敌人造成冰属性伤害，并为其施加恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'10200',sucai_C:['-'],sucai_C_num:[],sucai_B:'雪かぶりのボア',sucai_B_num:'1',otherWords:''}},
+
+    {pid:'5091',name:'カーヴェインα<br>卡维恩α',element:'火',lev:'50',atk:'22',def:'11',j:'38',n:'40',q:'46',z:'13',s:'26',end:'タフネスG3',endexp:'筋力+13 耐久力+13',cd:'65',skill:'跳跃起身从上方突刺造成火属性伤害，对敌人施加恐惧效果',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'1000',sucai_C:['-'],sucai_C_num:[],sucai_B:'カーヴェインα',sucai_B_num:'',otherWords:'第四期通行证六十级'}},
+
+    {pid:'5092',name:'カーヴェインβ<br>卡维恩β',element:'火',lev:'60',atk:'29',def:'11',j:'50',n:'46',q:'56',z:'15',s:'24',end:'不屈G3',endexp:'防御力+70',cd:'65',skill:'华丽地挥舞长枪向前推进造成火属性伤害,对敌人施加恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'1000',sucai_C:['-'],sucai_C_num:[],sucai_B:'カーヴェインβ',sucai_B_num:'',otherWords:'第四期通行证七十级'}},
 ]
