@@ -7,7 +7,7 @@ function writeE(){
     document.getElementsByClassName('floatBox')[0].innerHTML = ``
     
     var E_htmlStr = `<p class="windowTitle">| E - 强化幻想</p>
-    <p class="Topword">强化幻想按形状类型分为五类。单击列名可进行升、降序排列。单击幻想图标可查看其制作材料及获取途径。 <span style="color:red;">单击类型</span>可查看幻想计算词条后最终属性<br>名称前标注有 * 号的为活动限定幻想。<br>2023年11月22日Ver.1.02.100版本更新后副本掉宝率大幅度提高,且掉落奖励中新增了强化幻想,若所选幻想可由副本掉落获取时,前置显示掉落副本。</p>
+    <p class="Topword">强化幻想按形状类型分为五类。单击列名可进行升、降序排列。单击幻想图标可查看其制作材料及获取途径。 <span style="color:red;">单击类型</span>可查看幻想计算词条后最终属性<br>名称前标注有 * 号的为活动限定幻想。<br>2023年11月22日Ver.1.02.100版本更新后副本掉宝率大幅度提高,且掉落奖励中新增了强化幻想,若所选幻想可由副本掉落获取时,前置显示掉落副本。<br><span style="color:red;">红色</span>/<span style="color:orange;">橙色</span>标记为目前版本物理/魔法职业最高攻击幻想</p>
 
     <div class="EchoiseBox">
         <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">三叶</div>
