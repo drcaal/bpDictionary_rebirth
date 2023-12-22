@@ -41,6 +41,8 @@ var SC_value = [
     { pid: '7031', name: 'カムノキの新芽', obtain: '西バーンハルト半島', kind: '植物采集', mappic:'1', sfrom:'植物'},
     { pid: '7032', name: 'ドラファーフ草', obtain: '<a onclick="showFuBenWhereIs(13)">黄砂の入り江・自由探索</a>', kind: '植物采集', mappic:'1', sfrom:'植物'},
     { pid: '7033', name: '山麓ナデシコ', obtain: '<a onclick="showFuBenWhereIs(14)">滝裏の盗掘痕跡・自由探索</a>', kind: '植物采集', mappic:'1', sfrom:'植物'},
+    { pid: '7034', name: 'クロネッタの果実', obtain: '<a onclick="showFuBenWhereIs(15)">落日古道・自由探索</a>', kind: '植物采集', mappic:'1', sfrom:'植物'},
+    { pid: '7035', name: 'トンネルヨモギ', obtain: '<a onclick="showFuBenWhereIs(16)">カースドノール遺跡・自由探索</a>', kind: '植物采集', mappic:'1', sfrom:'植物'},
     
 
     { pid: '7207', name: '水晶の原石', kind: '矿物采集', obtain: '全地图', mappic: '0', sfrom:'矿物'},
@@ -77,6 +79,8 @@ var SC_value = [
     { pid: '7238', name: 'オルドナイト', kind: '矿物采集', obtain: '西バーンハルト半島', mappic: '1', sfrom:'矿物'},
     { pid: '7239', name: 'アランダル歯車', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(13)">黄砂の入り江・自由探索</a>', mappic: '1', sfrom:'矿物'},
     { pid: '7240', name: 'インボルナイト', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(14)">滝裏の盗掘痕跡・自由探索</a>', mappic: '1', sfrom:'矿物'},
+    { pid: '7241', name: 'スピンドルパーツ', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(16)">カースドノール遺跡・自由探索</a>', mappic: '1', sfrom:'矿物'},
+    { pid: '7242', name: 'モスメタル', kind: '矿物采集', obtain: '<a onclick="showFuBenWhereIs(15)">落日古道・自由探索</a>', mappic: '1', sfrom:'矿物'},
       
 
     { pid: '7401', name: '割れた貝殻', kind: '水栖采集', obtain: '全地图<br>[以下必掉]<br>アステリア平原<br>バハマール高原<br>モンテノール渓谷', mappic: '2', sfrom:'水栖',mapWhere:['740101','740102','740103']},
@@ -213,4 +217,13 @@ var SC_value = [
     { pid: '7620', name: 'エビキノコポイズンの尾', kind: '小怪掉落', obtain: '西バーンハルト半島', mappic: '1', sfrom: 'エビキノコポイズン' },
     { pid: '7621', name: 'ゴブリンファイターの爪', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(14)">滝裏の盗掘痕跡・自由探索</a>', mappic: '1', sfrom: 'ゴブリンファイター' },
     { pid: '7622', name: 'エルダーゴブリンの上たてがみ', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(14)">滝裏の盗掘痕跡・自由探索</a>', mappic: '1', sfrom: 'エルダーゴブリン' },
+    { pid: '7623', name: 'ブラストポッドの部品', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(16)">カースドノール遺跡・自由探索</a>', mappic: '1', sfrom: 'ブラストポッド' },
+    { pid: '7624', name: 'フローティングアイの核', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(16)">カースドノール遺跡・自由探索</a>', mappic: '1', sfrom: 'フローティングアイ' },
+    { pid: '7625', name: 'イージスポッドの精巧な部品', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(16)">カースドノール遺跡・自由探索</a>', mappic: '1', sfrom: 'イージスポッド' },
+    { pid: '7626', name: '量産型アイアンコフィンの装甲', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(16)">カースドノール遺跡・自由探索</a>', mappic: '1', sfrom: '量産型アイアンコフィン' },
+    { pid: '7627', name: 'Ｆゴブリンの歪な生爪', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(15)">落日古道・自由探索</a>', mappic: '1', sfrom: 'Ｆゴブリン' },
+    { pid: '7628', name: 'Ｆゴブリンウォーロードの爪', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(15)">落日古道・自由探索</a>', mappic: '1', sfrom: 'Ｆゴブリンウォーロード' },
+    { pid: '7629', name: 'Ｆエルダーゴブリンの獰猛牙', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(15)">落日古道・自由探索</a>', mappic: '1', sfrom: 'Ｆエルダーゴブリンの獰猛牙' },
+    { pid: '7630', name: 'カイザーエルクの尖った爪', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(15)">落日古道・自由探索</a>', mappic: '1', sfrom: 'カイザーエルク' },
+    { pid: '7631', name: 'ゴブリン・グロウのたてがみ②', kind: '小怪掉落', obtain: '<a onclick="showFuBenWhereIs(14)">滝裏の盗掘痕跡・自由探索</a>', mappic: '1', sfrom: 'ゴブリン・グロウ' },
 ]

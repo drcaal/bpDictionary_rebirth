@@ -38,6 +38,8 @@ function writeSC(){
     <div>呪霊たちの棲家・自由探索</div>
     <div>黄砂の入り江・自由探索</div>
     <div>滝裏の盗掘痕跡・自由探索</div>
+    <div>落日古道・自由探索</div>
+    <div>カースドノール遺跡・自由探索</div>
     <p class="MshowMoreTag">[展开]</p>
 </div>
 <div class="BchoiseBoxLevel BchoiseBoxLevelWM" style="flex-wrap: wrap; padding-bottom: 0px; border: none;">

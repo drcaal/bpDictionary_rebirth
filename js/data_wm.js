@@ -1,7 +1,8 @@
-var WMwhere_value  =[
+var WMwhere_value =[
     {level: 'G1', kind: '1', toGet: 'レイクリッド坑道/巨竜の爪痕/神懸の御柱/機跡の谷・追加調査<br>ラッシュバトル初/二段'},
     {level: 'G2', kind: '1', toGet: '音無き都/暁の虫砦/ボルオム遺跡・追加調査<br>ラッシュバトル二/三/四段'},
     {level: 'G3', kind: '1', toGet: 'ボルオム遺跡・追加調査<br>~<br>ドラーヴァ王立研究所・追加調査<br>ラッシュバトル四/五段<br>任意上級調査/EX'},
+    {level: 'G5', kind: '1', toGet: '異観！巨塔の遺跡'},
     {level: 'G1', kind: '2', toGet: '任意調査<br>ラッシュバトル三段<br>任意上級調査'},
     {level: 'G2', kind: '2', toGet: '枷神の産屋・追加調査<br>~<br>ドラーヴァ王立研究所・追加調査<br>ラッシュバトル四/五段<br>任意上級調査/EX'},
 ]
@@ -9,6 +10,7 @@ var WM_value = [
     {name: '生命の奔流', level: 'G1', xg: 'HP提升50~150', kind: '1', zy: '0', imgNum: ''},
     {name: '生命の奔流', level: 'G2', xg: 'HP提升300~500', kind: '1', zy: '0', imgNum: ''},
     {name: '生命の奔流', level: 'G3', xg: 'HP提升500~900', kind: '1', zy: '0', imgNum: ''},
+    {name: '生命の奔流', level: 'G5', xg: 'HP提升1300~1700', kind: '1', zy: '0', imgNum: ''},
     
     {name: '气合の奔流', level: 'G1', xg: 'ST提升3~7', kind: '1', zy: '0', imgNum: ''},
     {name: '气合の奔流', level: 'G2', xg: 'ST提升8~12', kind: '1', zy: '0', imgNum: ''},
@@ -17,10 +19,12 @@ var WM_value = [
     {name: '勇猛', level: 'G1', xg: '攻击力提升5~15', kind: '1', zy: '0', imgNum: ''},
     {name: '勇猛', level: 'G2', xg: '攻击力提升15~35', kind: '1', zy: '0', imgNum: ''},
     {name: '勇猛', level: 'G3', xg: '攻击力提升35~60', kind: '1', zy: '0', imgNum: ''},
+    {name: '勇猛', level: 'G5', xg: '攻击力提升90~110', kind: '1', zy: '0', imgNum: ''},
     
     {name: '不屈', level: 'G1', xg: '防御力提升11~19', kind: '1', zy: '0', imgNum: ''},
     {name: '不屈', level: 'G2', xg: '防御力提升30~50', kind: '1', zy: '0', imgNum: ''},
     {name: '不屈', level: 'G3', xg: '防御力提升50~90', kind: '1', zy: '0', imgNum: ''},
+    {name: '不屈', level: 'G5', xg: '防御力提升150~190', kind: '1', zy: '0', imgNum: ''},
     
     {name: '钢の肉体', level: 'G1', xg: 'HP提升25~75<br>防御力提升6~10', kind: '1', zy: '0', imgNum: ''},
     {name: '钢の肉体', level: 'G2', xg: 'HP提升150~250<br>防御力提升15~25', kind: '1', zy: '0', imgNum: ''},

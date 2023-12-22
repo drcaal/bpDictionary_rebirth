@@ -44,7 +44,7 @@ var B_value = [
 
     {pid:'5009',name:'猛る獸<br>猛兽',element:'无',lev:'10',atk:'3',def:'6',j:'14',n:'13',q:'5',z:'5',s:'11',end:'勇猛G1<br>インスピレーションG1<br>集中G1',endexp:'攻击力+10<br>筋力+3 精神力+3<br>精神力+5',cd:'60',skill:'发出鼓舞的嚎叫，一定时间内为自身付与造成伤害提升・小状态',kind:'辅助',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'8800',sucai_C:['水晶の原石','動的エングラム結晶片','旅藻草'],sucai_C_num:[10,7,2],sucai_B:'猛る獸',sucai_B_num:'1',otherWords:''}},
 
-    {pid:'5010',name:'フェステα<br>菲丝特α',element:'无',lev:'10',atk:'4',def:'6',j:'12',n:'11',q:'9',z:'11',s:'4',end:'ストラテジストG2',endexp:'耐久力+7 知力+7',cd:'90',skill:'用瓶子进行投掷攻击，并施加敌人眩晕效果',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'1000',sucai_C:['-'],sucai_C_num:[2,2],sucai_B:'フェステα',sucai_B_num:'3',otherWords:'签到获得'}},
+    {pid:'5010',name:'フェステα<br>菲丝特α',element:'无',lev:'10',atk:'4',def:'6',j:'12',n:'11',q:'9',z:'11',s:'4',end:'ストラテジストG2',endexp:'耐久力+7 知力+7',cd:'90',skill:'用瓶子进行投掷攻击，并为其施加眩晕状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'1000',sucai_C:['-'],sucai_C_num:[2,2],sucai_B:'フェステα',sucai_B_num:'3',otherWords:'签到获得'}},
 
     {pid:'5011',name:'エビキノコ<br>蘑菇虾',element:'无',lev:'15',atk:'6',def:'5',j:'10',n:'17',q:'11',z:'11',s:'14',end:'强击：远隔攻击・G1<br>気功G1<br>巧妙G1',endexp:'远程攻击造成伤害+5%<br>耐久力+3 器用+3<br>器用+5',cd:'80',skill:'通过向周围散播孢子攻击敌人',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'20000',sucai_C:['動的エングラムの欠片','グロークンシード','エビキノコの爪'],sucai_C_num:[10,3,1],sucai_B:'エビキノコ',sucai_B_num:'1',otherWords:'リッツェ交易街道（图一）'}},
 
@@ -200,13 +200,17 @@ var B_value = [
 
     {pid:'5087',name:'プリドークβ<br>',element:'雷',lev:'55',atk:'14',def:'12',j:'23',n:'34',q:'23',z:'21',s:'31',end:'ヘイトダウンG2<br>気功G3<br>忍耐力G3',endexp:'造成仇恨降低10%<br>13+7 耐久力+13<br>耐久力+25',cd:'60',skill:'投掷4柄枪,造成雷属性伤害',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'586200',sucai_C:['動的エングラムの欠片','サンドバイパーの立派な殻','グロークンシード'],sucai_C_num:[84,10,15],sucai_B:'プリドークβ',sucai_B_num:'2',otherWords:''}},
 
-    {pid:'5088',name:'キングゴブリン<br>哥布林王',element:'雷',lev:'55',atk:'27',def:'11',j:'4',n:'34',q:'53',z:'53',s:'35',end:'窮鼠G3<br>トランスG3<br>剛力G3',endexp:'生命值低于一定比例时,攻击力+100<br>筋力+13 知力+13<br>筋力+25',cd:'60',skill:'挥舞巨大的镰刀进行回旋攻击，造成雷属性伤害',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'586200',sucai_C:['動的エングラムの欠片','ゴブリン・グロウのたてがみ','環状石'],sucai_C_num:[84,8,15],sucai_B:'キングゴブリン',sucai_B_num:'2',otherWords:''}},
+    {pid:'5088',name:'キングゴブリン<br>哥布林王',element:'雷',lev:'55',atk:'27',def:'11',j:'4',n:'34',q:'53',z:'53',s:'35',end:'窮鼠G3<br>トランスG3<br>剛力G3',endexp:'生命值低于一定比例时,攻击力+100<br>筋力+13 知力+13<br>筋力+25',cd:'60',skill:'挥舞巨大的镰刀进行回旋攻击，造成雷属性伤害',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'586200',sucai_C:['動的エングラムの欠片','ゴブリン・グロウのたてがみ②','環状石'],sucai_C_num:[84,8,15],sucai_B:'キングゴブリン',sucai_B_num:'2',otherWords:''}},
 
-    {pid:'5089',name:'*雪化粧の獣<br>*雪化妆之兽',element:'冰',lev:'40',atk:'19',def:'10',j:'39',n:'23',q:'17',z:'36',s:'18',end:'強撃:近接攻撃・G2<br>エキスパートG2<br>剛力G2',endexp:'近战攻击造成的伤害提高6%<br>筋力+7 器用+7<br>筋力+13',cd:'70',skill:'向前推进造成冰属性伤害,并为其施加恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'293000',sucai_C:['-'],sucai_C_num:[],sucai_B:'雪化粧の獣',sucai_B_num:'2',otherWords:''}},
+    {pid:'5089',name:'*雪化粧の獣<br>*雪化妆之兽',element:'冰',lev:'40',atk:'19',def:'10',j:'39',n:'23',q:'17',z:'36',s:'18',end:'強撃:近接攻撃・G2<br>エキスパートG2<br>剛力G2',endexp:'近战攻击造成的伤害提高6%<br>筋力+7 器用+7<br>筋力+13',cd:'70',skill:'向前推进造成冰属性伤害,并为其施加恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'293000',sucai_C:['-'],sucai_C_num:[],sucai_B:'*雪化粧の獣',sucai_B_num:'2',otherWords:''}},
 
-    {pid:'5090',name:'*雪かぶりのボア<br>*积雪野猪',element:'冰',lev:'15',atk:'7',def:'5',j:'17',n:'13',q:'7',z:'16',s:'10',end:'勇猛G1<br>エキスパートG1<br>巧妙G1',endexp:'攻击力+10<br>筋力+3 器用+3<br>器用+5',cd:'60',skill:'使用獠牙挑击敌人造成冰属性伤害，并为其施加恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'10200',sucai_C:['-'],sucai_C_num:[],sucai_B:'雪かぶりのボア',sucai_B_num:'1',otherWords:''}},
+    {pid:'5090',name:'*雪かぶりのボア<br>*积雪野猪',element:'冰',lev:'15',atk:'7',def:'5',j:'17',n:'13',q:'7',z:'16',s:'10',end:'勇猛G1<br>エキスパートG1<br>巧妙G1',endexp:'攻击力+10<br>筋力+3 器用+3<br>器用+5',cd:'60',skill:'使用獠牙挑击敌人造成冰属性伤害，并为其施加恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'10200',sucai_C:['-'],sucai_C_num:[],sucai_B:'*雪かぶりのボア',sucai_B_num:'1',otherWords:''}},
 
     {pid:'5091',name:'カーヴェインα<br>卡维恩α',element:'火',lev:'50',atk:'22',def:'11',j:'38',n:'40',q:'46',z:'13',s:'26',end:'タフネスG3',endexp:'筋力+13 耐久力+13',cd:'65',skill:'跳跃起身从上方突刺造成火属性伤害，对敌人施加恐惧效果',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'1000',sucai_C:['-'],sucai_C_num:[],sucai_B:'カーヴェインα',sucai_B_num:'',otherWords:'第四期通行证六十级'}},
 
     {pid:'5092',name:'カーヴェインβ<br>卡维恩β',element:'火',lev:'60',atk:'29',def:'11',j:'50',n:'46',q:'56',z:'15',s:'24',end:'不屈G3',endexp:'防御力+70',cd:'65',skill:'华丽地挥舞长枪向前推进造成火属性伤害,对敌人施加恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'1000',sucai_C:['-'],sucai_C_num:[],sucai_B:'カーヴェインβ',sucai_B_num:'',otherWords:'第四期通行证七十级'}},
+
+    {pid:'5093',name:'赫翼のランドホーク<br>赫翼的白羽鹞',element:'火',lev:'55',atk:'16',def:'19',j:'42',n:'41',q:'54',z:'32',s:'11',end:'ウィズダムG3<br>巧妙G3<br>ヘイトブーストG2',endexp:'器用+13 知力+13<br>器用+25<br>造成仇恨提高10%',cd:'60',skill:'旋转身体并振翅攻击造成火属性伤害,对敌人施加恐惧状态',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'586200',sucai_C:['動的エングラムの欠片','Ｆゴブリンウォーロードの爪','グロークンシード'],sucai_C_num:[84,8,15],sucai_B:'赫翼のランドホークのイデア',sucai_B_num:'2',otherWords:''}},
+
+    {pid:'5094',name:'ゴーレムガルデ<br>格尔德傀儡',element:'雷',lev:'55',atk:'26',def:'11',j:'21',n:'51',q:'7',z:'42',s:'46',end:'博識G3<br>ストラテジストG3<br>背水の陣G2',endexp:'知力+25<br>耐久力+13 知力+13<br>生命值低于一定比例时,会心力+27',cd:'90',skill:'向前推进的同时释放炸弹造成雷属性伤害,并为其施加眩晕效果',kind:'攻击',isJust:'0',madeIt:{tuzhi:'初始',sucai_Q:'ルーノ',sucai_Q_num:'586200',sucai_C:['動的エングラムの欠片','フローティングアイの核','環状石'],sucai_C_num:[84,9,15],sucai_B:'ゴーレムガルデのイデア',sucai_B_num:'2',otherWords:''}},
 ]

@@ -580,9 +580,7 @@ function drawImagineInfoWindow(thingArray){
             <p class="madeBox_title">词条选择</p>
             <p></p><div id=ImagineAbility>`
         for (var Abilitynum = 0;Abilitynum<AbilityList.length;Abilitynum++){
-            if(AllAbility.indexOf(AbilityList[Abilitynum])>-1){
-                windowHtml += `<span class="ThingWindow_q" style="border:1px soild">${AbilityList[Abilitynum]}</span>`
-            }
+            windowHtml += `<span class="ThingWindow_q" style="border:1px soild">${AbilityList[Abilitynum]}</span>`
         }
         windowHtml += `</div>
             <p></p>

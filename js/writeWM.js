@@ -14,7 +14,7 @@ function writeWM(){
     WMWord = '全部'
     var WM_htmlStr = `
     <p class="windowTitle">| 武器插头图鉴</p>
-<p class="Topword">武器插头根据其产生的效果分为两类，一类为对基础属性的提升，一类为对特点职业的技能的提升。<br>不同级别（G1、G2、G3）的插头起到的提升幅度区间不同，同级别插头也会因镶嵌在武器上时随机的星级不同起到不同的提升效果。</p>
+<p class="Topword">武器插头根据其产生的效果分为两类，一类为对基础属性的提升，一类为对特点职业的技能的提升。<br>不同级别（G1、G2、G3、G5）的插头起到的提升幅度区间不同，同级别插头也会因镶嵌在武器上时随机的星级不同起到不同的提升效果。</p>
 
 <div class="BchoiseBox">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>
@@ -32,6 +32,7 @@ function writeWM(){
     <div>G1</div>
     <div>G2</div>
     <div>G3</div>
+    <div>G5</div>
 </div>
 <div class="BchoiseBoxLevel BchoiseBoxLevelWM" style="flex-wrap: wrap; padding-bottom: 10px;">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>
@@ -67,8 +68,9 @@ function writeWM(){
         if(WM_every.kind=='1'&&WM_every.level=='G1')word=WMwhere_value[0].toGet
         else if(WM_every.kind=='1'&&WM_every.level=='G2')word=WMwhere_value[1].toGet
         else if(WM_every.kind=='1'&&WM_every.level=='G3')word=WMwhere_value[2].toGet
-        else if(WM_every.kind=='2'&&WM_every.level=='G1')word=WMwhere_value[3].toGet
-        else if(WM_every.kind=='2'&&WM_every.level=='G2')word=WMwhere_value[4].toGet
+        else if(WM_every.kind=='1'&&WM_every.level=='G5')word=WMwhere_value[3].toGet
+        else if(WM_every.kind=='2'&&WM_every.level=='G1')word=WMwhere_value[4].toGet
+        else if(WM_every.kind=='2'&&WM_every.level=='G2')word=WMwhere_value[5].toGet
         if(WM_every.kind=='1'){
         WM_htmlStr += `<tr style="padding: 0px;">
         <td style="font-size: 16px;">${WM_every.name}</td>
