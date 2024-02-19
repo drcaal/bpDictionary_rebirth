@@ -30,7 +30,7 @@ function choiseMKind(WElement, WBox ,Wchoice){
             var row = rows[i];
             var Wcategory1 = row.getElementsByTagName('td')[2].innerText;
             var Wcategory2 = row.getElementsByTagName('td')[5].innerText;
-            var Wcategory5 = row.getElementsByTagName('td')[0].children[0].alt;
+            var Wcategory5 = row.getElementsByTagName('td')[6].innerText;
             if ((WBox==Wcategory1||WBox == '全种系')&&(isSubstring(WElement,Wcategory2)||WElement == '全地域')&&(isSubstring(Wchoice,Wcategory5) ||Wchoice =='全特性')) {
                 row.style.display = ''; 
                 Wnum+=1
@@ -42,7 +42,7 @@ function choiseMKind(WElement, WBox ,Wchoice){
             var row = rows2[i];
             var Wcategory3 = row.getElementsByTagName('td')[3].innerText;
             var Wcategory4 = row.getElementsByTagName('td')[4].innerText;
-            var Wcategory6 = row.getElementsByTagName('td')[0].children[0].alt;
+            var Wcategory6 = row.getElementsByTagName('td')[5].innerText;
             if ((WBox==Wcategory3||WBox == '全种系')&&(isSubstring(WElement,Wcategory4)||WElement == '全地域')&&(isSubstring(Wchoice,Wcategory6) ||Wchoice =='全特性')) {
                 row.style.display = ''; 
                 Wnum+=1

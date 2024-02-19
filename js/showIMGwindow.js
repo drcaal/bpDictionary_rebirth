@@ -6,7 +6,7 @@ function showStart(){
     $('.canclick img').click(function(){
         $('.IMGshowWindow').css('height','400px')
         $('.IMGshowWindow').css('display','block')
-        $('.IMGshowWindow').attr('src',this.src)
+        $('.IMGshowWindow').attr('src',this.src) 
     })
     $('.IMGshowWindow').click(function(){
         $('.IMGshowWindow').css('display','none')
@@ -23,6 +23,8 @@ function showFuBenWhereIs(FuBenNumber){
     $('.IMGshowWindow').css('display','block')
     isshowWindowClose=1
 }
+
+
 var buttomTag = ` <div class="outBox">
     <div class="outBox_firstdiv">
         <div class="outtitle"><p>| 站外传送门</p></div>

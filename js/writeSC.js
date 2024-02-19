@@ -6,7 +6,6 @@ function writeSC(){
     scKind = `全种类`
     document.getElementsByClassName('window')[0].style.paddingTop = '85px'
     clearInterval(interevalPic)
-
     document.getElementsByClassName('floatBox')[0].innerHTML = ``
 //     <div class="goToId">
 //     <div onclick="scrollToSection('zhiwu')">植物</div>
@@ -55,13 +54,14 @@ function writeSC(){
         <tbody>
             <tr>
                 <th width="10%">名称</th>
-                <th width="8%">获取方式</th>
-                <th width="15%">分布区域</th>
-                <th width="20%">获取对象</th>
-                <th width="50%">地图点位</th>
+                <th width="12%">获取方式</th>
+                <th width="25%">分布区域</th>
+                <th width="28%">获取对象</th>
+                <th width="10%">制造用途</th>
             </tr>`
     var imgSrcString = ``
     SC_value.forEach((SC_every)=>{
+        var mapList = ``
         if(SC_every.pid=='7901'){
             var trNameId = `<tr id="qita" class="canclick">`
         }else if(SC_every.pid=='7006'){
@@ -75,30 +75,71 @@ function writeSC(){
         }else{
             var trNameId = `<tr class="canclick">`
         }
+        // SC_every.sfrom != "植物" && SC_every.sfrom != "矿物" && SC_every.sfrom != "水栖" && 
+        if(SC_every.sfrom != "任意小怪" && SC_every.sfrom != "对应属性小怪" && SC_every.sfrom != "全采集物" && SC_every.sfrom != "植物、矿物"){
+            var Monster = SC_every.sfrom + "<br>"
+            for(var i=0;i<M_value.length;i++){
+                if((SC_every.sfrom == "植物" || SC_every.sfrom == "矿物" || SC_every.sfrom == "水栖") && SC_every.mappic == 1){
+                    var Nowid = SC_every.obtain
+                    var Point_id = SC_every.Point;
+                    var Map_List = [];
+                    // var try0 = Map_id[Nowid-1]
+                    // var try1 =SC_every.name
+                    // console.log({try0,try1})
+                    Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][([Point_id]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][([Point_id]-1)*2+1]})
+                    if(SC_every.sfrom == "植物"){
+                        mapList += `<a onclick="mergeImages(${Nowid},['1003'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                    } else if(SC_every.sfrom == "矿物"){
+                        mapList += `<a onclick="mergeImages(${Nowid},['1002'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                    } else {
+                        mapList += `<a onclick="mergeImages(${Nowid},['1004'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                    }
+                    // mapList += `<a onclick="mergeImages(${Nowid},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                    break
+                }
+                if(M_value[i]['name'].indexOf(Monster)!=-1 && M_value[i]['name'].charAt(0) == Monster.charAt(0)){
+                    for(var y=0;y<M_value[i]['spaceName'].length;y++){
+                        if(SC_every.obtain == M_value[i]['spaceName'][y]){
+                            var Nowid = SC_every.obtain
+                            var Map_List = [];
+                            var Point_length = M_value[i]['mapWhere'][y].length;
+                            for (var z=0;z<Point_length;z++){
+                                Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(M_value[i]['mapWhere'][y][z]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(M_value[i]['mapWhere'][y][z]-1)*2+1]})
+                            };
+                            mapList += `<a onclick="mergeImages(${M_value[i]['spaceName'][y]},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                            // var map = Map_id[parseInt(SC_every.obtain)-1]['mName']
+
+                            break
+                        }
+                    }
+                }
+            }
+        }
+
         if(SC_every.mappic=='1'){
             SC_htmlStr += trNameId+`
                 <td style="font-size: 14px;">${SC_every.name}</td>
                 <td style="font-size: 14px;">${SC_every.kind}</td>
-                <td>${SC_every.obtain}</td>
+                <td>${mapList}</td>
                 <td>${SC_every.sfrom}</td>
-                <td><img src="./img/map/${SC_every.pid}.png" alt="暂无" style="height: 200px;"></td>
+                <td></td>
             </tr>`
         }else if(SC_every.mappic=='2'){
-            for(var i=0;i<SC_every.mapWhere.length;i++){
-                imgSrcString += `<img src="./img/map/`+SC_every.mapWhere[i]+`.png" alt="暂无" style="height: 150px;">`
-            }
+            // for(var i=0;i<SC_every.mapWhere.length;i++){
+                // imgSrcString += `<img src="./img/map/`+SC_every.mapWhere[i]+`.png" alt="暂无" style="height: 150px;">`
+            // }
             SC_htmlStr += trNameId+`
                 <td style="font-size: 14px;">${SC_every.name}</td>
                 <td style="font-size: 14px;">${SC_every.kind}</td>
-                <td>${SC_every.obtain}</td>
+                <td>全图采集</td>
                 <td>${SC_every.sfrom}</td>
-                <td class="manyImgBar">${imgSrcString}</td>
+                <td>-</td>
             </tr>`
         }else{
             SC_htmlStr += trNameId+`
                 <td style="font-size: 14px;">${SC_every.name}</td>
                 <td style="font-size: 14px;">${SC_every.kind}</td>
-                <td>${SC_every.obtain}</td>
+                <td>全图小怪掉落</td>
                 <td>${SC_every.sfrom}</td>
                 <td>-</td>
             </tr>`
@@ -108,10 +149,10 @@ function writeSC(){
     
     SC_htmlStr += `<tr>
     <th width="10%">名称</th>
-    <th width="8%">获取方式</th>
-    <th width="15%">分布区域</th>
-    <th width="20%">获取对象</th>
-    <th width="50%">地图点位</th>
+    <th width="12%">获取方式</th>
+    <th width="25%">分布区域</th>
+    <th width="28%">获取对象</th>
+    <th width="28%">制造用途</th>
 </tr></tbody>
     </table>${buttomTag}`
     
@@ -166,3 +207,4 @@ document.getElementsByClassName('MshowMoreTag')[0].onclick=function(){
     document.getElementsByClassName('MshowMoreTag')[0].innerHTML = '[展开]'}
 }
 }
+

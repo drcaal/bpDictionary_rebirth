@@ -1,4 +1,3 @@
-
 var MkindName = '全种系'
 var Mwhere = '全地域'
 var MKinds = '全特性'
@@ -67,7 +66,7 @@ function writeM(){
     <div>オーガ系</div>
     <div>山賊系</div>
     <div>ゾルキシア系</div>
-    <div>バーンハルト兵系</div>
+    <div>バーンハルト兵</div>
     <p class="MshowMoreTag">[展开]</p>
 
 </div>
@@ -76,7 +75,7 @@ function writeM(){
     <div>ヒューマン</div>
     <div>デミヒューマン</div>
     <div>バグ</div>
-    <div>バファリア</div>
+    <div>バファリア遺産</div>
     <div>ビースト</div>
     <div>クラステイシャン</div>
     <div>グランド</div>
@@ -84,6 +83,7 @@ function writeM(){
     <div>フラックス</div>
     <div>マキナ</div>
     <div>アバリティア</div>
+    <div>アンデッド</div>
     <p class="MshowMoreTag">[展开]</p>
     <p class="B_E_searchNum" style="margin-top:100px;">全部种系 共有 null 条数据</p>
 </div>
@@ -93,37 +93,54 @@ function writeM(){
         <tbody>
             <tr>
                 <th width="12%">样貌</th>
-                <th width="12%">名称</th>
-                <th width="12%">种系</th>
-                <th width="5%">弱点属性</th>
-                <th width="5%">抵抗属性</th>
-                <th width="20%">分布区域</th>
-                <th width="50%">地图点位</th>
+                <th width="18%">名称</th>
+                <th width="16%">种系</th>
+                <th width="7%">弱点属性</th>
+                <th width="7%">抵抗属性</th>
+                <th width="22%">分布区域</th>
+                <th width="34%">特性</th>
             </tr>`
-    
-    M_value.forEach((M_every)=>{
-        var imgSrcString = ``
-        for(var i=0;i<M_every.mapWhere.length;i++){
-            imgSrcString += `<img src="./img/monster/`+M_every.mapWhere[i]+`.png" alt="暂无" style="height: 150px;">`
+    M_value.forEach((M_every,num)=>{
+        var mapList = ``
+        var kinds_list = ``
+        // if (num>103){
+        //     return 1
+        // }
+        for(var i=0;i<M_every.spaceName.length;i++){
+        // for(var i=0;i<M_every.spaceName.length;i++){
+            var Nowid = parseInt(M_every.spaceName[i]);
+            var Map_List = [];
+            // var Point_length = M_every.mapWhere[i].length/2;
+            // for (var x=0;x<Point_length;x++){
+            var Point_length = M_every.mapWhere[i].length;
+            for (var x=0;x<Point_length;x++){
+                Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(M_every.mapWhere[i][x]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(M_every.mapWhere[i][x]-1)*2+1]})
+            };
+            mapList += `<a onclick="mergeImages(${M_every.spaceName[i]},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid-1]['mName']}</a><br>`
+        }
+        for(var i=0;i<M_every.monsKinds.length;i++){
+            kinds_list += "<div>" + M_every.monsKinds[i] + "</div>"
         }
         M_htmlStr += `<tr class="canclick">
-            <td><img src="./img/icon/m/${M_every.pid}.png" alt="${M_every.monsKinds}" style="height: 100px;"></td>
+            <td><img src="./img/icon/m/${M_every.pid}.png" style="height: 100px;"></td>
             <td style="font-size: 14px;">${M_every.name}</td>
-            <td style="font-size: 14px;">${M_every.monsKind}</td>
+            <td style="font-size: 14px;" class="Mkind_button"><div>${M_every.monsKind}</div></td>
             <td style="font-size: 14px;">${M_every.moreElem}</td>
             <td style="font-size: 14px;">${M_every.lessElem}</td>
-            <td>${M_every.spaceName}</td>
-            <td class="manyImgBar">${imgSrcString}</td>
+            <td>${mapList}</td>
+            <td style="font-size: 14px;" class="Mkinds_button">${kinds_list}</td>
         </tr>`
+        if(num == M_value.length-1){
+        }
     })
     M_htmlStr += `<tr>
-    <th width="12%">样貌</th>
+    <th width="18%">样貌</th>
     <th width="12%">名称</th>
-    <th width="12%">种系</th>
-    <th width="5%">弱点属性</th>
-    <th width="5%">抵抗属性</th>
-    <th width="20%">分布区域</th>
-    <th width="50%">地图点位</th>
+    <th width="16%">种系</th>
+    <th width="7%">弱点属性</th>
+    <th width="7%">抵抗属性</th>
+    <th width="22%">分布区域</th>
+    <th width="34%">特性</th>
 </tr></tbody>
     </table>`
 
@@ -135,31 +152,40 @@ function writeM(){
                 <th width="15%">样貌</th>
                 <th width="5%">等级</th>
                 <th width="12%">名称</th>
-                <th width="10%">种系</th>
-                <th width="15%">分布区域</th>
-                <th width="30%">地图点位</th>
-                <th width="20%">触发事件</th>
+                <th width="13%">种系</th>          
+                <th width="22%">地图点位</th>
+                <th width="10%">特性</th>
+                <th width="30%">触发事件</th>
             </tr>`
     
     MB_value.forEach((MB_every)=>{
+        var Bkinds_list = ``
+        var mapList = ``
+        var Nowid = parseInt(MB_every.spaceName[0]);
+        var Map_List = [];
+        Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(MB_every.mapWhere[0][0]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(MB_every.mapWhere[0][0]-1)*2+1]})
+        mapList += `<a onclick="mergeImages(${MB_every.spaceName[0]},['1001'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid-1]['mName']}</a><br>`
+        for(var i=0;i<MB_every.monsKinds.length;i++){
+            Bkinds_list += "<div>" + MB_every.monsKinds[i] + "</div>"
+        }
         M_htmlStr += `<tr>
-            <td><img src="./img/icon/m/${MB_every.pid}.png" alt="${MB_every.monsKinds}" style="height: 110px;"></td>
+            <td><img src="./img/icon/m/${MB_every.pid}.png" style="height: 110px;"></td>
             <td style="font-size: 14px;">${MB_every.level}</td>
             <td style="font-size: 14px;">${MB_every.name}</td>
-            <td style="font-size: 14px;">${MB_every.monsKind}</td>
-            <td>${MB_every.spaceName}</td>
-            <td><img src="./img/monster/${MB_every.mapWhere[0]}.png" alt="暂无" style="height: 180px;"></td>
+            <td style="font-size: 14px;" class="Mkind_button"><div>${MB_every.monsKind}</div></td>
+            <td>${mapList}</td>
+            <td style="font-size: 14px;" class="Mkinds_button">${Bkinds_list}</td>
             <td>${MB_every.showTime}</td>
         </tr>`
     })
     
     M_htmlStr += `<th width="15%">样貌</th>
     <th width="5%">等级</th>
-    <th width="12%">名称</th>
+    <th width="15%">名称</th>
     <th width="10%">种系</th>
-    <th width="15%">分布区域</th>
-    <th width="30%">地图点位</th>
-    <th width="20%">触发事件</th><tr>
+    <th width="23%">地图点位</th>
+    <th width="15%">特性</th>
+    <th width="24%">触发事件</th><tr>
     </tr></tbody>
     </table>${buttomTag}`
     
@@ -236,6 +262,28 @@ function writeM(){
         MKinds = this.innerText
         choiseMKind(Mwhere, MkindName,MKinds)
     })
+    $('.Mkinds_button div').click(function(){
+        $('.BchoiseBoxLevelMK div').css('background-color','rgb(55, 194, 192, 0)')
+        $('.BchoiseBoxLevelMK div').css('color','rgb(55, 194, 192)')
+        $('.BchoiseBoxLevelMK div').css('border-color','rgb(55, 194, 192)')
+        var $target = $('.BchoiseBoxLevelMK div:contains(' + this.innerText + ')')
+        $target.css('background-color','rgb(55, 194, 192)')
+        $target.css('color','rgb(38, 41, 46)')
+        $target.css('border-color','rgb(55, 194, 192, 0)')
+        MKinds = this.innerText
+        choiseMKind(Mwhere, MkindName,MKinds)
+    })
+    $('.Mkind_button div').click(function(){
+        $('.BchoiseBoxLevelWM div').css('background-color','rgb(55, 194, 192, 0)')
+        $('.BchoiseBoxLevelWM div').css('color','rgb(55, 194, 192)')
+        $('.BchoiseBoxLevelWM div').css('border-color','rgb(55, 194, 192)')
+        var $target = $('.BchoiseBoxLevelWM div:contains(' + this.innerText + ')')
+        $target.css('background-color','rgb(55, 194, 192)')
+        $target.css('color','rgb(38, 41, 46)')
+        $target.css('border-color','rgb(55, 194, 192, 0)')
+        MkindName = this.innerText
+        choiseMKind(Mwhere, MkindName,MKinds)
+    })
     
 document.getElementsByClassName('MshowMoreTag')[1].onclick=function(){
     if(document.getElementById('MonsterKindShowAll').style.height!='160px'){
@@ -262,3 +310,35 @@ document.getElementsByClassName('MshowMoreTag')[2].onclick=function(){
     document.getElementsByClassName('MshowMoreTag')[2].innerHTML = '[展开]'}
 }
 }
+
+function mergeImages(baseImagePath, overlayImagePaths, positions) {
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    var baseImage = new Image();
+    baseImage.src = '\img/monster/' + baseImagePath + '.png';
+    baseImage.onload = function() {
+      canvas.width = baseImage.width;
+      canvas.height = baseImage.height;
+      context.drawImage(baseImage, 0, 0);
+      for (var twice=overlayImagePaths.length;twice<positions.length;twice++){
+        overlayImagePaths.push(overlayImagePaths[0])
+      }
+      overlayImagePaths.forEach(function(overlayImagePath, index) {
+        var overlayImage = new Image();
+        overlayImage.src = '\img/monster/' + overlayImagePath + '.png';
+        loadedCount = 0;
+        overlayImage.onload = function() {
+            context.drawImage(overlayImage, positions[index].x, positions[index].y);
+            loadedCount ++
+            if (loadedCount == overlayImagePaths.length){
+                var dataUrl = canvas.toDataURL()
+                function showMonsterWhereIs(src){
+                $('.IMGshowWindow').attr('src',src)
+                $('.IMGshowWindow').css('display','block')
+                isshowWindowClose=1}
+                showMonsterWhereIs(dataUrl)
+            };
+        };
+      });
+    };
+  }
