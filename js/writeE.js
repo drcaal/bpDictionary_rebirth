@@ -2,6 +2,8 @@
 function writeE(){
     document.getElementsByClassName('window')[0].style.paddingTop = '85px'
     nowPage = 1
+    Ebox = '三叶'
+    ELevel = 0
     clearInterval(interevalPic)
 
     document.getElementsByClassName('floatBox')[0].innerHTML = ``
@@ -15,13 +17,17 @@ function writeE(){
         <div>矢尻</div>
         <div>风车</div>
         <div>水瓶</div>
+    </div>
+    <div class="ELchoiseBox">
+        <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">+0</div>
+        <div>+5</div>
         <p class="B_E_searchNum">三叶幻想有 null 条数据</p>
     </div>
     <table id="Etable">
         <tbody>
             <tr>
                 <th width="7%">图标</th>
-                <th width="15%">名称</th>
+                <th width="17%">名称</th>
                 <th width="3%" onclick="rewrite(2)" style="cursor: pointer;">等级</th>
                 <th width="3%" onclick="rewrite(3)" style="cursor: pointer;">攻击</th>
                 <th width="3%" onclick="rewrite(4)" style="cursor: pointer;">防御</th>
@@ -30,14 +36,14 @@ function writeE(){
                 <th width="3%" onclick="rewrite(7)" style="cursor: pointer;">器用</th>
                 <th width="3%" onclick="rewrite(8)" style="cursor: pointer;">知力</th>
                 <th width="3%" onclick="rewrite(9)" style="cursor: pointer;">精神</th>
-                <th width="16%">词缀</th>
+                <th width="14%">词缀</th>
                 <th width="14%">词缀效果</th>
                 <th width="5%">类型</th>
             </tr>`
     
     E_value.forEach((E_every, index)=>{
         E_htmlStr += `<tr>
-        <td style="font-size: 12px;"><img src="./img/icon/e/${E_every.pid}.png" alt="暂缺" title="${index}"></td>
+        <td style="font-size: 12px;"><img src="./img/icon/e/${E_every.pid}.png" alt="${E_every.pid}" title="${index}"></td>
         <td style="font-size: 14px; padding: 0 5px;">${E_every.name}</td>
         <td>${E_every.lev}</td>
         <td>${E_every.atk}</td>
@@ -55,7 +61,7 @@ function writeE(){
     
     E_htmlStr += `<tr>
     <th width="7%">图标</th>
-    <th width="15%">名称</th>
+    <th width="17%">名称</th>
     <th width="3%" onclick="rewrite(2)" style="cursor: pointer;">等级</th>
     <th width="3%" onclick="rewrite(3)" style="cursor: pointer;">攻击</th>
     <th width="3%" onclick="rewrite(4)" style="cursor: pointer;">防御</th>
@@ -64,8 +70,8 @@ function writeE(){
     <th width="3%" onclick="rewrite(7)" style="cursor: pointer;">器用</th>
     <th width="3%" onclick="rewrite(8)" style="cursor: pointer;">知力</th>
     <th width="3%" onclick="rewrite(9)" style="cursor: pointer;">精神</th>
-    <th width="18%">词缀</th>
-    <th width="12%">词缀效果</th>
+    <th width="14%">词缀</th>
+    <th width="14%">词缀效果</th>
     <th width="5%">类型</th>
 </tr></tbody>
     </table>${buttomTag}`
@@ -95,15 +101,85 @@ $('.EchoiseBox div').click(function(){
     this.style.backgroundColor='rgb(55, 194, 192)'
     this.style.color='rgb(38, 41, 46)'
     this.style.borderColor='rgb(55, 194, 192, 0)'
-    choiseE(this.innerText)
+    Ebox = this.innerText
+    choiseE(Ebox)
 })
-    choiseE('三叶')
-    $('#Etable img').click(function(){
-        drawMakeThingWindow(E_value[this.title])
-    })
-    $('.ImagineInfo').click(function(){
-        drawImagineInfoWindow(E_value[this.title])
-    })
+    choiseE(Ebox)
+
+$('.ELchoiseBox div').click(function(){
+    if(this.style.backgroundColor != 'rgb(55, 194, 192)'){
+    $('.ELchoiseBox div').css('background-color','rgb(55, 194, 192, 0)')
+    $('.ELchoiseBox div').css('color','rgb(55, 194, 192)')
+    $('.ELchoiseBox div').css('border-color','rgb(55, 194, 192)')
+    this.style.backgroundColor='rgb(55, 194, 192)'
+    this.style.color='rgb(38, 41, 46)'
+    this.style.borderColor='rgb(55, 194, 192, 0)'
+        $('.BLchoiseBox div').css('background-color','rgb(55, 194, 192, 0)')
+        $('.BLchoiseBox div').css('color','rgb(55, 194, 192)')
+        $('.BLchoiseBox div').css('border-color','rgb(55, 194, 192)')
+        this.style.backgroundColor='rgb(55, 194, 192)'
+        this.style.color='rgb(38, 41, 46)'
+        this.style.borderColor='rgb(55, 194, 192, 0)'
+        if(ELevel == 0){
+            E_value.forEach((E_every, index)=>{
+                if(E_every.max.length == 7){
+                    console.log(321)
+                    var atk_bak = E_every.atk
+                    var def_bak = E_every.def
+                    var j_bak = E_every.j
+                    var n_bak = E_every.n
+                    var q_bak = E_every.q
+                    var z_bak = E_every.z
+                    var s_bak = E_every.s
+                    E_every.atk = E_every.max[0]
+                    E_every.def = E_every.max[1]
+                    E_every.j = E_every.max[2]
+                    E_every.n = E_every.max[3]
+                    E_every.q = E_every.max[4]
+                    E_every.z = E_every.max[5]
+                    E_every.s = E_every.max[6]
+                    E_every.max[0] = atk_bak
+                    E_every.max[1] = def_bak
+                    E_every.max[2] = j_bak
+                    E_every.max[3] = n_bak
+                    E_every.max[4] = q_bak
+                    E_every.max[5] = z_bak
+                    E_every.max[6] = s_bak
+                    }
+                })
+            ELevel = 5
+        } else {
+            E_value.forEach((E_every, index)=>{
+                if(E_every.max.length == 7){
+                    var atk_bak = E_every.atk
+                    var def_bak = E_every.def
+                    var j_bak = E_every.j
+                    var n_bak = E_every.n
+                    var q_bak = E_every.q
+                    var z_bak = E_every.z
+                    var s_bak = E_every.s
+                    E_every.atk = E_every.max[0]
+                    E_every.def = E_every.max[1]
+                    E_every.j = E_every.max[2]
+                    E_every.n = E_every.max[3]
+                    E_every.q = E_every.max[4]
+                    E_every.z = E_every.max[5]
+                    E_every.s = E_every.max[6]
+                    E_every.max[0] = atk_bak
+                    E_every.max[1] = def_bak
+                    E_every.max[2] = j_bak
+                    E_every.max[3] = n_bak
+                    E_every.max[4] = q_bak
+                    E_every.max[5] = z_bak
+                    E_every.max[6] = s_bak
+                    }
+                })
+                ELevel = 0
+            }
+        choiseE(Ebox)
+    }})
+    $('#Etable img').click(function(){drawMakeThingWindow(E_value[this.title])})
+    $('.ImagineInfo').click(function(){drawImagineInfoWindow(E_value[this.title])})
 }
 function drawMakeThingWindow(thingArray){
     var sc_list = []
@@ -200,6 +276,8 @@ function drawMakeThingWindow(thingArray){
             if(parseInt(SC_value[sc_list[i]].obtain)<6 && parseInt(SC_value[sc_list[i]].obtain)>0){
                 if(SC_value[sc_list[i]].mappic==4){
                     place=SC_value[sc_list[i]].map
+                } else if (SC_value[sc_list[i]].mappic==1){
+                    place='-'
                 }
             } else if (SC_value[sc_list[i]].mappic==4 || SC_value[sc_list[i]].mappic==1){
                 place='-'
@@ -273,7 +351,6 @@ function drawMakeThingWindow(thingArray){
                     var Map_List = [];
                     Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(MB_every.mapWhere[0][0]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(MB_every.mapWhere[0][0]-1)*2+1]})
                     mapList += `<a onclick="mergeImages(${MB_every.spaceName[0]},['1001'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid-1]['mName']}</a><br>`
-
                     windowHtml += `<div class="ThingWindow_madeBox" style="height: 180px;"><table><tbody>
                     <tr style="height: 20px; font-size: 14px;">
                         <th width="15%">样貌</th>
@@ -395,6 +472,8 @@ function drawMakeThingWindow(thingArray){
                         } else if (SC_value[sc_list[i]].mappic==1){
                             place='-'
                         }
+                    } else if (SC_value[sc_list[i]].mappic==4 || SC_value[sc_list[i]].mappic==1){
+                        place='-'
                     }
                     if(SC_value[sc_list[i]].mappic=='1' || SC_value[sc_list[i]].mappic=='4'){
                         windowHtml += `<tr class="canclick">
@@ -507,6 +586,8 @@ function drawMakeThingWindow(thingArray){
                         } else if (SC_value[sc_list[i]].mappic==1){
                             place='-'
                         }
+                    } else if (SC_value[sc_list[i]].mappic==4 || SC_value[sc_list[i]].mappic==1){
+                        place='-'
                     }
                     if(SC_value[sc_list[i]].mappic=='1' || SC_value[sc_list[i]].mappic=='4'){
                         windowHtml += `<tr class="canclick">
@@ -787,6 +868,15 @@ function drawImagineInfoWindow(thingArray){
                 Finaln += 13
                 Finalq += 13
             }
+        }else if(["獅子奮迅G1","獅子奮迅G2","獅子奮迅G3"].indexOf(firstAbility)>-1){
+            if(firstAbility == "獅子奮迅G3"){
+                Finalatk += 25
+                Finalhp += 350
+            }
+        }else if(["守護者G1","守護者G2","守護者G3"].indexOf(firstAbility)>-1){
+            if(firstAbility == "守護者G3"){
+                Finaldef += 35
+            }
         }
         $('#ImagineAbility').children("span").get(0).style.backgroundColor='rgb(55, 194, 192)'
         $('#ImagineAbility').children("span").get(0).style.color='rgb(38, 41, 46)'
@@ -986,6 +1076,15 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "気功G3"){
                 Finaln += 13
                 Finalq += 13
+            }
+        }else if(["獅子奮迅G1","獅子奮迅G2","獅子奮迅G3"].indexOf(NowAbility)>-1){
+            if(NowAbility == "獅子奮迅G3"){
+                Finalatk += 25
+                Finalhp += 350
+            }
+        }else if(["守護者G1","守護者G2","守護者G3"].indexOf(NowAbility)>-1){
+            if(NowAbility == "守護者G3"){
+                Finaldef += 35
             }
         }
         $('#Finalatk').text((Finalatk+Finalj*0.6+Finalq*0.4).toFixed(1)+"/"+(Finalatk+Finalz*0.6+Finals*0.4).toFixed(1))

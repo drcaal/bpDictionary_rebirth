@@ -42,6 +42,8 @@ var SC_value = [
     { pid: '7032', name: '山麓ナデシコ', obtain: '13', kind: '植物采集', mappic:'1', sfrom:'植物', Point:11},
     { pid: '7033', name: 'クロネッタの果実', obtain: '19', kind: '植物采集', mappic:'1', sfrom:'植物', Point:17},
     { pid: '7034', name: 'トンネルヨモギ', obtain: '14', kind: '植物采集', mappic:'1', sfrom:'植物', Point:11},
+    { pid: '7035', name: 'スナリプル草', obtain: '22', kind: '植物采集', mappic:'1', sfrom:'植物', Point:24},
+    { pid: '7036', name: '高嶺バッタ', obtain: '23', kind: '植物采集', mappic:'1', sfrom:'植物', Point:9},
     
 
     { pid: '7207', name: '水晶の原石', kind: '矿物采集', obtain: '0', mappic: '2', sfrom:'矿物'},
@@ -80,6 +82,8 @@ var SC_value = [
     { pid: '7240', name: 'インボルナイト', kind: '矿物采集', obtain: '13', mappic: '1', sfrom:'矿物', Point:12},
     { pid: '7241', name: 'スピンドルパーツ', kind: '矿物采集', obtain: '14', mappic: '1', sfrom:'矿物', Point:12},
     { pid: '7242', name: 'モスメタル', kind: '矿物采集', obtain: '19', mappic: '1', sfrom:'矿物', Point:18},
+    { pid: '7243', name: 'サイコロ晶体', kind: '矿物采集', obtain: '22', mappic: '1', sfrom:'矿物', Point:25},
+    { pid: '7244', name: 'ジャイロディスク', kind: '矿物采集', obtain: '23', mappic: '1', sfrom:'矿物', Point:10},
       
 
     { pid: '7401', name: '割れた貝殻', kind: '水栖采集', obtain: '0', mappic: '2', sfrom:'水栖'},
@@ -224,4 +228,11 @@ var SC_value = [
     { pid: '7629', name: 'Ｆエルダーゴブリンの獰猛牙', kind: '小怪掉落', obtain: '19', mappic: '4', sfrom: 'Ｆエルダーゴブリン' },
     { pid: '7630', name: 'カイザーエルクの尖った爪', kind: '小怪掉落', obtain: '19', mappic: '4', sfrom: 'カイザーエルク' },
     { pid: '7631', name: 'ゴブリン・グロウのたてがみ②', kind: '小怪掉落', obtain: '13', mappic: '4', sfrom: 'ゴブリン・グロウ' },
+    { pid: '7632', name: 'ヒートバイパーの頑殻', kind: '小怪掉落', obtain: '22', mappic: '4', sfrom: 'ヒートバイパー' },
+    { pid: '7633', name: 'Ｆサンドバイパーのロングテール', kind: '小怪掉落', obtain: '22', mappic: '4', sfrom: 'Ｆサンドバイパー' },
+    { pid: '7634', name: 'Ｆリザードゴーストの研がれた牙', kind: '小怪掉落', obtain: '22', mappic: '4', sfrom: 'リザードゴースト' },
+    { pid: '7635', name: '山賊の価値ある財宝', kind: '小怪掉落', obtain: '22', mappic: '4', sfrom: '山賊' },
+    { pid: '7636', name: 'カニクモアースの尖った爪', kind: '小怪掉落', obtain: '23', mappic: '4', sfrom: 'カニクモアース' },
+    { pid: '7637', name: 'キャニムークアーチャーの角', kind: '小怪掉落', obtain: '23', mappic: '4', sfrom: 'キャニムークアーチャー' },
+    { pid: '7638', name: 'マスクモスの旋翼', kind: '小怪掉落', obtain: '23', mappic: '4', sfrom: 'マスクモス' },
 ]

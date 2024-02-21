@@ -43,13 +43,13 @@ td{
     line-height: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
-.EchoiseBox,.BchoiseBox,.BchoiseBoxElement,.BchoiseBoxLevel{
+.EchoiseBox,.BchoiseBox,.BchoiseBoxElement,.BchoiseBoxLevel,.ELchoiseBox,.BLchoiseBox{
     position: relative;
     display: flex;
     margin: 12px 50px;
     user-select: none;
 }
-.EchoiseBox div,.BchoiseBox div,.BchoiseBoxElement div,.BchoiseBoxLevel div{
+.EchoiseBox div,.BchoiseBox div,.BchoiseBoxElement div,.BchoiseBoxLevel div,.ELchoiseBox div,.BLchoiseBox div{
     width: 50px;
     height: 30px;
     margin: 0 10px;
@@ -191,3 +191,4 @@ tr{
     cursor: pointer;
     margin: 0 3px;
 }
+

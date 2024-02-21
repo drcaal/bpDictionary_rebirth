@@ -39,6 +39,8 @@ function writeSC(){
     <div>滝裏の盗掘痕跡・自由探索</div>
     <div>落日古道・自由探索</div>
     <div>カースドノール遺跡・自由探索</div>
+    <div>海月灯の砂径・自由探索</div>
+    <div>ソプラの山道・自由探索</div>
     <p class="MshowMoreTag">[展开]</p>
 </div>
 <div class="BchoiseBoxLevel BchoiseBoxLevelWM" style="flex-wrap: wrap; padding-bottom: 0px; border: none;">
@@ -59,7 +61,6 @@ function writeSC(){
                 <th width="28%">获取对象</th>
                 <th width="10%">制造用途</th>
             </tr>`
-    var imgSrcString = ``
     SC_value.forEach((SC_every)=>{
         var mapList = ``
         if(SC_every.pid=='7901'){
@@ -122,7 +123,7 @@ function writeSC(){
                 <td style="font-size: 14px;">${SC_every.kind}</td>
                 <td>${mapList}</td>
                 <td>${SC_every.sfrom}</td>
-                <td></td>
+                <td>-</td>
             </tr>`
         }else if(SC_every.mappic=='2'){
             // for(var i=0;i<SC_every.mapWhere.length;i++){
@@ -132,6 +133,14 @@ function writeSC(){
                 <td style="font-size: 14px;">${SC_every.name}</td>
                 <td style="font-size: 14px;">${SC_every.kind}</td>
                 <td>全图采集</td>
+                <td>${SC_every.sfrom}</td>
+                <td>-</td>
+            </tr>`
+        }else if(SC_every.mappic=='4'){
+            SC_htmlStr += trNameId+`
+                <td style="font-size: 14px;">${SC_every.name}</td>
+                <td style="font-size: 14px;">${SC_every.kind}</td>
+                <td>${mapList}</td>
                 <td>${SC_every.sfrom}</td>
                 <td>-</td>
             </tr>`
@@ -199,8 +208,8 @@ function writeSC(){
     })
 
 document.getElementsByClassName('MshowMoreTag')[0].onclick=function(){
-    if(document.getElementById('MapKindShowAll').style.height!='196px'){
-    document.getElementById('MapKindShowAll').style.height = '196px'
+    if(document.getElementById('MapKindShowAll').style.height!='260px'){
+    document.getElementById('MapKindShowAll').style.height = '260px'
     document.getElementsByClassName('MshowMoreTag')[0].innerHTML = '[收起]'}
     else{
     document.getElementById('MapKindShowAll').style.height = '28px'

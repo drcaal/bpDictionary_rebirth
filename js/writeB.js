@@ -10,6 +10,7 @@ function writeB(){
     document.getElementsByClassName('floatBox')[0].innerHTML = ``
     BBox = '全部'
     BElement = '全部'
+    BLevel = 0
     var B_htmlStr = `
     <p class="windowTitle">| B - 战斗幻想</p>
 <p class="Topword">战斗幻想具有三类功能及七类属性。单击列名可进行升、降序排列。单击幻想图标可查看其制作材料及获取途径。 <span style="color:red;">单击类型</span>可查看幻想计算词条后最终属性。<br>名称前标注有 * 号的为活动限定幻想。</p>
@@ -19,6 +20,10 @@ function writeB(){
     <div>攻击型</div>
     <div>回复型</div>
     <div>辅助型</div>
+</div>
+<div class="BLchoiseBox">
+    <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">+0</div>
+    <div>+5</div>
 </div>
 <div class="BchoiseBoxElement">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>
@@ -32,7 +37,7 @@ function writeB(){
     <p class="B_E_searchNum">全部类型 全部属性 共有 null 条数据</p>
 </div>
 <table>
-    <tbody>
+    <tbody class='monster_list'>
         <tr>
             <th width="9%">图标</th>
             <th width="15%">名称</th>
@@ -54,7 +59,7 @@ function writeB(){
     
     B_value.forEach((B_every, index)=>{
         B_htmlStr += `<tr>
-        <td style="font-size: 12px;" id="Btable"><img src="./img/icon/b/${B_every.pid}.png" alt="暂缺" title="${index}"></td>
+        <td style="font-size: 12px;" id="Btable"><img src="./img/icon/b/${B_every.pid}.png" alt="${B_every.pid}" title="${index}"></td>
         <td style="font-size: 14px; padding: 0 5px;">${B_every.name}</td>
         <td>${B_every.lev}</td>
         <td style="font-size: 13px;">${B_every.element}</td>
@@ -123,6 +128,74 @@ function writeB(){
         this.style.borderColor='rgb(55, 194, 192, 0)'
         BBox = this.innerText
         choiseBKind(BBox, BElement)
+    })
+    $('.BLchoiseBox div').click(function(){
+        if(this.style.backgroundColor != 'rgb(55, 194, 192)'){
+            $('.BLchoiseBox div').css('background-color','rgb(55, 194, 192, 0)')
+            $('.BLchoiseBox div').css('color','rgb(55, 194, 192)')
+            $('.BLchoiseBox div').css('border-color','rgb(55, 194, 192)')
+            this.style.backgroundColor='rgb(55, 194, 192)'
+            this.style.color='rgb(38, 41, 46)'
+            this.style.borderColor='rgb(55, 194, 192, 0)'
+            if(BLevel == 0){
+                B_value.forEach((B_every, index)=>{
+                    if(B_every.max.length == 7){
+                    var atk_bak = B_every.atk
+                    var def_bak = B_every.def
+                    var j_bak = B_every.j
+                    var n_bak = B_every.n
+                    var q_bak = B_every.q
+                    var z_bak = B_every.z
+                    var s_bak = B_every.s
+                    B_every.atk = B_every.max[0]
+                    B_every.def = B_every.max[1]
+                    B_every.j = B_every.max[2]
+                    B_every.n = B_every.max[3]
+                    B_every.q = B_every.max[4]
+                    B_every.z = B_every.max[5]
+                    B_every.s = B_every.max[6]
+
+                    B_every.max[0] = atk_bak
+                    B_every.max[1] = def_bak
+                    B_every.max[2] = j_bak
+                    B_every.max[3] = n_bak
+                    B_every.max[4] = q_bak
+                    B_every.max[5] = z_bak
+                    B_every.max[6] = s_bak
+                    }
+                })
+                BLevel = 5
+            }
+            else{
+                B_value.forEach((B_every, index)=>{
+                    if(B_every.max.length == 7){
+                    var atk_bak = B_every.atk
+                    var def_bak = B_every.def
+                    var j_bak = B_every.j
+                    var n_bak = B_every.n
+                    var q_bak = B_every.q
+                    var z_bak = B_every.z
+                    var s_bak = B_every.s
+                    B_every.atk = B_every.max[0]
+                    B_every.def = B_every.max[1]
+                    B_every.j = B_every.max[2]
+                    B_every.n = B_every.max[3]
+                    B_every.q = B_every.max[4]
+                    B_every.z = B_every.max[5]
+                    B_every.s = B_every.max[6]
+                    B_every.max[0] = atk_bak
+                    B_every.max[1] = def_bak
+                    B_every.max[2] = j_bak
+                    B_every.max[3] = n_bak
+                    B_every.max[4] = q_bak
+                    B_every.max[5] = z_bak
+                    B_every.max[6] = s_bak
+                    }
+                })
+                BLevel = 0
+            }
+            choiseBKind(BBox, BElement)
+        }
     })
     $('.BchoiseBoxElement div').click(function(){
         $('.BchoiseBoxElement div').css('background-color','rgb(55, 194, 192, 0)')
