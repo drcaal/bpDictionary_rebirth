@@ -181,7 +181,7 @@ var SC_value = [
     { pid: '7582', name: 'ゴブリン・グロウのたてがみ', kind: '小怪掉落', obtain: '9', mappic: '4', sfrom: 'ゴブリン・グロウ' },
     { pid: '7583', name: 'ドラウグ・アルマの欠片', kind: '小怪掉落', obtain: '16', mappic: '4', sfrom: 'ドラウグ・アルマ' },
     { pid: '7584', name: 'デザートファングの毛', kind: '小怪掉落', obtain: '20', mappic: '4', sfrom: 'デザートファング' },
-    { pid: '7585', name: 'オオカニクモの丸殻の毛', kind: '小怪掉落', obtain: '20', mappic: '4', sfrom: 'オオカニクモ' },
+    { pid: '7585', name: 'オオカニクモの丸殻', kind: '小怪掉落', obtain: '20', mappic: '4', sfrom: 'オオカニクモ' },
     { pid: '7586', name: 'ペイルポッドの核', kind: '小怪掉落', obtain: '20', mappic: '4', sfrom: 'ペイルポッド' },
     { pid: '7587', name: 'イグニスエレメントの核', kind: '小怪掉落', obtain: '20', mappic: '4', sfrom: 'イグニスエレメント' },
     { pid: '7588', name: 'イージスポッドの部品', kind: '小怪掉落', obtain: '20', mappic: '4', sfrom: 'イージスポッド' },
@@ -235,4 +235,5 @@ var SC_value = [
     { pid: '7636', name: 'カニクモアースの尖った爪', kind: '小怪掉落', obtain: '23', mappic: '4', sfrom: 'カニクモアース' },
     { pid: '7637', name: 'キャニムークアーチャーの角', kind: '小怪掉落', obtain: '23', mappic: '4', sfrom: 'キャニムークアーチャー' },
     { pid: '7638', name: 'マスクモスの旋翼', kind: '小怪掉落', obtain: '23', mappic: '4', sfrom: 'マスクモス' },
+    { pid: '7639', name: 'キャニムークウォーリアーの毛皮', kind: '小怪掉落', obtain: '23', mappic: '4', sfrom: 'キャニムークウォーリアー' },
 ]

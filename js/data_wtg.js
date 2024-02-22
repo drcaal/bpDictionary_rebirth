@@ -5,7 +5,7 @@ var WTG_value = [
     {'num':'4', 'jName':'ホーク系','cName':'鹰系','mons_normol':[33,36], 'mons_boss':[26,27,56]},
     {'num':'5', 'jName':'スフィア系','cName':'球形系','mons_normol':[47,60,74,75], 'mons_boss':[42]},
     {'num':'6', 'jName':'ゴブリン系','cName':'哥布林系','mons_normol':[0,1,2,15,40,42,43,61,67,69,70,71,73,100,102,103], 'mons_boss':[2,10,11,13,53]},
-    {'num':'7', 'jName':'ムーク系','cName':'穆库系','mons_normol':[20,21,22,76,77,78,79,80,84], 'mons_boss':[16,17,19,52,58]},
+    {'num':'7', 'jName':'ムーク系','cName':'穆库系','mons_normol':[20,21,22,76,77,78,79,80,84,107], 'mons_boss':[16,17,19,52,58]},
     {'num':'8', 'jName':'オーガ系','cName':'食人魔系','mons_normol':[3], 'mons_boss':[6]},
     {'num':'9', 'jName':'ドゴルマン系','cName':'多古尔曼系','mons_normol':[30,72], 'mons_boss':[20,41,44]},
     {'num':'10', 'jName':'ミーン系','cName':'蜂系','mons_normol':[23,24,44], 'mons_boss':[]},

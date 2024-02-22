@@ -142,7 +142,7 @@ function writeSC(){
                 <td style="font-size: 14px;">${SC_every.kind}</td>
                 <td>${mapList}</td>
                 <td>${SC_every.sfrom}</td>
-                <td>-</td>
+                <td></td>
             </tr>`
         }else{
             SC_htmlStr += trNameId+`
@@ -215,5 +215,115 @@ document.getElementsByClassName('MshowMoreTag')[0].onclick=function(){
     document.getElementById('MapKindShowAll').style.height = '28px'
     document.getElementsByClassName('MshowMoreTag')[0].innerHTML = '[展开]'}
 }
+
+var uni_sc = ["トコヨ草","グロークンシード","水晶の原石","環状石","割れた貝殻","さざなみ石","動的エングラムの欠片","動的エングラム結晶片"]
+var Plant = 0
+var Metel = 0
+var Water = 0
+for(var i = 0;i<SC_value.length;i++){
+    if(SC_value[i].sfrom == "植物"){
+        Plant += 1
+    } else if(SC_value[i].sfrom == "矿物"){
+        Metel += 1
+    } else if(SC_value[i].sfrom == "水栖"){
+        Water += 1
+    }
+}
+Plant +=5
+Water +=6
+
+var List = document.getElementsByTagName('table')[0];
+var rows = List.getElementsByTagName('tr');
+
+B_value.forEach((B_every)=>{
+    var sc = B_every.madeIt['sucai_C']
+    if(sc.length == 3){
+        for(var i = 0;i<sc.length;i++){
+            if(uni_sc.indexOf(sc[i]) == -1){
+                var modo_sc = sc[i]
+                var target_name = B_every.name.split("<br>")[0]
+                var data = SC_value.filter(function(value){
+                    return value.name === modo_sc
+                })
+                var id = data[0]['pid']
+                if(data[0]['sfrom'] == "植物"){
+                    var Final_Point = parseInt(id)-7000
+                } else if(data[0]['sfrom'] == "矿物"){
+                    var Final_Point = parseInt(id)-7206+Plant
+                } else if(data[0]['sfrom'] == "水栖"){
+                    var Final_Point = parseInt(id)-7400+Plant+Metel
+                } else{
+                    var Final_Point = parseInt(id)-7506+Plant+Metel+Water
+                }
+                var target_line = rows[Final_Point].getElementsByTagName('td')
+                target_line[4].innerText = "B-" + target_name
+            }
+        }
+    }
+})
+E_value.forEach((E_every)=>{
+    var sc = E_every.madeIt['sucai_C']
+    if(sc.length == 3){
+        for(var i = 0;i<sc.length;i++){
+            if(uni_sc.indexOf(sc[i]) == -1){
+                var modo_sc = sc[i]
+                var target_name = E_every.name.split("<br>")[0]
+                var target_kind = E_every.kind
+                var data = SC_value.filter(function(value){
+                    return value.name === modo_sc
+                })
+                if(data.length==0){
+                    continue
+                }
+                var id = data[0]['pid']
+                if(data[0]['sfrom'] == "植物"){
+                    var Final_Point = parseInt(id)-7000
+                } else if(data[0]['sfrom'] == "矿物"){
+                    var Final_Point = parseInt(id)-7206+Plant
+                } else if(data[0]['sfrom'] == "水栖"){
+                    var Final_Point = parseInt(id)-7400+Plant+Metel
+                } else{
+                    var Final_Point = parseInt(id)-7506+Plant+Metel+Water
+                }
+                if(target_name.indexOf("<")>-1){
+                    target_name = target_name.split(">")[1]
+                }
+                var target_line = rows[Final_Point].getElementsByTagName('td')
+                target_line[4].innerText = "E-" + target_kind +"-" + target_name
+            }
+        }
+    }
+})
+W_value.forEach((W_every)=>{
+    var sc = W_every.madeIt['sucai_C']
+    if(sc.length == 2){
+        for(var i = 0;i<sc.length;i++){
+            console.log(sc[i])
+            if(uni_sc.indexOf(sc[i]) == -1){
+                var modo_sc = sc[i]
+                var target_name = W_every.name
+                var data = SC_value.filter(function(value){
+                    return value.name === modo_sc
+                })
+                var id = data[0]['pid']
+                if(data[0]['sfrom'] == "植物"){
+                    var Final_Point = parseInt(id)-7000
+                } else if(data[0]['sfrom'] == "矿物"){
+                    var Final_Point = parseInt(id)-7206+Plant
+                } else if(data[0]['sfrom'] == "水栖"){
+                    var Final_Point = parseInt(id)-7400+Plant+Metel
+                } else{
+                    var Final_Point = parseInt(id)-7506+Plant+Metel+Water
+                }
+                var target_line = rows[Final_Point].getElementsByTagName('td')
+                if(target_line[4].innerText == ""){
+                    target_line[4].innerText += W_every.level + "-" + W_every.elem +"武\n"
+                }
+                target_line[4].innerText += target_name + "\n"
+            }
+        }
+    }
+})
+
 }
 

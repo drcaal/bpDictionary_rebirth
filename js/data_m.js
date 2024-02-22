@@ -83,7 +83,7 @@ var M_value=[
     {"pid": "8082", "name": "Ｆカニクモ<br>黑化蟹蛛", "monsKind": "カニクモ系", "spaceName": ["10"], "isBoss": "小怪", "mapWhere": [[3,5,7,13,14,15]], "lessElem": "暗", "moreElem": "光", "monsKinds": ["バグ", "クラステイシャン", "グランド","フラックス"]},
     {"pid": "8083", "name": "Ｆサンドバイパー<br>黑化白蝰蛇", "monsKind": "バイパー系", "spaceName": ["10","22"], "isBoss": "小怪", "mapWhere": [[16,17],[1,7,18,19,20,21,22]], "lessElem": "暗", "moreElem": "光", "monsKinds": ["ビースト", "グランド","フラックス"]},
     {"pid": "8084", "name": "カニクモトラッパー<br>捕手蟹蛛", "monsKind": "カニクモ系", "spaceName": ["10"], "isBoss": "小怪", "mapWhere": [[3,5,7,15]], "lessElem": "雷", "moreElem": "土", "monsKinds": ["バグ", "クラステイシャン", "グランド"]},
-    {"pid": "8085", "name": "ムークウォーリアー<br>战锤穆库", "monsKind": "ムーク系", "spaceName": ["18","23"], "isBoss": "小怪", "mapWhere": [[9,10,11,12],[8]], "lessElem": "雷", "moreElem": "土", "monsKinds": ["デミヒューマン", "グランド"]},
+    {"pid": "8085", "name": "ムークウォーリアー<br>战锤穆库", "monsKind": "ムーク系", "spaceName": ["18"], "isBoss": "小怪", "mapWhere": [[9,10,11,12]], "lessElem": "雷", "moreElem": "土", "monsKinds": ["デミヒューマン", "グランド"]},
     {"pid": "8086", "name": "ヒメカニクモ<br>小蟹蛛", "monsKind": "カニクモ系", "spaceName": ["5","18","23"], "isBoss": "小怪", "mapWhere": [[32,33,34],[15,16,17,19,20,21,22],[1,2,3]], "lessElem": "雷", "moreElem": "土", "monsKinds": ["バグ", "クラステイシャン", "グランド"]},
     {"pid": "8087", "name": "リトルゴート<br>小山羊", "monsKind": "ゴート系", "spaceName": ["5","18"], "isBoss": "小怪", "mapWhere": [[35,36,37,38,39,40,41,51,52,53,54,55,56,57,58,59,60],[1,2,3,23,24]], "lessElem": "冰", "moreElem": "土", "monsKinds": ["ビースト", "グランド"]},
     {"pid": "8088", "name": "エビキノコポイズン<br>毒蘑菇虾", "monsKind": "エビキノコ系", "spaceName": ["5","18"], "isBoss": "小怪", "mapWhere": [[32,33,34],[13,14,15,16,17,18,19,21]], "lessElem": "土", "moreElem": "火", "monsKinds": ["クラステイシャン", "フロート"]},
@@ -106,6 +106,7 @@ var M_value=[
     {"pid": "8105", "name": "ブラストポッド<br>自爆机器人", "monsKind": "トライポッド系", "spaceName": ["14"], "isBoss": "小怪", "mapWhere": [[1,2,3,4,5]], "lessElem": "火", "moreElem": "雷", "monsKinds": ["バファリア遺産", "グランド"]},
     {"pid": "8106", "name": "ゾルキシア重装兵<br>产屋重装兵", "monsKind": "ゾルキシア兵", "spaceName": ["8"], "isBoss": "小怪", "mapWhere": [[10,11,12,13,15,16,17]], "lessElem": "光", "moreElem": "暗", "monsKinds": ["ヒューマン", "グランド"]},
     {"pid": "8107", "name": "カニクモアース<br>土蛛蟹", "monsKind": "カニクモ系", "spaceName": ["23"], "isBoss": "小怪", "mapWhere": [[4,5]], "lessElem": "土", "moreElem": "-", "monsKinds": ["バグ", "クラステイシャン", "グランド"]},
+    {"pid": "8108", "name": "キャニムークウォーリアー<br>峡谷战锤穆库", "monsKind": "ムーク系", "spaceName": ["23"], "isBoss": "小怪", "mapWhere": [[8]], "lessElem": "雷", "moreElem": "土", "monsKinds": ["デミヒューマン", "グランド"]},
 ]
 var MB_value = [
     {"pid": "8501", "name": "ピンクウリボ<br>粉色小香猪", "monsKind": "ボア系", "spaceName": ["1"], "isBoss": "Boss", "mapWhere": [[105]], "showTime": "讨伐附近的同类型敌人<br>10分钟", "level": "1", "monsKinds": ["ビースト", "グランド"]},
