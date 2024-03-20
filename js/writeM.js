@@ -16,30 +16,11 @@ function writeM(){
     var M_htmlStr = `<p class="windowTitle">| 地图及自由探索怪物清单</p>
     <p class="Topword">该清单包含野外地图及自由探索地图中的小怪及 Boss ,暂不包含仅在多人副本及主线剧情副本中出现的怪物。<br>地图点位上的红色标注为有可能刷新该怪物的地点，左键单击图片可将其放大并可用鼠标滚轮再次放大。<br>单击怪物列表内的种系/特性,将直接选择同类别。<br>对于怪物的弱点与抵抗属性，有两种情况造成的伤害将获得提升：一，装备怪物弱点属性的武器，造成任意属性（除开怪物的抵抗属性）的伤害；二，装备任意属性的武器，对怪物造成弱点属性的伤害。战斗幻想造成的伤害不受上述情况一的影响，即，不会随角色装备的武器属性的变化而变化。</p>
     <div class="BchoiseBoxLevel BchoiseBoxLevelWhere" style="flex-wrap: wrap; padding-bottom: 10px; border: none; margin-bottom: -20px; margin-top: -5px; height: 28px; overflow: hidden; transition: .5s;" id="MapKindShowAll">
-    <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0); width: auto;">全地域</div>
-    <div>アステリア平原</div>
-    <div>バハマール高原</div>
-    <div>モンテノール渓谷</div>
-    <div>エバーグリーン砂漠</div>
-    <div>西バーンハルト半島</div>
-    <div>巨竜の爪痕・自由探索</div>
-    <div>ボルオム遺跡・自由探索</div>
-    <div>木漏れ日射す林道・自由探索</div>
-    <div>ともし火の森・自由探索</div>
-    <div>雨止まぬ森・自由探索</div>
-    <div>枷神の産屋・自由探索</div>
-    <div>風精の舞台・自由探索</div>
-    <div>音無き都・自由探索</div>
-    <div>機跡の谷・自由探索</div>
-    <div>緋染めの樹林・自由探索</div>
-    <div>暁の虫砦・自由探索</div>
-    <div>呪霊たちの棲家・自由探索</div>
-    <div>黄砂の入り江・自由探索</div>
-    <div>滝裏の盗掘痕跡・自由探索</div>
-    <div>落日古道・自由探索</div>
-    <div>カースドノール遺跡・自由探索</div>
-    <div>海月灯の砂径・自由探索</div>
-    <div>ソプラの山道・自由探索</div>
+    <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0); width: auto;">全地域</div>`
+    for(var i = 0;i<Map_id.length;i++){
+        M_htmlStr += `<div>` + Map_id[i].mName + `</div>`
+    }
+    M_htmlStr += `
     <p class="MshowMoreTag">[展开]</p>
 </div>
     <div class="BchoiseBoxLevel BchoiseBoxLevelWM" style="flex-wrap: wrap; padding-bottom: 10px; border: none; margin-bottom: -10px; height: 28px; overflow: hidden; transition: .5s;" id="MonsterKindShowAll">
@@ -51,6 +32,7 @@ function writeM(){
     <div>スフィア系</div>
     <div>ゴブリン系</div>
     <div>ムーク系</div>
+    <div>オーガ系</div>
     <div>ドゴルマン系</div>
     <div>ミーン系</div>
     <div>バイパー系</div>
@@ -65,12 +47,14 @@ function writeM(){
     <div>ナッポ系</div>
     <div>ヤンマ系</div>
     <div>エレメント系</div>
-    <div>オーガ系</div>
     <div>山賊系</div>
-    <div>ゾルキシア系</div>
+    <div>ゾルキシア兵</div>
     <div>バーンハルト兵</div>
+    <div>ファットマン系</div>
+    <div>ペッカー系</div>
+    <div>ギルミー系</div>
+    <div>マノー系</div>
     <p class="MshowMoreTag">[展开]</p>
-
 </div>
     <div class="BchoiseBoxLevel BchoiseBoxLevelMK" style="flex-wrap: wrap; padding-bottom: 10px; border: none; margin-bottom: -20px; margin-top: -5px; height: 28px; overflow: hidden; transition: .5s;" id="MonsterKindsShowAll">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0); width: auto;">全特性</div>
@@ -86,6 +70,7 @@ function writeM(){
     <div>マキナ</div>
     <div>アバリティア</div>
     <div>アンデッド</div>
+    <div>アクア</div>
     <p class="MshowMoreTag">[展开]</p>
     <p class="B_E_searchNum" style="margin-top:100px;">全部种系 共有 null 条数据</p>
 </div>

@@ -40,38 +40,26 @@ function writeB(){
     <tbody class='monster_list'>
         <tr>
             <th width="9%">图标</th>
-            <th width="15%">名称</th>
+            <th width="19%">名称</th>
             <th width="3%" onclick="rewrite(2)" style="cursor: pointer;">等级</th>
             <th width="3%">属性</th>
             <th width="3%" onclick="rewrite(4)" style="cursor: pointer;">攻击</th>
             <th width="3%" onclick="rewrite(5)" style="cursor: pointer;">防御</th>
-            <th width="3%" onclick="rewrite(6)" style="cursor: pointer;">筋力</th>
-            <th width="3%" onclick="rewrite(7)" style="cursor: pointer;">耐久</th>
-            <th width="3%" onclick="rewrite(8)" style="cursor: pointer;">器用</th>
-            <th width="3%" onclick="rewrite(9)" style="cursor: pointer;">知力</th>
-            <th width="3%" onclick="rewrite(10)" style="cursor: pointer;">精神</th>
-            <th width="16%">词缀</th>
-            <th width="12%">词缀效果</th>
-            <th width="12%">技能</th>
+            <th width="24%">词缀</th>
+            <th width="28%">技能</th>
             <th width="3%" onclick="rewrite(14)" style="cursor: pointer;">冷却</th>
-            <th width="5%">类型</th>
+            <th width="7%">类型</th>
         </tr>`
     
     B_value.forEach((B_every, index)=>{
         B_htmlStr += `<tr>
         <td style="font-size: 12px;" id="Btable"><img src="./img/icon/b/${B_every.pid}.png" alt="${B_every.pid}" title="${index}"></td>
         <td style="font-size: 14px; padding: 0 5px;">${B_every.name}</td>
-        <td>${B_every.lev}</td>
+        <td>${B_every.attr[0]}</td>
         <td style="font-size: 13px;">${B_every.element}</td>
-        <td>${B_every.atk}</td>
-        <td>${B_every.def}</td>
-        <td>${B_every.j}</td>
-        <td>${B_every.n}</td>
-        <td>${B_every.q}</td>
-        <td>${B_every.z}</td>
-        <td>${B_every.s}</td>
-        <td style="font-size: 13px; padding: 0 5px;">${B_every.end}</td>
-        <td style="font-size: 13px;">${B_every.endexp}</td>
+        <td>${B_every.attr[1]}</td>
+        <td>${B_every.attr[2]}</td>
+        <td style="font-size: 13px; padding: 0 5px;" class="ImagineData" bak="${B_every.endexp}">${B_every.end}</td>
         <td style="font-size: 13px; padding: 8px 5px;">${B_every.skill}</td>
         <td style="font-size: 13px;">${B_every.cd}</td>
         <td style="font-size: 13px;" class="ImagineInfo" title="${index}">${B_every.kind}</td>
@@ -80,21 +68,15 @@ function writeB(){
     
     B_htmlStr += `<tr>
     <th width="9%">图标</th>
-    <th width="15%">名称</th>
+    <th width="19%">名称</th>
     <th width="3%" onclick="rewrite(2)" style="cursor: pointer;">等级</th>
     <th width="3%">属性</th>
     <th width="3%" onclick="rewrite(4)" style="cursor: pointer;">攻击</th>
     <th width="3%" onclick="rewrite(5)" style="cursor: pointer;">防御</th>
-    <th width="3%" onclick="rewrite(6)" style="cursor: pointer;">筋力</th>
-    <th width="3%" onclick="rewrite(7)" style="cursor: pointer;">耐久</th>
-    <th width="3%" onclick="rewrite(8)" style="cursor: pointer;">器用</th>
-    <th width="3%" onclick="rewrite(9)" style="cursor: pointer;">知力</th>
-    <th width="3%" onclick="rewrite(10)" style="cursor: pointer;">精神</th>
-    <th width="16%">词缀</th>
-    <th width="12%">词缀效果</th>
-    <th width="12%">技能</th>
+    <th width="24%">词缀</th>
+    <th width="28%">技能</th>
     <th width="3%" onclick="rewrite(14)" style="cursor: pointer;">冷却</th>
-    <th width="5%">类型</th>
+    <th width="7%">类型</th>
 </tr></tbody>
     </table>${buttomTag}`
     
@@ -111,11 +93,6 @@ function writeB(){
         table.rows[i].cells[5].style.backgroundColor = '#35353533';
         table.rows[i].cells[4].setAttribute('title', '攻击力');
         table.rows[i].cells[5].setAttribute('title', '防御力');
-        table.rows[i].cells[6].setAttribute('title', '筋力');
-        table.rows[i].cells[7].setAttribute('title', '耐久');
-        table.rows[i].cells[8].setAttribute('title', '器用');
-        table.rows[i].cells[9].setAttribute('title', '知力');
-        table.rows[i].cells[10].setAttribute('title', '精神力');
     }
 
     
@@ -140,20 +117,20 @@ function writeB(){
             if(BLevel == 0){
                 B_value.forEach((B_every, index)=>{
                     if(B_every.max.length == 7){
-                    var atk_bak = B_every.atk
-                    var def_bak = B_every.def
-                    var j_bak = B_every.j
-                    var n_bak = B_every.n
-                    var q_bak = B_every.q
-                    var z_bak = B_every.z
-                    var s_bak = B_every.s
-                    B_every.atk = B_every.max[0]
-                    B_every.def = B_every.max[1]
-                    B_every.j = B_every.max[2]
-                    B_every.n = B_every.max[3]
-                    B_every.q = B_every.max[4]
-                    B_every.z = B_every.max[5]
-                    B_every.s = B_every.max[6]
+                    var atk_bak = parseInt(B_every.attr[1])
+                    var def_bak = parseInt(B_every.attr[2])
+                    var j_bak = parseInt(B_every.attr[3])
+                    var n_bak = parseInt(B_every.attr[4])
+                    var q_bak = parseInt(B_every.attr[5])
+                    var z_bak = parseInt(B_every.attr[6])
+                    var s_bak = parseInt(B_every.attr[7])
+                    B_every.attr[1] = B_every.max[0]
+                    B_every.attr[2] = B_every.max[1]
+                    B_every.attr[3] = B_every.max[2]
+                    B_every.attr[4] = B_every.max[3]
+                    B_every.attr[5] = B_every.max[4]
+                    B_every.attr[6] = B_every.max[5]
+                    B_every.attr[7] = B_every.max[6]
 
                     B_every.max[0] = atk_bak
                     B_every.max[1] = def_bak
@@ -169,20 +146,20 @@ function writeB(){
             else{
                 B_value.forEach((B_every, index)=>{
                     if(B_every.max.length == 7){
-                    var atk_bak = B_every.atk
-                    var def_bak = B_every.def
-                    var j_bak = B_every.j
-                    var n_bak = B_every.n
-                    var q_bak = B_every.q
-                    var z_bak = B_every.z
-                    var s_bak = B_every.s
-                    B_every.atk = B_every.max[0]
-                    B_every.def = B_every.max[1]
-                    B_every.j = B_every.max[2]
-                    B_every.n = B_every.max[3]
-                    B_every.q = B_every.max[4]
-                    B_every.z = B_every.max[5]
-                    B_every.s = B_every.max[6]
+                    var atk_bak = parseInt(B_every.attr[1])
+                    var def_bak = parseInt(B_every.attr[2])
+                    var j_bak = parseInt(B_every.attr[3])
+                    var n_bak = parseInt(B_every.attr[4])
+                    var q_bak = parseInt(B_every.attr[5])
+                    var z_bak = parseInt(B_every.attr[6])
+                    var s_bak = parseInt(B_every.attr[7])
+                    B_every.attr[1] = B_every.max[0]
+                    B_every.attr[2] = B_every.max[1]
+                    B_every.attr[3] = B_every.max[2]
+                    B_every.attr[4] = B_every.max[3]
+                    B_every.attr[5] = B_every.max[4]
+                    B_every.attr[6] = B_every.max[5]
+                    B_every.attr[7] = B_every.max[6]
                     B_every.max[0] = atk_bak
                     B_every.max[1] = def_bak
                     B_every.max[2] = j_bak
@@ -212,5 +189,15 @@ function writeB(){
     })
     $('.ImagineInfo').click(function(){
         drawImagineInfoWindow(B_value[this.title])
+    })
+    $('.ImagineData').mouseenter(function(){
+        var bak_data = this.innerHTML
+        this.innerHTML = this.getAttribute('bak')
+        this.setAttribute('bak',bak_data)
+    })
+    $('.ImagineData').mouseleave(function(){
+        var bak_data = this.innerHTML
+        this.innerHTML = this.getAttribute('bak')
+        this.setAttribute('bak',bak_data)
     })
 }

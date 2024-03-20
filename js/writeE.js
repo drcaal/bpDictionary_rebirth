@@ -27,17 +27,12 @@ function writeE(){
         <tbody>
             <tr>
                 <th width="7%">图标</th>
-                <th width="17%">名称</th>
+                <th width="20%">名称</th>
                 <th width="3%" onclick="rewrite(2)" style="cursor: pointer;">等级</th>
                 <th width="3%" onclick="rewrite(3)" style="cursor: pointer;">攻击</th>
                 <th width="3%" onclick="rewrite(4)" style="cursor: pointer;">防御</th>
-                <th width="3%" onclick="rewrite(5)" style="cursor: pointer;">筋力</th>
-                <th width="3%" onclick="rewrite(6)" style="cursor: pointer;">耐久</th>
-                <th width="3%" onclick="rewrite(7)" style="cursor: pointer;">器用</th>
-                <th width="3%" onclick="rewrite(8)" style="cursor: pointer;">知力</th>
-                <th width="3%" onclick="rewrite(9)" style="cursor: pointer;">精神</th>
-                <th width="14%">词缀</th>
-                <th width="14%">词缀效果</th>
+                <th width="20%">词缀</th>
+                <th width="20%">词缀效果</th>
                 <th width="5%">类型</th>
             </tr>`
     
@@ -45,14 +40,9 @@ function writeE(){
         E_htmlStr += `<tr>
         <td style="font-size: 12px;"><img src="./img/icon/e/${E_every.pid}.png" alt="${E_every.pid}" title="${index}"></td>
         <td style="font-size: 14px; padding: 0 5px;">${E_every.name}</td>
-        <td>${E_every.lev}</td>
-        <td>${E_every.atk}</td>
-        <td>${E_every.def}</td>
-        <td>${E_every.j}</td>
-        <td>${E_every.n}</td>
-        <td>${E_every.q}</td>
-        <td>${E_every.z}</td>
-        <td>${E_every.s}</td>
+        <td>${E_every.attr[0]}</td>
+        <td>${E_every.attr[1]}</td>
+        <td>${E_every.attr[2]}</td>
         <td style="font-size: 13px; padding: 0 5px;">${E_every.end}</td>
         <td style="font-size: 13px;">${E_every.endexp}</td>
         <td style="font-size: 13px;" class="ImagineInfo" title="${index}">${E_every.kind}</td>
@@ -61,17 +51,12 @@ function writeE(){
     
     E_htmlStr += `<tr>
     <th width="7%">图标</th>
-    <th width="17%">名称</th>
+    <th width="20%">名称</th>
     <th width="3%" onclick="rewrite(2)" style="cursor: pointer;">等级</th>
     <th width="3%" onclick="rewrite(3)" style="cursor: pointer;">攻击</th>
     <th width="3%" onclick="rewrite(4)" style="cursor: pointer;">防御</th>
-    <th width="3%" onclick="rewrite(5)" style="cursor: pointer;">筋力</th>
-    <th width="3%" onclick="rewrite(6)" style="cursor: pointer;">耐久</th>
-    <th width="3%" onclick="rewrite(7)" style="cursor: pointer;">器用</th>
-    <th width="3%" onclick="rewrite(8)" style="cursor: pointer;">知力</th>
-    <th width="3%" onclick="rewrite(9)" style="cursor: pointer;">精神</th>
-    <th width="14%">词缀</th>
-    <th width="14%">词缀效果</th>
+    <th width="20%">词缀</th>
+    <th width="20%">词缀效果</th>
     <th width="5%">类型</th>
 </tr></tbody>
     </table>${buttomTag}`
@@ -87,11 +72,6 @@ function writeE(){
         table.rows[i].cells[4].style.backgroundColor = '#35353533';
         table.rows[i].cells[3].setAttribute('title', '攻击力');
         table.rows[i].cells[4].setAttribute('title', '防御力');
-        table.rows[i].cells[5].setAttribute('title', '筋力');
-        table.rows[i].cells[6].setAttribute('title', '耐久');
-        table.rows[i].cells[7].setAttribute('title', '器用');
-        table.rows[i].cells[8].setAttribute('title', '知力');
-        table.rows[i].cells[9].setAttribute('title', '精神力');
     }
 
 $('.EchoiseBox div').click(function(){
@@ -123,21 +103,20 @@ $('.ELchoiseBox div').click(function(){
         if(ELevel == 0){
             E_value.forEach((E_every, index)=>{
                 if(E_every.max.length == 7){
-                    console.log(321)
-                    var atk_bak = E_every.atk
-                    var def_bak = E_every.def
-                    var j_bak = E_every.j
-                    var n_bak = E_every.n
-                    var q_bak = E_every.q
-                    var z_bak = E_every.z
-                    var s_bak = E_every.s
-                    E_every.atk = E_every.max[0]
-                    E_every.def = E_every.max[1]
-                    E_every.j = E_every.max[2]
-                    E_every.n = E_every.max[3]
-                    E_every.q = E_every.max[4]
-                    E_every.z = E_every.max[5]
-                    E_every.s = E_every.max[6]
+                    var atk_bak = E_every.attr[1]
+                    var def_bak = E_every.attr[2]
+                    var j_bak = E_every.attr[3]
+                    var n_bak = E_every.attr[4]
+                    var q_bak = E_every.attr[5]
+                    var z_bak = E_every.attr[6]
+                    var s_bak = E_every.attr[7]
+                    E_every.attr[1] = E_every.max[0]
+                    E_every.attr[2] = E_every.max[1]
+                    E_every.attr[3] = E_every.max[2]
+                    E_every.attr[4] = E_every.max[3]
+                    E_every.attr[5] = E_every.max[4]
+                    E_every.attr[6] = E_every.max[5]
+                    E_every.attr[7] = E_every.max[6]
                     E_every.max[0] = atk_bak
                     E_every.max[1] = def_bak
                     E_every.max[2] = j_bak
@@ -151,20 +130,20 @@ $('.ELchoiseBox div').click(function(){
         } else {
             E_value.forEach((E_every, index)=>{
                 if(E_every.max.length == 7){
-                    var atk_bak = E_every.atk
-                    var def_bak = E_every.def
-                    var j_bak = E_every.j
-                    var n_bak = E_every.n
-                    var q_bak = E_every.q
-                    var z_bak = E_every.z
-                    var s_bak = E_every.s
-                    E_every.atk = E_every.max[0]
-                    E_every.def = E_every.max[1]
-                    E_every.j = E_every.max[2]
-                    E_every.n = E_every.max[3]
-                    E_every.q = E_every.max[4]
-                    E_every.z = E_every.max[5]
-                    E_every.s = E_every.max[6]
+                    var atk_bak = E_every.attr[1]
+                    var def_bak = E_every.attr[2]
+                    var j_bak = E_every.attr[3]
+                    var n_bak = E_every.attr[4]
+                    var q_bak = E_every.attr[5]
+                    var z_bak = E_every.attr[6]
+                    var s_bak = E_every.attr[7]
+                    E_every.attr[1] = E_every.max[0]
+                    E_every.attr[2] = E_every.max[1]
+                    E_every.attr[3] = E_every.max[2]
+                    E_every.attr[4] = E_every.max[3]
+                    E_every.attr[5] = E_every.max[4]
+                    E_every.attr[6] = E_every.max[5]
+                    E_every.attr[7] = E_every.max[6]
                     E_every.max[0] = atk_bak
                     E_every.max[1] = def_bak
                     E_every.max[2] = j_bak
@@ -649,7 +628,7 @@ function drawMakeThingWindow(thingArray){
 
 
 function drawImagineInfoWindow(thingArray){
-    let Finalatk = parseFloat(thingArray.atk),Finaldef = parseFloat(thingArray.def),Finalj = parseFloat(thingArray.j),Finaln = parseFloat(thingArray.n),Finalq = parseFloat(thingArray.q),Finalz = parseFloat(thingArray.z),Finals = parseFloat(thingArray.s),Finalhp = 0
+    let Finalatk = parseFloat(thingArray.attr[1]),Finaldef = parseFloat(thingArray.attr[2]),Finalj = parseFloat(thingArray.attr[3]),Finaln = parseFloat(thingArray.attr[4]),Finalq = parseFloat(thingArray.attr[5]),Finalz = parseFloat(thingArray.attr[6]),Finals = parseFloat(thingArray.attr[7]),Finalhp = 0
     var AbilityList = thingArray.end.split("<br>")
     var windowHtml = ``
         windowHtml += `
@@ -680,15 +659,15 @@ function drawImagineInfoWindow(thingArray){
                     <th width="10%">精神力</th>
                 </tr>`
                 windowHtml += `<tr>
-                    <td style="font-size: 14px;" id="Finalatk">${thingArray.atk}</td>
-                    <td style="font-size: 14px;" id="Finaldef">${thingArray.def}</td>
+                    <td style="font-size: 14px;" id="Finalatk">${thingArray.attr[1]}</td>
+                    <td style="font-size: 14px;" id="Finaldef">${thingArray.attr[2]}</td>
                     <td style="font-size: 14px;" id="Finalhea"></td>
                     <td style="font-size: 14px;" id="Finalhp"></td>
-                    <td style="font-size: 14px;" id="Finalj">${thingArray.j}</td>
-                    <td style="font-size: 14px;" id="Finaln">${thingArray.n}</td>
-                    <td style="font-size: 14px;" id="Finalq">${thingArray.q}</td>
-                    <td style="font-size: 14px;" id="Finalz">${thingArray.z}</td>
-                    <td style="font-size: 14px;" id="Finals">${thingArray.s}</td>
+                    <td style="font-size: 14px;" id="Finalj">${thingArray.attr[3]}</td>
+                    <td style="font-size: 14px;" id="Finaln">${thingArray.attr[4]}</td>
+                    <td style="font-size: 14px;" id="Finalq">${thingArray.attr[5]}</td>
+                    <td style="font-size: 14px;" id="Finalz">${thingArray.attr[6]}</td>
+                    <td style="font-size: 14px;" id="Finals">${thingArray.attr[7]}</td>
                 </tr>`
         
         windowHtml += `</tbody>
@@ -877,6 +856,11 @@ function drawImagineInfoWindow(thingArray){
             if(firstAbility == "守護者G3"){
                 Finaldef += 35
             }
+        }else if(["戦士の心得G3","戦士の心得G4"].indexOf(firstAbility)>-1){
+            if(firstAbility == "戦士の心得G4"){
+                Finalatk += 38
+                Finaldef += 60
+            }
         }
         $('#ImagineAbility').children("span").get(0).style.backgroundColor='rgb(55, 194, 192)'
         $('#ImagineAbility').children("span").get(0).style.color='rgb(38, 41, 46)'
@@ -889,20 +873,20 @@ function drawImagineInfoWindow(thingArray){
         $('#Finaldef').text((Finaldef+Finalj*0.4+Finaln*0.6).toFixed(1))
         $('#Finalhea').text((Finalz*0.4+Finals*0.4).toFixed(1))
         $('#Finalhp').text((Finalhp+Finaln*0.6).toFixed(1))
-        if(parseInt(thingArray.j) != Finalj){
-            $('#Finalj').text(Finalj+'(+'+(Finalj-parseInt(thingArray.j))+')')
+        if(parseInt(thingArray.attr[3]) != Finalj){
+            $('#Finalj').text(Finalj+'(+'+(Finalj-parseInt(thingArray.attr[3]))+')')
         }
-        if(parseInt(thingArray.n) != Finaln){
-            $('#Finaln').text(Finaln+'(+'+(Finaln-parseInt(thingArray.n))+')')
+        if(parseInt(thingArray.attr[4]) != Finaln){
+            $('#Finaln').text(Finaln+'(+'+(Finaln-parseInt(thingArray.attr[4]))+')')
         }
-        if(parseInt(thingArray.q) != Finalq){
-            $('#Finalq').text(Finalq+'(+'+(Finalq-parseInt(thingArray.q))+')')
+        if(parseInt(thingArray.attr[5]) != Finalq){
+            $('#Finalq').text(Finalq+'(+'+(Finalq-parseInt(thingArray.attr[5]))+')')
         }
-        if(parseInt(thingArray.z) != Finalz){
-            $('#Finalz').text(Finalz+'(+'+(Finalz-parseInt(thingArray.z))+')')
+        if(parseInt(thingArray.attr[6]) != Finalz){
+            $('#Finalz').text(Finalz+'(+'+(Finalz-parseInt(thingArray.attr[6]))+')')
         }
-        if(parseInt(thingArray.s) != Finals){
-            $('#Finals').text(Finals+'(+'+(Finals-parseInt(thingArray.s))+')')
+        if(parseInt(thingArray.attr[7]) != Finals){
+            $('#Finals').text(Finals+'(+'+(Finals-parseInt(thingArray.attr[7]))+')')
         }
 
     $('#ImagineAbility span').click(function(){
@@ -912,7 +896,7 @@ function drawImagineInfoWindow(thingArray){
         this.style.backgroundColor='rgb(55, 194, 192)'
         this.style.color='rgb(38, 41, 46)'
         this.style.borderColor='rgb(55, 194, 192, 0)'
-        Finalatk = parseFloat(thingArray.atk),Finaldef = parseFloat(thingArray.def),Finalj = parseFloat(thingArray.j),Finaln = parseFloat(thingArray.n),Finalq = parseFloat(thingArray.q),Finalz = parseFloat(thingArray.z),Finals = parseFloat(thingArray.s),Finalhp = 0
+        Finalatk = parseFloat(thingArray.attr[1]),Finaldef = parseFloat(thingArray.attr[2]),Finalj = parseFloat(thingArray.attr[3]),Finaln = parseFloat(thingArray.attr[4]),Finalq = parseFloat(thingArray.attr[5]),Finalz = parseFloat(thingArray.attr[6]),Finals = parseFloat(thingArray.attr[7]),Finalhp = 0
         var NowAbility = this.innerText
         if(["勇猛G1","勇猛G2","勇猛G3"].indexOf(NowAbility)>-1){
             if(NowAbility == "勇猛G1"){
@@ -930,55 +914,67 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "不屈G3"){
                 Finaldef += 70
             }
-        }else if(["生命の奔流G1","生命の奔流G2","生命の奔流G3"].indexOf(NowAbility)>-1){
+        }else if(["生命の奔流G1","生命の奔流G2","生命の奔流G3","生命の奔流G4"].indexOf(NowAbility)>-1){
             if(NowAbility == "生命の奔流G1"){
                 Finalhp += 100
             }else if(NowAbility == "生命の奔流G2"){
                 Finalhp += 400
             }else if(NowAbility == "生命の奔流G3"){
                 Finalhp += 700
+            }else if(NowAbility == "生命の奔流G4"){
+                Finalhp += 1100
             }
-        }else if(["剛力G1","剛力G2","剛力G3"].indexOf(NowAbility)>-1){
+        }else if(["剛力G1","剛力G2","剛力G3","剛力G4"].indexOf(NowAbility)>-1){
             if(NowAbility == "剛力G1"){
                 Finalj += 5
             }else if(NowAbility == "剛力G2"){
                 Finalj += 13
             }else if(NowAbility == "剛力G3"){
                 Finalj += 25
+            }else if(NowAbility == "剛力G4"){
+                Finalj += 38
             }
-        }else if(["忍耐力G1","忍耐力G2","忍耐力G3"].indexOf(NowAbility)>-1){
+        }else if(["忍耐力G1","忍耐力G2","忍耐力G3","忍耐力G4"].indexOf(NowAbility)>-1){
             if(NowAbility == "忍耐力G1"){
                 Finaln += 5
             }else if(NowAbility == "忍耐力G2"){
                 Finaln += 13
             }else if(NowAbility == "忍耐力G3"){
                 Finaln += 25
+            }else if(NowAbility == "忍耐力G4"){
+                Finaln += 38
             }
-        }else if(["巧妙G1","巧妙G2","巧妙G3"].indexOf(NowAbility)>-1){
+        }else if(["巧妙G1","巧妙G2","巧妙G3","巧妙G4"].indexOf(NowAbility)>-1){
             if(NowAbility == "巧妙G1"){
                 Finalq += 5
             }else if(NowAbility == "巧妙G2"){
                 Finalq += 13
             }else if(NowAbility == "巧妙G3"){
                 Finalq += 25
+            }else if(NowAbility == "巧妙G4"){
+                Finalq += 38
             }
-        }else if(["博識G1","博識G2","博識G3"].indexOf(NowAbility)>-1){
+        }else if(["博識G1","博識G2","博識G3","博識G4"].indexOf(NowAbility)>-1){
             if(NowAbility == "博識G1"){
                 Finalz += 5
             }else if(NowAbility == "博識G2"){
                 Finalz += 13
             }else if(NowAbility == "博識G3"){
                 Finalz += 25
+            }else if(NowAbility == "博識G4"){
+                Finalz += 38
             }
-        }else if(["集中G1","集中G2","集中G3"].indexOf(NowAbility)>-1){
+        }else if(["集中G1","集中G2","集中G3","集中G4"].indexOf(NowAbility)>-1){
             if(NowAbility == "集中G1"){
                 Finals += 5
             }else if(NowAbility == "集中G2"){
                 Finals += 13
             }else if(NowAbility == "集中G3"){
                 Finals += 25
+            }else if(NowAbility == "集中G4"){
+                Finals += 38
             }
-        }else if(["タフネスG1","タフネスG2","タフネスG3"].indexOf(NowAbility)>-1){
+        }else if(["タフネスG1","タフネスG2","タフネスG3","タフネスG4"].indexOf(NowAbility)>-1){
             if(NowAbility == "タフネスG1"){
                 Finalj += 3
                 Finaln += 3
@@ -988,8 +984,11 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "タフネスG3"){
                 Finalj += 13
                 Finaln += 13
+            }else if(NowAbility == "タフネスG4"){
+                Finalj += 19
+                Finaln += 19
             }
-        }else if(["エキスパートG1","エキスパートG2","エキスパートG3"].indexOf(NowAbility)>-1){
+        }else if(["エキスパートG1","エキスパートG2","エキスパートG3","エキスパートG4"].indexOf(NowAbility)>-1){
             if(NowAbility == "エキスパートG1"){
                 Finalj += 3
                 Finalq += 3
@@ -999,8 +998,11 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "エキスパートG3"){
                 Finalj += 13
                 Finalq += 13
+            }else if(NowAbility == "エキスパートG4"){
+                Finalj += 19
+                Finalq += 19
             }
-        }else if(["トランスG1","トランスG2","トランスG3"].indexOf(NowAbility)>-1){
+        }else if(["トランスG1","トランスG2","トランスG3","トランスG4"].indexOf(NowAbility)>-1){
             if(NowAbility == "トランスG1"){
                 Finalj += 3
                 Finalz += 3
@@ -1010,8 +1012,11 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "トランスG3"){
                 Finalj += 13
                 Finalz += 13
+            }else if(NowAbility == "トランスG4"){
+                Finalj += 19
+                Finalz += 19
             }
-        }else if(["インスピレーションG1","インスピレーションG2","インスピレーションG3"].indexOf(NowAbility)>-1){
+        }else if(["インスピレーションG1","インスピレーションG2","インスピレーションG3","インスピレーションG4"].indexOf(NowAbility)>-1){
             if(NowAbility == "インスピレーションG1"){
                 Finalj += 3
                 Finals += 3
@@ -1021,8 +1026,11 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "インスピレーションG3"){
                 Finalj += 13
                 Finals += 13
+            }else if(NowAbility == "インスピレーションG4"){
+                Finalj += 19
+                Finals += 19
             }
-        }else if(["ストラテジストG1","ストラテジストG2","ストラテジストG3"].indexOf(NowAbility)>-1){
+        }else if(["ストラテジストG1","ストラテジストG2","ストラテジストG3","ストラテジストG4"].indexOf(NowAbility)>-1){
             if(NowAbility == "ストラテジストG1"){
                 Finaln += 3
                 Finalz += 3
@@ -1032,8 +1040,11 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "ストラテジストG3"){
                 Finaln += 13
                 Finalz += 13
+            }else if(NowAbility == "ストラテジストG4"){
+                Finaln += 19
+                Finalz += 19
             }
-        }else if(["屈強な心身G1","屈強な心身G2","屈強な心身G3"].indexOf(NowAbility)>-1){
+        }else if(["屈強な心身G1","屈強な心身G2","屈強な心身G3","屈強な心身G4"].indexOf(NowAbility)>-1){
             if(NowAbility == "屈強な心身G1"){
                 Finaln += 3
                 Finals += 3
@@ -1043,8 +1054,11 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "屈強な心身G3"){
                 Finaln += 13
                 Finals += 13
+            }else if(NowAbility == "屈強な心身G4"){
+                Finaln += 19
+                Finals += 19
             }
-        }else if(["ウィズダムG1","ウィズダムG2","ウィズダムG3"].indexOf(NowAbility)>-1){
+        }else if(["ウィズダムG1","ウィズダムG2","ウィズダムG3","ウィズダムG4"].indexOf(NowAbility)>-1){
             if(NowAbility == "ウィズダムG1"){
                 Finalq += 3
                 Finalz += 3
@@ -1054,8 +1068,11 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "ウィズダムG3"){
                 Finalq += 13
                 Finalz += 13
+            }else if(NowAbility == "ウィズダムG4"){
+                Finalq += 19
+                Finalz += 19
             }
-        }else if(["シックスセンスG1","シックスセンスG2","シックスセンスG3"].indexOf(NowAbility)>-1){
+        }else if(["シックスセンスG1","シックスセンスG2","シックスセンスG3","シックスセンスG4"].indexOf(NowAbility)>-1){
             if(NowAbility == "シックスセンスG1"){
                 Finalz += 3
                 Finals += 3
@@ -1065,8 +1082,11 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "シックスセンスG3"){
                 Finalz += 13
                 Finals += 13
+            }else if(NowAbility == "シックスセンスG4"){
+                Finalz += 19
+                Finals += 19
             }
-        }else if(["気功G1","気功G2","気功G3"].indexOf(NowAbility)>-1){
+        }else if(["気功G1","気功G2","気功G3","気功G4"].indexOf(NowAbility)>-1){
             if(NowAbility == "気功G1"){
                 Finaln += 3
                 Finalq += 3
@@ -1076,6 +1096,9 @@ function drawImagineInfoWindow(thingArray){
             }else if(NowAbility == "気功G3"){
                 Finaln += 13
                 Finalq += 13
+            }else if(NowAbility == "気功G4"){
+                Finaln += 19
+                Finalq += 19
             }
         }else if(["獅子奮迅G1","獅子奮迅G2","獅子奮迅G3"].indexOf(NowAbility)>-1){
             if(NowAbility == "獅子奮迅G3"){
@@ -1086,33 +1109,38 @@ function drawImagineInfoWindow(thingArray){
             if(NowAbility == "守護者G3"){
                 Finaldef += 35
             }
+        }else if(["戦士の心得G3","戦士の心得G4"].indexOf(NowAbility)>-1){
+            if(NowAbility == "戦士の心得G4"){
+                Finalatk += 38
+                Finaldef += 60
+            }
         }
         $('#Finalatk').text((Finalatk+Finalj*0.6+Finalq*0.4).toFixed(1)+"/"+(Finalatk+Finalz*0.6+Finals*0.4).toFixed(1))
         $('#Finaldef').text((Finaldef+Finalj*0.4+Finaln*0.6).toFixed(1))
         $('#Finalhea').text((Finalz*0.4+Finals*0.4).toFixed(1))
         $('#Finalhp').text((Finalhp+Finaln*0.6).toFixed(1))
-        if(parseInt(thingArray.j) != Finalj){
-            $('#Finalj').text(Finalj+'(+'+(Finalj-parseInt(thingArray.j))+')')
+        if(parseInt(thingArray.attr[3]) != Finalj){
+            $('#Finalj').text(Finalj+'(+'+(Finalj-parseInt(thingArray.attr[3]))+')')
         }else{
             $('#Finalj').text(Finalj)
         }
-        if(parseInt(thingArray.n) != Finaln){
-            $('#Finaln').text(Finaln+'(+'+(Finaln-parseInt(thingArray.n))+')')
+        if(parseInt(thingArray.attr[4]) != Finaln){
+            $('#Finaln').text(Finaln+'(+'+(Finaln-parseInt(thingArray.attr[4]))+')')
         }else{
             $('#Finaln').text(Finaln)
         }
-        if(parseInt(thingArray.q) != Finalq){
-            $('#Finalq').text(Finalq+'(+'+(Finalq-parseInt(thingArray.q))+')')
+        if(parseInt(thingArray.attr[5]) != Finalq){
+            $('#Finalq').text(Finalq+'(+'+(Finalq-parseInt(thingArray.attr[5]))+')')
         }else{
             $('#Finalq').text(Finalq)
         }
-        if(parseInt(thingArray.z) != Finalz){
-            $('#Finalz').text(Finalz+'(+'+(Finalz-parseInt(thingArray.z))+')')
+        if(parseInt(thingArray.attr[6]) != Finalz){
+            $('#Finalz').text(Finalz+'(+'+(Finalz-parseInt(thingArray.attr[6]))+')')
         }else{
             $('#Finalz').text(Finalz)
         }
-        if(parseInt(thingArray.s) != Finals){
-            $('#Finals').text(Finals+'(+'+(Finals-parseInt(thingArray.s))+')')
+        if(parseInt(thingArray.attr[7]) != Finals){
+            $('#Finals').text(Finals+'(+'+(Finals-parseInt(thingArray.attr[7]))+')')
         }else{
             $('#Finals').text(Finals)
         }

@@ -75,7 +75,10 @@ td{
 .BchoiseBox div{
     width: 65px;
 }
-.BchoiseBox{
+.BLchoiseBox div{
+    width: 65px;
+}
+.BchoiseBox,.BLchoiseBox{
     margin-bottom: 10px;
 }
 .BchoiseBoxElement,.BchoiseBoxLevel{
@@ -83,7 +86,7 @@ td{
     padding-top: 10px;
     margin-top: 10px;
 }
-.BchoiseBoxElement div:nth-child(1),.BchoiseBoxLevel div:nth-child(1){
+.BchoiseBoxElement div:nth-child(1),.BchoiseBoxLevel div:nth-child(1),.BchoiseBoxLevel div:nth-child(1){
     width: 65px;
 }
 .B_E_searchNum,.MshowMoreTag{

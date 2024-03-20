@@ -19,6 +19,7 @@ var WM_value = [
     {name: '勇猛', level: 'G1', xg: '攻击力提升5~15', kind: '1', zy: '0', imgNum: ''},
     {name: '勇猛', level: 'G2', xg: '攻击力提升15~35', kind: '1', zy: '0', imgNum: ''},
     {name: '勇猛', level: 'G3', xg: '攻击力提升35~60', kind: '1', zy: '0', imgNum: ''},
+    {name: '勇猛', level: 'G4', xg: '攻击力提升65~85', kind: '1', zy: '0', imgNum: ''},
     {name: '勇猛', level: 'G5', xg: '攻击力提升90~110', kind: '1', zy: '0', imgNum: ''},
     
     {name: '不屈', level: 'G1', xg: '防御力提升11~19', kind: '1', zy: '0', imgNum: ''},

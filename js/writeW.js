@@ -14,7 +14,7 @@ function writeW(){
     WLevel = '全部'
     var W_htmlStr = `
     <p class="windowTitle">| 武器图鉴</p>
-<p class="Topword">角色武器目前具有六种类型，七种元素以及九个等级段。单击列名可进行升、降序排列。<br>单击武器图标可查看其制作材料、图纸及获取途径。 <br><del><span style="color:red;">红色字体</span>特攻表示该特攻仅出现于副本直接掉落。</del> <br>2023年11月22日Ver.1.02.100版本更新后副本掉落武器的概率大幅度提高,但该方式掉落的武器特攻仍为原先的制作特攻。 <br>目前<span style="color:red;">红色字体</span>标记的特攻为原先概率掉落的特攻类型。</p>
+<p class="Topword">角色武器目前具有六种类型，七种元素以及11个等级段。单击列名可进行升、降序排列。<br>单击武器图标可查看其制作材料、图纸及获取途径。 <br><del><span style="color:red;">红色字体</span>特攻表示该特攻仅出现于副本直接掉落。</del> <br>2023年11月22日Ver.1.02.100版本更新后副本掉落武器的概率大幅度提高,但该方式掉落的武器特攻仍为原先的制作特攻。 <br>目前<span style="color:red;">红色字体</span>标记的特攻为原先概率掉落的特攻类型。</p>
 
 <div class="BchoiseBox">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>
@@ -37,7 +37,9 @@ function writeW(){
 </div>
 <div class="BchoiseBoxLevel">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>
+    <div>70</div>
     <div>60</div>
+    <div>55</div>
     <div>50</div>
     <div>45</div>
     <div>40</div>
@@ -71,16 +73,16 @@ function writeW(){
         W_htmlStr += `<tr style="padding: 0px;">
         <td style="font-size: 12px;" id="Wtable"><img src="./img/icon/w/${W_every.pid}.png" alt="暂缺" title="${index}"></td>
         <td style="font-size: 16px; padding: 0 5px;color: rgb(235, 235, 235);">${W_every.name}</td>
-        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.level}</td>
-        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.atk}</td>
-        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.huix}</td>
+        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[0]}</td>
+        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[1]}</td>
+        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[2]}</td>
         <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.elem}</td>
-        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.elemAtk}</td>
-        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.j}</td>
-        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.n}</td>
-        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.q}</td>
-        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.z}</td>
-        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.s}</td>
+        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[3]}</td>
+        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[4]}</td>
+        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[5]}</td>
+        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[6]}</td>
+        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[7]}</td>
+        <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[8]}</td>
         <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.kind}</td>
         <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.morePower}</td>
     </tr>`

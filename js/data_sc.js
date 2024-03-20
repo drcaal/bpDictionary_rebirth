@@ -44,6 +44,9 @@ var SC_value = [
     { pid: '7034', name: 'トンネルヨモギ', obtain: '14', kind: '植物采集', mappic:'1', sfrom:'植物', Point:11},
     { pid: '7035', name: 'スナリプル草', obtain: '22', kind: '植物采集', mappic:'1', sfrom:'植物', Point:24},
     { pid: '7036', name: '高嶺バッタ', obtain: '23', kind: '植物采集', mappic:'1', sfrom:'植物', Point:9},
+    { pid: '7037', name: 'リゾートヤシの葉', obtain: '24', kind: '植物采集', mappic:'1', sfrom:'植物', Point:109},
+    { pid: '7038', name: 'スレンダーグリーン', obtain: '24', kind: '植物采集', mappic:'1', sfrom:'植物', Point:110},
+    { pid: '7039', name: 'ルインドプラント', obtain: '25', kind: '植物采集', mappic:'1', sfrom:'植物', Point:14},
     
 
     { pid: '7207', name: '水晶の原石', kind: '矿物采集', obtain: '0', mappic: '2', sfrom:'矿物'},
@@ -84,6 +87,10 @@ var SC_value = [
     { pid: '7242', name: 'モスメタル', kind: '矿物采集', obtain: '19', mappic: '1', sfrom:'矿物', Point:18},
     { pid: '7243', name: 'サイコロ晶体', kind: '矿物采集', obtain: '22', mappic: '1', sfrom:'矿物', Point:25},
     { pid: '7244', name: 'ジャイロディスク', kind: '矿物采集', obtain: '23', mappic: '1', sfrom:'矿物', Point:10},
+    { pid: '7245', name: 'スターサンド', kind: '矿物采集', obtain: '24', mappic: '1', sfrom:'矿物', Point:112},
+    { pid: '7246', name: '分かれた輝石', kind: '矿物采集', obtain: '24', mappic: '1', sfrom:'矿物', Point:113},
+    { pid: '7247', name: 'ゴーストストーン', kind: '矿物采集', obtain: '25', mappic: '1', sfrom:'矿物', Point:15},
+    { pid: '7248', name: 'スクラップシャフト', kind: '矿物采集', obtain: '26', mappic: '1', sfrom:'矿物', Point:17},
       
 
     { pid: '7401', name: '割れた貝殻', kind: '水栖采集', obtain: '0', mappic: '2', sfrom:'水栖'},
@@ -95,6 +102,9 @@ var SC_value = [
     { pid: '7407', name: 'モンテノール池苔', kind: '水栖采集', obtain: '3', mappic: '1', sfrom:'水栖', Point:105},
     { pid: '7408', name: '海蛇草', kind: '水栖采集', obtain: '5', mappic: '1', sfrom:'水栖', Point:86},
     { pid: '7409', name: 'ランツェウッド', kind: '水栖采集', obtain: '5', mappic: '1', sfrom:'水栖', Point:91},
+    { pid: '7410', name: '常夏巻貝', kind: '水栖采集', obtain: '24', mappic: '1', sfrom:'水栖', Point:114},
+    { pid: '7411', name: 'サンセットプラント', kind: '水栖采集', obtain: '24', mappic: '1', sfrom:'水栖', Point:111},
+    { pid: '7412', name: 'マダラガイ', kind: '水栖采集', obtain: '24', mappic: '1', sfrom:'水栖', Point:115},
 
     
     { pid: '7501', name: '動的エングラムの欠片', kind: '小怪掉落', obtain: '0', mappic: '0' , sfrom:'任意小怪'},
@@ -236,4 +246,17 @@ var SC_value = [
     { pid: '7637', name: 'キャニムークアーチャーの角', kind: '小怪掉落', obtain: '23', mappic: '4', sfrom: 'キャニムークアーチャー' },
     { pid: '7638', name: 'マスクモスの旋翼', kind: '小怪掉落', obtain: '23', mappic: '4', sfrom: 'マスクモス' },
     { pid: '7639', name: 'キャニムークウォーリアーの毛皮', kind: '小怪掉落', obtain: '23', mappic: '4', sfrom: 'キャニムークウォーリアー' },
+    { pid: '7640', name: 'フラワリングペッカーの美羽', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'フラワリングペッカー' },
+    { pid: '7641', name: 'ギルミーウォーリアーの頸毛', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'ギルミーウォーリアー' },
+    { pid: '7642', name: 'フレイムスカイフィッシュの美羽', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'フレイムスカイフィッシュ' },
+    { pid: '7643', name: 'アーススカイフィッシュの堅鱗', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'アーススカイフィッシュ' },
+    { pid: '7644', name: 'スワンプリザードのキレイな尻尾', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'スワンプリザード' },
+    { pid: '7645', name: 'イグニスリザードの整った甲鱗', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'イグニスリザード' },
+    { pid: '7646', name: 'エルダーギルミーの尾部', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'エルダーギルミー' },
+    { pid: '7647', name: 'マノーの妖牙', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'マノー' },
+    { pid: '7648', name: 'ライトニングペッカーの穿孔嘴', kind: '小怪掉落', obtain: '25', mappic: '4', sfrom: 'ライトニングペッカー' },
+    { pid: '7649', name: 'ヒートバイパーの尖った棘', kind: '小怪掉落', obtain: '25', mappic: '4', sfrom: 'ヒートバイパー' },
+    { pid: '7650', name: '山賊の護衛の手套', kind: '小怪掉落', obtain: '25', mappic: '4', sfrom: '山賊の護衛' },
+    { pid: '7651', name: 'ＰＭムークの鉤爪', kind: '小怪掉落', obtain: '26', mappic: '4', sfrom: 'ＰＭムーク' },
+    { pid: '7652', name: 'エビキノコパライズの傘', kind: '小怪掉落', obtain: '26', mappic: '4', sfrom: 'エビキノコパライズ' },
 ]

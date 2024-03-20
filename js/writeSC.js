@@ -7,40 +7,14 @@ function writeSC(){
     document.getElementsByClassName('window')[0].style.paddingTop = '85px'
     clearInterval(interevalPic)
     document.getElementsByClassName('floatBox')[0].innerHTML = ``
-//     <div class="goToId">
-//     <div onclick="scrollToSection('zhiwu')">植物</div>
-//     <div onclick="scrollToSection('kuangwu')">矿物</div>
-//     <div onclick="scrollToSection('shuiqi')">水栖</div>
-//     <div onclick="scrollToSection('xiaoguai')">小怪</div>
-//     <div onclick="scrollToSection('qita')">其他</div>
-// </div>`
     var SC_htmlStr = `<p class="windowTitle">| 幻想与武器素材</p>
     <p class="Topword">该列表仅包含大地图及自由探索地图中的小怪掉落物和植物、矿物及水栖采集物，不包含大地图及自由探索地图中的 Boss 掉落物和多人副本特殊产物。<br>在获取方式为“小怪掉落”的条例中，地图点位为该小怪的分布图；在植物、矿物及水栖采集物的条例中，地图点位为拥有必出采集点的稀有采集物的必出采集点；其他类别的条例和植物、矿物及水栖采集物中的非稀有采集物和暂不具备必出采集点的稀有采集物则不在地图点位中进行标注。</p>
     <div class="BchoiseBoxLevel BchoiseBoxLevelWhere" style="flex-wrap: wrap; padding-bottom: 10px; border: none; margin-bottom: -20px; margin-top: -5px;  height: 28px; overflow: hidden; transition: .5s;"  id="MapKindShowAll">
-    <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);  width: auto;">全地图</div>
-    <div>アステリア平原</div>
-    <div>バハマール高原</div>
-    <div>モンテノール渓谷</div>
-    <div>エバーグリーン砂漠</div>
-    <div>西バーンハルト半島</div>
-    <div>巨竜の爪痕・自由探索</div>
-    <div>ボルオム遺跡・自由探索</div>
-    <div>木漏れ日射す林道・自由探索</div>
-    <div>ともし火の森・自由探索</div>
-    <div>雨止まぬ森・自由探索</div>
-    <div>枷神の産屋・自由探索</div>
-    <div>風精の舞台・自由探索</div>
-    <div>音無き都・自由探索</div>
-    <div>機跡の谷・自由探索</div>
-    <div>緋染めの樹林・自由探索</div>
-    <div>暁の虫砦・自由探索</div>
-    <div>呪霊たちの棲家・自由探索</div>
-    <div>黄砂の入り江・自由探索</div>
-    <div>滝裏の盗掘痕跡・自由探索</div>
-    <div>落日古道・自由探索</div>
-    <div>カースドノール遺跡・自由探索</div>
-    <div>海月灯の砂径・自由探索</div>
-    <div>ソプラの山道・自由探索</div>
+    <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);  width: auto;">全地图</div>`
+    for(var i = 0;i<Map_id.length;i++){
+        SC_htmlStr += `<div>` + Map_id[i].mName + `</div>`
+    }
+    SC_htmlStr += `
     <p class="MshowMoreTag">[展开]</p>
 </div>
 <div class="BchoiseBoxLevel BchoiseBoxLevelWM" style="flex-wrap: wrap; padding-bottom: 0px; border: none;">
@@ -236,6 +210,7 @@ var List = document.getElementsByTagName('table')[0];
 var rows = List.getElementsByTagName('tr');
 
 B_value.forEach((B_every)=>{
+    // console.log(B_every['name'])
     var sc = B_every.madeIt['sucai_C']
     if(sc.length == 3){
         for(var i = 0;i<sc.length;i++){
@@ -245,6 +220,7 @@ B_value.forEach((B_every)=>{
                 var data = SC_value.filter(function(value){
                     return value.name === modo_sc
                 })
+                // console.log(data)
                 var id = data[0]['pid']
                 if(data[0]['sfrom'] == "植物"){
                     var Final_Point = parseInt(id)-7000
@@ -298,7 +274,6 @@ W_value.forEach((W_every)=>{
     var sc = W_every.madeIt['sucai_C']
     if(sc.length == 2){
         for(var i = 0;i<sc.length;i++){
-            console.log(sc[i])
             if(uni_sc.indexOf(sc[i]) == -1){
                 var modo_sc = sc[i]
                 var target_name = W_every.name
@@ -317,7 +292,7 @@ W_value.forEach((W_every)=>{
                 }
                 var target_line = rows[Final_Point].getElementsByTagName('td')
                 if(target_line[4].innerText == ""){
-                    target_line[4].innerText += W_every.level + "-" + W_every.elem +"武\n"
+                    target_line[4].innerText += W_every.attr[0] + "-" + W_every.elem +"武\n"
                 }
                 target_line[4].innerText += target_name + "\n"
             }

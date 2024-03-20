@@ -14,20 +14,15 @@ function choiseBKind(BBox, BElement){
     // }else{
         for (let i = 1; i < rows.length-1; i++) {
             var row = rows[i];
-            var category1 = row.getElementsByTagName('td')[15].innerText+'型';
+            var category1 = row.getElementsByTagName('td')[9].innerText+'型';
             var category2 = row.getElementsByTagName('td')[3].innerText;
             var Gpid = row.getElementsByTagName('td')[0].getElementsByTagName('img')[0].getAttribute("alt")
             var all = row.getElementsByTagName('td')
             var data = B_value.filter(function(value){
                 return value.pid === Gpid
             })
-            all[4].innerText = data[0]['atk']
-            all[5].innerText = data[0]['def']
-            all[6].innerText = data[0]['j']
-            all[7].innerText = data[0]['n']
-            all[8].innerText = data[0]['q']
-            all[9].innerText = data[0]['z']
-            all[10].innerText = data[0]['s']
+            all[4].innerText = data[0]['attr'][1]
+            all[5].innerText = data[0]['attr'][2]
     
             if ((BBox == category1||BBox == '全部')&&(BElement == category2||BElement == '全部')) {
                 row.style.display = ''; 
