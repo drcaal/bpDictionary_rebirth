@@ -52,6 +52,8 @@ function writeB(){
         </tr>`
     
     B_value.forEach((B_every, index)=>{
+        // <td style="font-size: 13px; padding: 0 5px;" class="ImagineData" bak="${B_every.endexp}">${B_every.end}</td>
+        var abli = sumend(B_every.end)
         B_htmlStr += `<tr>
         <td style="font-size: 12px;" id="Btable"><img src="./img/icon/b/${B_every.pid}.png" alt="${B_every.pid}" title="${index}"></td>
         <td style="font-size: 14px; padding: 0 5px;">${B_every.name}</td>
@@ -59,7 +61,7 @@ function writeB(){
         <td style="font-size: 13px;">${B_every.element}</td>
         <td>${B_every.attr[1]}</td>
         <td>${B_every.attr[2]}</td>
-        <td style="font-size: 13px; padding: 0 5px;" class="ImagineData" bak="${B_every.endexp}">${B_every.end}</td>
+        <td style="font-size: 13px; padding: 0 5px;" class="ImagineData" bak="${abli}">${B_every.end}</td>
         <td style="font-size: 13px; padding: 8px 5px;">${B_every.skill}</td>
         <td style="font-size: 13px;">${B_every.cd}</td>
         <td style="font-size: 13px;" class="ImagineInfo" title="${index}">${B_every.kind}</td>

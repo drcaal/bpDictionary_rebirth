@@ -47,6 +47,7 @@ var SC_value = [
     { pid: '7037', name: 'リゾートヤシの葉', obtain: '24', kind: '植物采集', mappic:'1', sfrom:'植物', Point:109},
     { pid: '7038', name: 'スレンダーグリーン', obtain: '24', kind: '植物采集', mappic:'1', sfrom:'植物', Point:110},
     { pid: '7039', name: 'ルインドプラント', obtain: '25', kind: '植物采集', mappic:'1', sfrom:'植物', Point:14},
+    { pid: '7040', name: '夜明かり花', obtain: '28', kind: '植物采集', mappic:'1', sfrom:'植物', Point:26},
     
 
     { pid: '7207', name: '水晶の原石', kind: '矿物采集', obtain: '0', mappic: '2', sfrom:'矿物'},
@@ -91,6 +92,8 @@ var SC_value = [
     { pid: '7246', name: '分かれた輝石', kind: '矿物采集', obtain: '24', mappic: '1', sfrom:'矿物', Point:113},
     { pid: '7247', name: 'ゴーストストーン', kind: '矿物采集', obtain: '25', mappic: '1', sfrom:'矿物', Point:15},
     { pid: '7248', name: 'スクラップシャフト', kind: '矿物采集', obtain: '26', mappic: '1', sfrom:'矿物', Point:17},
+    { pid: '7249', name: 'カースドストーン', kind: '矿物采集', obtain: '27', mappic: '1', sfrom:'矿物', Point:13},
+    { pid: '7250', name: '月明かりの樹結晶', kind: '矿物采集', obtain: '28', mappic: '1', sfrom:'矿物', Point:25},
       
 
     { pid: '7401', name: '割れた貝殻', kind: '水栖采集', obtain: '0', mappic: '2', sfrom:'水栖'},
@@ -254,9 +257,18 @@ var SC_value = [
     { pid: '7645', name: 'イグニスリザードの整った甲鱗', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'イグニスリザード' },
     { pid: '7646', name: 'エルダーギルミーの尾部', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'エルダーギルミー' },
     { pid: '7647', name: 'マノーの妖牙', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'マノー' },
-    { pid: '7648', name: 'ライトニングペッカーの穿孔嘴', kind: '小怪掉落', obtain: '25', mappic: '4', sfrom: 'ライトニングペッカー' },
+    { pid: '7648', name: 'ライトニングペッカーの穿孔嘴', kind: '小怪掉落', obtain: '24', mappic: '4', sfrom: 'ライトニングペッカー' },
     { pid: '7649', name: 'ヒートバイパーの尖った棘', kind: '小怪掉落', obtain: '25', mappic: '4', sfrom: 'ヒートバイパー' },
     { pid: '7650', name: '山賊の護衛の手套', kind: '小怪掉落', obtain: '25', mappic: '4', sfrom: '山賊の護衛' },
     { pid: '7651', name: 'ＰＭムークの鉤爪', kind: '小怪掉落', obtain: '26', mappic: '4', sfrom: 'ＰＭムーク' },
     { pid: '7652', name: 'エビキノコパライズの傘', kind: '小怪掉落', obtain: '26', mappic: '4', sfrom: 'エビキノコパライズ' },
+    { pid: '7653', name: '雷鳴のドラウグ・エッジの柄', kind: '小怪掉落', obtain: '27', mappic: '4', sfrom: '雷鳴のドラウグ・エッジ' },
+    { pid: '7654', name: 'ヒーリングポッドの破片', kind: '小怪掉落', obtain: '27', mappic: '4', sfrom: 'ヒーリングポッド' },
+    { pid: '7655', name: 'ペイルアイのパーツ', kind: '小怪掉落', obtain: '27', mappic: '4', sfrom: 'ペイルアイ' },
+    { pid: '7656', name: 'バラージアームの固い装甲', kind: '小怪掉落', obtain: '27', mappic: '4', sfrom: 'バラージアーム' },
+    { pid: '7657', name: 'ブラストポッドの外装', kind: '小怪掉落', obtain: '27', mappic: '4', sfrom: 'ブラストポッド' },
+    { pid: '7658', name: 'ゴブリンウォーロードの歪な生爪', kind: '小怪掉落', obtain: '28', mappic: '4', sfrom: 'ゴブリンウォーロード' },
+    { pid: '7659', name: 'マインドペッカーの雅羽', kind: '小怪掉落', obtain: '28', mappic: '4', sfrom: 'マインドペッカー' },
+    { pid: '7660', name: 'ウリボの毛皮', kind: '小怪掉落', obtain: '28', mappic: '4', sfrom: 'ウリボ' },
+    { pid: '7661', name: 'タイラントボアの牙', kind: '小怪掉落', obtain: '28', mappic: '4', sfrom: 'タイラントボア' },
 ]

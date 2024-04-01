@@ -13,7 +13,7 @@ var WTG_value = [
     {'num':'12', 'jName':'クアッドアーム系','cName':'四臂系','mons_normol':[51,55], 'mons_boss':[43,55]},
     {'num':'13', 'jName':'ゴーレム系','cName':'傀儡系','mons_normol':[54,58], 'mons_boss':[35,37,38,57]},
     {'num':'14', 'jName':'トライポッド系','cName':'自主机器人系','mons_normol':[63,64,65,104], 'mons_boss':[39,66]},
-    {'num':'15', 'jName':'ドラウグ系','cName':'尸鬼系','mons_normol':[48,49,50,66], 'mons_boss':[33,34,36]},
+    {'num':'15', 'jName':'ドラウグ系','cName':'尸鬼系','mons_normol':[48,49,50,66,127], 'mons_boss':[33,34,36,68]},
     {'num':'16', 'jName':'リザード系','cName':'蜥蜴系','mons_normol':[19,29,68,99,116,117], 'mons_boss':[25,40]},
     {'num':'17', 'jName':'エビキノコ系','cName':'蘑菇虾系','mons_normol':[25,87,97], 'mons_boss':[47]},
     {'num':'18', 'jName':'スカイフィッシュ系','cName':'天鱼系','mons_normol':[14,115,119], 'mons_boss':[50,63]},

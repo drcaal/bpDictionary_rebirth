@@ -37,6 +37,7 @@ function writeE(){
             </tr>`
     
     E_value.forEach((E_every, index)=>{
+        var abli = sumend(E_every.end)
         E_htmlStr += `<tr>
         <td style="font-size: 12px;"><img src="./img/icon/e/${E_every.pid}.png" alt="${E_every.pid}" title="${index}"></td>
         <td style="font-size: 14px; padding: 0 5px;">${E_every.name}</td>
@@ -44,7 +45,7 @@ function writeE(){
         <td>${E_every.attr[1]}</td>
         <td>${E_every.attr[2]}</td>
         <td style="font-size: 13px; padding: 0 5px;">${E_every.end}</td>
-        <td style="font-size: 13px;">${E_every.endexp}</td>
+        <td style="font-size: 13px;">${abli}</td>
         <td style="font-size: 13px;" class="ImagineInfo" title="${index}">${E_every.kind}</td>
     </tr>`
     })
@@ -626,9 +627,678 @@ function drawMakeThingWindow(thingArray){
 
 }
 
+function sumattr(ability,attr){
+    if(ability.indexOf("勇猛")>-1){
+        if(ability == "勇猛G1"){
+            attr[0] += 10
+        }else if(ability == "勇猛G2"){
+            attr[0] += 25
+        }else if(ability == "勇猛G3"){
+            attr[0] += 50
+        }
+    }else if(ability.indexOf("不屈")>-1){
+        if(ability == "不屈G1"){
+            attr[1] += 15
+        }else if(ability == "不屈G2"){
+            attr[1] += 40
+        }else if(ability == "不屈G3"){
+            attr[1] += 70
+        }else if(ability == "不屈G4"){
+            attr[1] += 120
+        }
+    }else if(ability.indexOf("生命の奔流")>-1){
+        if(ability == "生命の奔流G1"){
+            attr[7] += 100
+        }else if(ability == "生命の奔流G2"){
+            attr[7] += 400
+        }else if(ability == "生命の奔流G3"){
+            attr[7] += 700
+        }else if(ability == "生命の奔流G4"){
+            attr[7] += 1100
+        }
+    }else if(ability.indexOf("剛力")>-1){
+        if(ability == "剛力G1"){
+            attr[2] += 5
+        }else if(ability == "剛力G2"){
+            attr[2] += 13
+        }else if(ability == "剛力G3"){
+            attr[2] += 25
+        }else if(ability == "剛力G4"){
+            attr[2] += 38
+        }
+    }else if(ability.indexOf("忍耐力")>-1){
+        if(ability == "忍耐力G1"){
+            attr[3] += 5
+        }else if(ability == "忍耐力G2"){
+            attr[3] += 13
+        }else if(ability == "忍耐力G3"){
+            attr[3] += 25
+        }else if(ability == "忍耐力G4"){
+            attr[3] += 38
+        }
+    }else if(ability.indexOf("巧妙")>-1){
+        if(ability == "巧妙G1"){
+            attr[4] += 5
+        }else if(ability == "巧妙G2"){
+            attr[4] += 13
+        }else if(ability == "巧妙G3"){
+            attr[4] += 25
+        }else if(ability == "巧妙G4"){
+            attr[4] += 38
+        }
+    }else if(ability.indexOf("博識")>-1){
+        if(ability == "博識G1"){
+            attr[5] += 5
+        }else if(ability == "博識G2"){
+            attr[5] += 13
+        }else if(ability == "博識G3"){
+            attr[5] += 25
+        }else if(ability == "博識G4"){
+            attr[5] += 38
+        }
+    }else if(ability.indexOf("集中")>-1){
+        if(ability == "集中G1"){
+            attr[6] += 5
+        }else if(ability == "集中G2"){
+            attr[6] += 13
+        }else if(ability == "集中G3"){
+            attr[6] += 25
+        }else if(ability == "集中G4"){
+            attr[6] += 38
+        }
+    }else if(ability.indexOf("タフネス")>-1){
+        if(ability == "タフネスG1"){
+            attr[2] += 3
+            attr[3] += 3
+        }else if(ability == "タフネスG2"){
+            attr[2] += 7
+            attr[3] += 7
+        }else if(ability == "タフネスG3"){
+            attr[2] += 13
+            attr[3] += 13
+        }else if(ability == "タフネスG4"){
+            attr[2] += 19
+            attr[3] += 19
+        }
+    }else if(ability.indexOf("エキスパート")>-1){
+        if(ability == "エキスパートG1"){
+            attr[2] += 3
+            attr[4] += 3
+        }else if(ability == "エキスパートG2"){
+            attr[2] += 7
+            attr[4] += 7
+        }else if(ability == "エキスパートG3"){
+            attr[2] += 13
+            attr[4] += 13
+        }else if(ability == "エキスパートG4"){
+            attr[2] += 19
+            attr[4] += 19
+        }
+    }else if(ability.indexOf("トランス")>-1){
+        if(ability == "トランスG1"){
+            attr[2] += 3
+            attr[5] += 3
+        }else if(ability == "トランスG2"){
+            attr[2] += 7
+            attr[5] += 7
+        }else if(ability == "トランスG3"){
+            attr[2] += 13
+            attr[5] += 13
+        }else if(ability == "トランスG4"){
+            attr[2] += 19
+            attr[5] += 19
+        }
+    }else if(ability.indexOf("インスピレーション")>-1){
+        if(ability == "インスピレーションG1"){
+            attr[2] += 3
+            attr[6] += 3
+        }else if(ability == "インスピレーションG2"){
+            attr[2] += 7
+            attr[6] += 7
+        }else if(ability == "インスピレーションG3"){
+            attr[2] += 13
+            attr[6] += 13
+        }else if(ability == "インスピレーションG4"){
+            attr[2] += 19
+            attr[6] += 19
+        }
+    }else if(ability.indexOf("ストラテジスト")>-1){
+        if(ability == "ストラテジストG1"){
+            attr[3] += 3
+            attr[5] += 3
+        }else if(ability == "ストラテジストG2"){
+            attr[3] += 7
+            attr[5] += 7
+        }else if(ability == "ストラテジストG3"){
+            attr[3] += 13
+            attr[5] += 13
+        }else if(ability == "ストラテジストG4"){
+            attr[3] += 19
+            attr[5] += 19
+        }
+    }else if(ability.indexOf("屈強な心身")>-1){
+        if(ability == "屈強な心身G1"){
+            attr[3] += 3
+            attr[6] += 3
+        }else if(ability == "屈強な心身G2"){
+            attr[3] += 7
+            attr[6] += 7
+        }else if(ability == "屈強な心身G3"){
+            attr[3] += 13
+            attr[6] += 13
+        }else if(ability == "屈強な心身G4"){
+            attr[3] += 19
+            attr[6] += 19
+        }
+    }else if(ability.indexOf("ウィズダム")>-1){
+        if(ability == "ウィズダムG1"){
+            attr[4] += 3
+            attr[5] += 3
+        }else if(ability == "ウィズダムG2"){
+            attr[4] += 7
+            attr[5] += 7
+        }else if(ability == "ウィズダムG3"){
+            attr[4] += 13
+            attr[5] += 13
+        }else if(ability == "ウィズダムG4"){
+            attr[4] += 19
+            attr[5] += 19
+        }
+    }else if(ability.indexOf("シックスセンス")>-1){
+        if(ability == "シックスセンスG1"){
+            attr[5] += 3
+            attr[6] += 3
+        }else if(ability == "シックスセンスG2"){
+            attr[5] += 7
+            attr[6] += 7
+        }else if(ability == "シックスセンスG3"){
+            attr[5] += 13
+            attr[6] += 13
+        }else if(ability == "シックスセンスG4"){
+            attr[5] += 19
+            attr[6] += 19
+        }
+    }else if(ability.indexOf("気功")>-1){
+        if(ability == "気功G1"){
+            attr[3] += 3
+            attr[4] += 3
+        }else if(ability == "気功G2"){
+            attr[3] += 7
+            attr[4] += 7
+        }else if(ability == "気功G3"){
+            attr[3] += 13
+            attr[4] += 13
+        }else if(ability == "気功G4"){
+            attr[3] += 19
+            attr[4] += 19
+        }
+    }else if(ability.indexOf("獅子奮迅")>-1){
+        if(ability == "獅子奮迅G3"){
+            attr[0] += 25
+            attr[7] += 350
+        }
+    }else if(ability.indexOf("守護者")>-1){
+        if(ability == "守護者G3"){
+            attr[1] += 35
+            attr[8] += 75
+        }
+    }else if(ability.indexOf("戦士の心得")>-1){
+        if(ability == "戦士の心得G4"){
+            attr[0] += 38
+            attr[1] += 60
+        }
+    }
+    return attr
+}
+
+function sumend(abilitylist){
+    var AbilityList = ""
+    abli = abilitylist.split('<br>')
+    for (var i = 0;i<abli.length;i++){
+        ability = abli[i]
+        if(ability.indexOf("勇猛")>-1){
+            if(ability == "勇猛G1"){
+                AbilityList += "攻击力+10<br>"
+            }else if(ability == "勇猛G2"){
+                AbilityList += "攻击力+25<br>"
+            }else if(ability == "勇猛G3"){
+                AbilityList += "攻击力+50<br>"
+            }
+        }else if(ability.indexOf("不屈")>-1){
+            if(ability == "不屈G1"){
+                AbilityList += "防御力+15<br>"
+            }else if(ability == "不屈G2"){
+                AbilityList += "防御力+40<br>"
+            }else if(ability == "不屈G3"){
+                AbilityList += "防御力+70<br>"
+            }else if(ability == "不屈G4"){
+                AbilityList += "防御力+120<br>"
+            }
+        }else if(ability.indexOf("生命の奔流")>-1){
+            if(ability == "生命の奔流G1"){
+                AbilityList += "HP+100<br>"
+            }else if(ability == "生命の奔流G2"){
+                AbilityList += "HP+400<br>"
+            }else if(ability == "生命の奔流G3"){
+                AbilityList += "HP+700<br>"
+            }else if(ability == "生命の奔流G4"){
+                AbilityList += "HP+1100<br>"
+            }
+        }else if(ability.indexOf("剛力")>-1){
+            if(ability == "剛力G1"){
+                AbilityList += "筋力+5<br>"
+            }else if(ability == "剛力G2"){
+                AbilityList += "筋力+13<br>"
+            }else if(ability == "剛力G3"){
+                AbilityList += "筋力+25<br>"
+            }else if(ability == "剛力G4"){
+                AbilityList += "筋力+38<br>"
+            }
+        }else if(ability.indexOf("忍耐力")>-1){
+            if(ability == "忍耐力G1"){
+                AbilityList += "耐久力+5<br>"
+            }else if(ability == "忍耐力G2"){
+                AbilityList += "耐久力+13<br>"
+            }else if(ability == "忍耐力G3"){
+                AbilityList += "耐久力+25<br>"
+            }else if(ability == "忍耐力G4"){
+                AbilityList += "耐久力+38<br>"
+            }
+        }else if(ability.indexOf("巧妙")>-1){
+            if(ability == "巧妙G1"){
+                AbilityList += "器用+5<br>"
+            }else if(ability == "巧妙G2"){
+                AbilityList += "器用+13<br>"
+            }else if(ability == "巧妙G3"){
+                AbilityList += "器用+25<br>"
+            }else if(ability == "巧妙G4"){
+                AbilityList += "器用+38<br>"
+            }
+        }else if(ability.indexOf("博識")>-1){
+            if(ability == "博識G1"){
+                AbilityList += "知力+5<br>"
+            }else if(ability == "博識G2"){
+                AbilityList += "知力+13<br>"
+            }else if(ability == "博識G3"){
+                AbilityList += "知力+25<br>"
+            }else if(ability == "博識G4"){
+                AbilityList += "知力+38<br>"
+            }
+        }else if(ability.indexOf("集中")>-1){
+            if(ability == "集中G1"){
+                AbilityList += "精神力+5<br>"
+            }else if(ability == "集中G2"){
+                AbilityList += "精神力+13<br>"
+            }else if(ability == "集中G3"){
+                AbilityList += "精神力+25<br>"
+            }else if(ability == "集中G4"){
+                AbilityList += "精神力+38<br>"
+            }
+        }else if(ability.indexOf("気合の奔流")>-1){
+            if(ability == "気合の奔流G1"){
+                AbilityList += "ST+5<br>"
+            }else if(ability == "気合の奔流G2"){
+                AbilityList += "ST+10<br>"
+            }else if(ability == "気合の奔流G3"){
+                AbilityList += "ST+15<br>"
+            }
+        }else if(ability.indexOf("急所感知")>-1){
+            if(ability == "急所感知G1"){
+                AbilityList += "会心率+30%<br>"
+            }else if(ability == "急所感知G2"){
+                AbilityList += "会心率+60%<br>"
+            }
+        }else if(ability.indexOf("痛撃")>-1){
+            if(ability == "痛撃G1"){
+                AbilityList += "会心力+12<br>"
+            }else if(ability == "痛撃G2"){
+                AbilityList += "会心力+18<br>"
+            }
+        }else if(ability.indexOf("タフネス")>-1){
+            if(ability == "タフネスG1"){
+                AbilityList += "筋力+3 耐久力+3<br>"
+            }else if(ability == "タフネスG2"){
+                AbilityList += "筋力+7 耐久力+7<br>"
+            }else if(ability == "タフネスG3"){
+                AbilityList += "筋力+13 耐久力+13<br>"
+            }else if(ability == "タフネスG4"){
+                AbilityList += "筋力+19 耐久力+19<br>"
+            }
+        }else if(ability.indexOf("エキスパート")>-1){
+            if(ability == "エキスパートG1"){
+                AbilityList += "筋力+3 器用+3<br>"
+            }else if(ability == "エキスパートG2"){
+                AbilityList += "筋力+7 器用+7<br>"
+            }else if(ability == "エキスパートG3"){
+                AbilityList += "筋力+13 器用+13<br>"
+            }else if(ability == "エキスパートG4"){
+                AbilityList += "筋力+19 器用+19<br>"
+            }
+        }else if(ability.indexOf("トランス")>-1){
+            if(ability == "トランスG1"){
+                AbilityList += "筋力+3 知力+3<br>"
+            }else if(ability == "トランスG2"){
+                AbilityList += "筋力+7 知力+7<br>"
+            }else if(ability == "トランスG3"){
+                AbilityList += "筋力+13 知力+13<br>"
+            }else if(ability == "トランスG4"){
+                AbilityList += "筋力+19 知力+19<br>"
+            }
+        }else if(ability.indexOf("インスピレーション")>-1){
+            if(ability == "インスピレーションG1"){
+                AbilityList += "筋力+3 精神力+3<br>"
+            }else if(ability == "インスピレーションG2"){
+                AbilityList += "筋力+7 精神力+7<br>"
+            }else if(ability == "インスピレーションG3"){
+                AbilityList += "筋力+13 精神力+13<br>"
+            }else if(ability == "インスピレーションG4"){
+                AbilityList += "筋力+19 精神力+19<br>"
+            }
+        }else if(ability.indexOf("ストラテジスト")>-1){
+            if(ability == "ストラテジストG1"){
+                AbilityList += "耐久力+3 知力+3<br>"
+            }else if(ability == "ストラテジストG2"){
+                AbilityList += "耐久力+7 知力+7<br>"
+            }else if(ability == "ストラテジストG3"){
+                AbilityList += "耐久力+13 知力+13<br>"
+            }else if(ability == "ストラテジストG4"){
+                AbilityList += "耐久力+19 知力+19<br>"
+            }
+        }else if(ability.indexOf("屈強な心身")>-1){
+            if(ability == "屈強な心身G1"){
+                AbilityList += "耐久力+3 精神力+3<br>"
+            }else if(ability == "屈強な心身G2"){
+                AbilityList += "耐久力+7 精神力+7<br>"
+            }else if(ability == "屈強な心身G3"){
+                AbilityList += "耐久力+13 精神力+13<br>"
+            }else if(ability == "屈強な心身G4"){
+                AbilityList += "耐久力+19 精神力+19<br>"
+            }
+        }else if(ability.indexOf("ウィズダム")>-1){
+            if(ability == "ウィズダムG1"){
+                AbilityList += "器用+3 知力+3<br>"
+            }else if(ability == "ウィズダムG2"){
+                AbilityList += "器用+7 知力+7<br>"
+            }else if(ability == "ウィズダムG3"){
+                AbilityList += "器用+13 知力+13<br>"
+            }else if(ability == "ウィズダムG4"){
+                AbilityList += "器用+19 知力+19<br>"
+            }
+        }else if(ability.indexOf("シックスセンス")>-1){
+            if(ability == "シックスセンスG1"){
+                AbilityList += "知力+3 精神力+3<br>"
+            }else if(ability == "シックスセンスG2"){
+                AbilityList += "知力+7 精神力+7<br>"
+            }else if(ability == "シックスセンスG3"){
+                AbilityList += "知力+13 精神力+13<br>"
+            }else if(ability == "シックスセンスG4"){
+                AbilityList += "知力+19 精神力+19<br>"
+            }
+        }else if(ability.indexOf("気功")>-1){
+            if(ability == "気功G1"){
+                AbilityList += "耐久力+3 器用+3<br>"
+            }else if(ability == "気功G2"){
+                AbilityList += "耐久力+7 器用+7<br>"
+            }else if(ability == "気功G3"){
+                AbilityList += "耐久力+13 器用+13<br>"
+            }else if(ability == "気功G4"){
+                AbilityList += "耐久力+19 器用+19<br>"
+            }
+        }else if(ability.indexOf("獅子奮迅")>-1){
+            if(ability == "獅子奮迅G3"){
+                AbilityList += "攻击力+25 HP+350<br>"
+            }
+        }else if(ability.indexOf("守護者")>-1){
+            if(ability == "守護者G3"){
+                AbilityList += "防御力+35 回复力+75<br>"
+            }
+        }else if(ability.indexOf("戦士の心得")>-1){
+            if(ability == "戦士の心得G4"){
+                AbilityList += "攻击力+38 防御力+60<br>"
+            }
+        }else if(ability.indexOf("キドニーブロー")>-1){
+            if(ability == "キドニーブローG1"){
+                AbilityList += "背后攻击时会心力+18<br>"
+            }
+        }else if(ability.indexOf("暗殺術")>-1){
+            if(ability == "暗殺術G1"){
+                AbilityList += "背后攻击时会心率+40%<br>"
+            }
+        }else if(ability.indexOf("サドンアタック")>-1){
+            if(ability == "サドンアタックG1"){
+                AbilityList += "背后攻击时伤害提高+6%<br>"
+            }
+        }else if(ability.indexOf("溢れる力")>-1){
+            if(ability == "溢れる力G1"){
+                AbilityList += "满血时会心力+6<br>"
+            }
+        }else if(ability.indexOf("窮鼠")>-1){
+            if(ability == "窮鼠G1"){
+                AbilityList += "生命值低于30%时,攻击力+20<br>"
+            }else if(ability == "窮鼠G3"){
+                AbilityList += "生命值低于30%时,攻击力+100<br>"
+            }
+        }else if(ability.indexOf("背水の陣")>-1){
+            if(ability == "背水の陣G1"){
+                AbilityList += "生命值低于30%时,会心力+18<br>"
+            }else if(ability == "背水の陣G2"){
+                AbilityList += "生命值低于30%时,会心力+27<br>"
+            }
+        }else if(ability.indexOf("ランディング")>-1){
+            if(ability == "ランディングG1"){
+                AbilityList += "强袭(下落)攻击后,受到伤害降低14%(20秒)<br>"
+            }
+        }else if(ability.indexOf("安全確保")>-1){
+            if(ability == "安全確保G2"){
+                AbilityList += "救援成功后,受到伤害降低9%<br>"
+            }
+        }else if(ability.indexOf("応急処置")>-1){
+            if(ability == "応急処置G3"){
+                AbilityList += "救援成功后,回复600生命值<br>"
+            }
+        }else if(ability.indexOf("緊急障壁")>-1){
+            if(ability == "緊急障壁G1"){
+                AbilityList += "救援时,获得霸体效果<br>"
+            }
+        }else if(ability.indexOf("強撃:通常攻撃")>-1){
+            if(ability == "強撃:通常攻撃G1"){
+                AbilityList += "普通攻击造成伤害+7%<br>"
+            }else if(ability == "強撃:通常攻撃G3"){
+                AbilityList += "普通攻击造成伤害+11%<br>"
+            }
+        }else if(ability.indexOf("強撃:遠隔攻撃")>-1){
+            if(ability == "強撃:遠隔攻撃G1"){
+                AbilityList += "远程攻击造成的伤害提高5%<br>"
+            }else if(ability == "強撃:遠隔攻撃G3"){
+                AbilityList += "远程攻击造成的伤害提高7%<br>"
+            }
+        }else if(ability.indexOf("強撃:全攻撃")>-1){
+            if(ability == "強撃:全攻撃G1"){
+                AbilityList += "全攻击造成的伤害提高4%<br>"
+            }else if(ability == "強撃:全攻撃G3"){
+                AbilityList += "全攻击造成的伤害提高6%<br>"
+            }
+        }else if(ability.indexOf("強撃:Rスキル")>-1){
+            if(ability == "強撃:RスキルG3"){
+                AbilityList += "职业动作(右键)造成的伤害提高11%<br>"
+            }
+        }else if(ability.indexOf("強撃:Bイマジン")>-1){
+            if(ability == "強撃:BイマジンG1"){
+                AbilityList += "战斗幻想造成的伤害提高6%<br>"
+            }
+        }else if(ability.indexOf("強撃:近接攻撃")>-1){
+            if(ability == "強撃:近接攻撃G1"){
+                AbilityList += "近战攻击造成的伤害提高5%<br>"
+            }else if(ability == "強撃:近接攻撃G2"){
+                AbilityList += "近战攻击造成的伤害提高6%<br>"
+            }else if(ability == "強撃:近接攻撃G3"){
+                AbilityList += "近战攻击造成的伤害提高7%<br>"
+            }
+        }else if(ability.indexOf("アサルトダイブ")>-1){
+            if(ability == "アサルトダイブG1"){
+                AbilityList += "强袭(下落)攻击后,造成的伤害提高4%(20秒)<br>"
+            }else if(ability == "アサルトダイブG3"){
+                AbilityList += "强袭(下落)攻击后,造成的伤害提高6%(20秒)<br>"
+            }
+        }else if(ability.indexOf("スキルブースト:Tスキル")>-1){
+            if(ability == "スキルブースト:TスキルG1"){
+                AbilityList += "技能造成的伤害提高5%<br>"
+            }else if(ability == "スキルブースト:TスキルG3"){
+                AbilityList += "技能造成的伤害提高7%<br>"
+            }
+        }else if(ability.indexOf("ジャストカウンター")>-1){
+            if(ability == "ジャストカウンターG1"){
+                AbilityList += "完美回避攻击造成的伤害提高6%<br>"
+            }else if(ability == "ジャストカウンターG3"){
+                AbilityList += "完美回避攻击造成的伤害提高10%<br>"
+            }
+        }else if(ability.indexOf("反撃")>-1){
+            if(ability == "反撃G1"){
+                AbilityList += "受身(倒地时快速起身)成功后,造成的伤害提高(?)<br>"
+            }
+        }else if(ability.indexOf("ハードパンチャー")>-1){
+            if(ability == "ハードパンチャーG2"){
+                AbilityList += "眩晕成功率提高50%<br>"
+            }
+        }else if(ability.indexOf("睡魔")>-1){
+            if(ability == "睡魔G2"){
+                AbilityList += "睡眠成功率提高50%<br>"
+            }
+        }else if(ability.indexOf("ヘイトダウン")>-1){
+            if(ability == "ヘイトダウンG2"){
+                AbilityList += "受到仇恨降低10%<br>"
+            }
+        }else if(ability.indexOf("ヘイトブースト")>-1){
+            if(ability == "ヘイトブーストG2"){
+                AbilityList += "受到仇恨提高10%<br>"
+            }
+        }else if(ability.indexOf("スタミナセーブ:全")>-1){
+            if(ability == "スタミナセーブ:全G1"){
+                AbilityList += "体力消耗降低3%<br>"
+            }
+        }else if(ability.indexOf("スタミナセーブ:走")>-1){
+            if(ability == "スタミナセーブ:走G1"){
+                AbilityList += "奔跑消耗体力降低4%<br>"
+            }
+        }else if(ability.indexOf("スタミナセーブ:跳")>-1){
+            if(ability == "スタミナセーブ:跳G1"){
+                AbilityList += "跳跃消耗体力降低10%<br>"
+            }
+        }else if(ability.indexOf("スタミナセーブ:避")>-1){
+            if(ability == "スタミナセーブ:避G1"){
+                AbilityList += "闪避消耗体力降低10%<br>"
+            }
+        }else if(ability.indexOf("短縮:クラスA")>-1){
+            if(ability == "短縮:クラスAG1"){
+                AbilityList += "职业动作(右键)的冷却速度提高6%<br>"
+            }
+        }else if(ability.indexOf("短縮:ULT")>-1){
+            if(ability == "短縮:ULTG1"){
+                AbilityList += "绝招的冷却速度提高4%<br>"
+            }
+        }else if(ability.indexOf("短縮:Bイマジン")>-1){
+            if(ability == "短縮:BイマジンG1"){
+                AbilityList += "战斗幻想的冷却速度提高6%<br>"
+            }else if(ability == "短縮:BイマジンG2"){
+                AbilityList += "战斗幻想的冷却速度提高11%<br>"
+            }
+        }else if(ability.indexOf("アンチスタン")>-1){
+            if(ability == "アンチスタンG3"){
+                AbilityList += "眩晕耐性+100%<br>"
+            }
+        }else if(ability.indexOf("アンチパライズ")>-1){
+            if(ability == "アンチパライズG3"){
+                AbilityList += "麻痹耐性+100%<br>"
+            }
+        }else if(ability.indexOf("アンチポイズン")>-1){
+            if(ability == "アンチポイズンG3"){
+                AbilityList += "中毒耐性+100%<br>"
+            }
+        }else if(ability.indexOf("アンチブラインド")>-1){
+            if(ability == "アンチブラインドG3"){
+                AbilityList += "致盲耐性+100%<br>"
+            }
+        }else if(ability.indexOf("アンチスキルロック")>-1){
+            if(ability == "アンチスキルロックG3"){
+                AbilityList += "沉默耐性+100%<br>"
+            }
+        }else if(ability.indexOf("アンチバインド")>-1){
+            if(ability == "アンチバインドG3"){
+                AbilityList += "拘束耐性+100%<br>"
+            }
+        }else if(ability.indexOf("アンチスタミナアウト")>-1){
+            if(ability == "アンチスタミナアウトG3"){
+                AbilityList += "疲劳耐性+100%<br>"
+            }
+        }else if(ability.indexOf("耐火の心得")>-1){
+            if(ability == "耐火の心得G3"){
+                AbilityList += "火属性耐性+10<br>"
+            }
+        }else if(ability.indexOf("耐氷の心得")>-1){
+            if(ability == "耐氷の心得G3"){
+                AbilityList += "冰属性耐性+10<br>"
+            }
+        }else if(ability.indexOf("耐雷の心得")>-1){
+            if(ability == "耐雷の心得G3"){
+                AbilityList += "雷属性耐性+10<br>"
+            }
+        }else if(ability.indexOf("耐土の心得")>-1){
+            if(ability == "耐土の心得G3"){
+                AbilityList += "土属性耐性+10<br>"
+            }
+        }else if(ability.indexOf("耐光の心得")>-1){
+            if(ability == "耐光の心得G3"){
+                AbilityList += "光属性耐性+10<br>"
+            }
+        }else if(ability.indexOf("耐闇の心得")>-1){
+            if(ability == "耐闇の心得G3"){
+                AbilityList += "暗属性耐性+10<br>"
+            }
+        }else if(ability.indexOf("防御の極意:全攻撃")>-1){
+            if(ability == "防御の極意:全攻撃G1"){
+                AbilityList += "受到的全攻击 伤害降低5%<br>"
+            }
+        }else if(ability.indexOf("防御の極意:近接攻撃")>-1){
+            if(ability == "防御の極意:近接攻撃G1"){
+                AbilityList += "受到的近战攻击伤害降低5%<br>"
+            }
+        }else if(ability.indexOf("防御の極意:遠隔攻撃")>-1){
+            if(ability == "防御の極意:遠隔攻撃G1"){
+                AbilityList += "受到的远程攻击伤害降低5%<br>"
+            }
+        }else if(ability.indexOf("防御の極意:火属性攻撃")>-1){
+            if(ability == "防御の極意:火属性攻撃G1"){
+                AbilityList += "受到的火属性伤害降低8%<br>"
+            }
+        }else if(ability.indexOf("防御の極意:氷属性攻撃")>-1){
+            if(ability == "防御の極意:氷属性攻撃G1"){
+                AbilityList += "受到的冰属性伤害降低8%<br>"
+            }
+        }else if(ability.indexOf("防御の極意:雷属性攻撃")>-1){
+            if(ability == "防御の極意:雷属性攻撃G1"){
+                AbilityList += "受到的雷属性伤害降低8%<br>"
+            }
+        }else if(ability.indexOf("防御の極意:土属性攻撃")>-1){
+            if(ability == "防御の極意:土属性攻撃G1"){
+                AbilityList += "受到的土属性伤害降低8%<br>"
+            }
+        }else if(ability.indexOf("防御の極意:光属性攻撃")>-1){
+            if(ability == "防御の極意:光属性攻撃G1"){
+                AbilityList += "受到的光属性伤害降低8%<br>"
+            }
+        }else if(ability.indexOf("防御の極意:闇属性攻撃")>-1){
+            if(ability == "防御の極意:闇属性攻撃G1"){
+                AbilityList += "受到的闇属性伤害降低8%<br>"
+            }
+        }
+    }
+    return(AbilityList)
+}
+
 
 function drawImagineInfoWindow(thingArray){
-    let Finalatk = parseFloat(thingArray.attr[1]),Finaldef = parseFloat(thingArray.attr[2]),Finalj = parseFloat(thingArray.attr[3]),Finaln = parseFloat(thingArray.attr[4]),Finalq = parseFloat(thingArray.attr[5]),Finalz = parseFloat(thingArray.attr[6]),Finals = parseFloat(thingArray.attr[7]),Finalhp = 0
+    var Finalattr = [thingArray.attr[1],thingArray.attr[2],thingArray.attr[3],thingArray.attr[4],thingArray.attr[5],thingArray.attr[6],thingArray.attr[7],0,0]
+    var Finalattrmax = [thingArray.max[0],thingArray.max[1],thingArray.max[2],thingArray.max[3],thingArray.max[4],thingArray.max[5],thingArray.max[6],0,0]
     var AbilityList = thingArray.end.split("<br>")
     var windowHtml = ``
         windowHtml += `
@@ -669,7 +1339,19 @@ function drawImagineInfoWindow(thingArray){
                     <td style="font-size: 14px;" id="Finalz">${thingArray.attr[6]}</td>
                     <td style="font-size: 14px;" id="Finals">${thingArray.attr[7]}</td>
                 </tr>`
-        
+        if(thingArray.max != false){
+            windowHtml += `<tr>
+                    <td style="font-size: 14px;" id="mFinalatk">${thingArray.max[0]}</td>
+                    <td style="font-size: 14px;" id="mFinaldef">${thingArray.max[1]}</td>
+                    <td style="font-size: 14px;" id="mFinalhea"></td>
+                    <td style="font-size: 14px;" id="mFinalhp"></td>
+                    <td style="font-size: 14px;" id="mFinalj">${thingArray.max[2]}</td>
+                    <td style="font-size: 14px;" id="mFinaln">${thingArray.max[3]}</td>
+                    <td style="font-size: 14px;" id="mFinalq">${thingArray.max[4]}</td>
+                    <td style="font-size: 14px;" id="mFinalz">${thingArray.max[5]}</td>
+                    <td style="font-size: 14px;" id="mFinals">${thingArray.max[6]}</td>
+                </tr>`
+        }
         windowHtml += `</tbody>
         </table></div>`
         
@@ -684,210 +1366,56 @@ function drawImagineInfoWindow(thingArray){
         })
         if($('#ImagineAbility').children().length > 0){
         var firstAbility = $('#ImagineAbility').children("span").get(0).innerText
-        if(["勇猛G1","勇猛G2","勇猛G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "勇猛G1"){
-                Finalatk += 10
-            }else if(firstAbility == "勇猛G2"){
-                Finalatk += 25
-            }else if(firstAbility == "勇猛G3"){
-                Finalatk += 50
-            }
-        }else if(["不屈G1","不屈G2","不屈G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "不屈G1"){
-                Finaldef += 15
-            }else if(firstAbility == "不屈G2"){
-                Finaldef += 40
-            }else if(firstAbility == "不屈G3"){
-                Finaldef += 70
-            }
-        }else if(["生命の奔流G1","生命の奔流G2","生命の奔流G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "生命の奔流G1"){
-                Finalhp += 100
-            }else if(firstAbility == "生命の奔流G2"){
-                Finalhp += 400
-            }else if(firstAbility == "生命の奔流G3"){
-                Finalhp += 700
-            }
-        }else if(["剛力G1","剛力G2","剛力G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "剛力G1"){
-                Finalj += 5
-            }else if(firstAbility == "剛力G2"){
-                Finalj += 13
-            }else if(firstAbility == "剛力G3"){
-                Finalj += 25
-            }
-        }else if(["忍耐力G1","忍耐力G2","忍耐力G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "忍耐力G1"){
-                Finaln += 5
-            }else if(firstAbility == "忍耐力G2"){
-                Finaln += 13
-            }else if(firstAbility == "忍耐力G3"){
-                Finaln += 25
-            }
-        }else if(["巧妙G1","巧妙G2","巧妙G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "巧妙G1"){
-                Finalq += 5
-            }else if(firstAbility == "巧妙G2"){
-                Finalq += 13
-            }else if(firstAbility == "巧妙G3"){
-                Finalq += 25
-            }
-        }else if(["博識G1","博識G2","博識G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "博識G1"){
-                Finalz += 5
-            }else if(firstAbility == "博識G2"){
-                Finalz += 13
-            }else if(firstAbility == "博識G3"){
-                Finalz += 25
-            }
-        }else if(["集中G1","集中G2","集中G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "集中G1"){
-                Finals += 5
-            }else if(firstAbility == "集中G2"){
-                Finals += 13
-            }else if(firstAbility == "集中G3"){
-                Finals += 25
-            }
-        }else if(["タフネスG1","タフネスG2","タフネスG3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "タフネスG1"){
-                Finalj += 3
-                Finaln += 3
-            }else if(firstAbility == "タフネスG2"){
-                Finalj += 7
-                Finaln += 7
-            }else if(firstAbility == "タフネスG3"){
-                Finalj += 13
-                Finaln += 13
-            }
-        }else if(["エキスパートG1","エキスパートG2","エキスパートG3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "エキスパートG1"){
-                Finalj += 3
-                Finalq += 3
-            }else if(firstAbility == "エキスパートG2"){
-                Finalj += 7
-                Finalq += 7
-            }else if(firstAbility == "エキスパートG3"){
-                Finalj += 13
-                Finalq += 13
-            }
-        }else if(["トランスG1","トランスG2","トランスG3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "トランスG1"){
-                Finalj += 3
-                Finalz += 3
-            }else if(firstAbility == "トランスG2"){
-                Finalj += 7
-                Finalz += 7
-            }else if(firstAbility == "トランスG3"){
-                Finalj += 13
-                Finalz += 13
-            }
-        }else if(["インスピレーションG1","インスピレーションG2","インスピレーションG3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "インスピレーションG1"){
-                Finalj += 3
-                Finals += 3
-            }else if(firstAbility == "インスピレーションG2"){
-                Finalj += 7
-                Finals += 7
-            }else if(firstAbility == "インスピレーションG3"){
-                Finalj += 13
-                Finals += 13
-            }
-        }else if(["ストラテジストG1","ストラテジストG2","ストラテジストG3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "ストラテジストG1"){
-                Finaln += 3
-                Finalz += 3
-            }else if(firstAbility == "ストラテジストG2"){
-                Finaln += 7
-                Finalz += 7
-            }else if(firstAbility == "ストラテジストG3"){
-                Finaln += 13
-                Finalz += 13
-            }
-        }else if(["屈強な心身G1","屈強な心身G2","屈強な心身G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "屈強な心身G1"){
-                Finaln += 3
-                Finals += 3
-            }else if(firstAbility == "屈強な心身G2"){
-                Finaln += 7
-                Finals += 7
-            }else if(firstAbility == "屈強な心身G3"){
-                Finaln += 13
-                Finals += 13
-            }
-        }else if(["ウィズダムG1","ウィズダムG2","ウィズダムG3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "ウィズダムG1"){
-                Finalq += 3
-                Finalz += 3
-            }else if(firstAbility == "ウィズダムG2"){
-                Finalq += 7
-                Finalz += 7
-            }else if(firstAbility == "ウィズダムG3"){
-                Finalq += 13
-                Finalz += 13
-            }
-        }else if(["シックスセンスG1","シックスセンスG2","シックスセンスG3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "シックスセンスG1"){
-                Finalz += 3
-                Finals += 3
-            }else if(firstAbility == "シックスセンスG2"){
-                Finalz += 7
-                Finals += 7
-            }else if(firstAbility == "シックスセンスG3"){
-                Finalz += 13
-                Finals += 13
-            }
-        }else if(["気功G1","気功G2","気功G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "気功G1"){
-                Finaln += 3
-                Finalq += 3
-            }else if(firstAbility == "気功G2"){
-                Finaln += 7
-                Finalq += 7
-            }else if(firstAbility == "気功G3"){
-                Finaln += 13
-                Finalq += 13
-            }
-        }else if(["獅子奮迅G1","獅子奮迅G2","獅子奮迅G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "獅子奮迅G3"){
-                Finalatk += 25
-                Finalhp += 350
-            }
-        }else if(["守護者G1","守護者G2","守護者G3"].indexOf(firstAbility)>-1){
-            if(firstAbility == "守護者G3"){
-                Finaldef += 35
-            }
-        }else if(["戦士の心得G3","戦士の心得G4"].indexOf(firstAbility)>-1){
-            if(firstAbility == "戦士の心得G4"){
-                Finalatk += 38
-                Finaldef += 60
-            }
-        }
+        var sumed = sumattr(firstAbility,Finalattr)
+        var sumedmax = sumattr(firstAbility,Finalattrmax)
+
         $('#ImagineAbility').children("span").get(0).style.backgroundColor='rgb(55, 194, 192)'
         $('#ImagineAbility').children("span").get(0).style.color='rgb(38, 41, 46)'
         $('#ImagineAbility').children("span").get(0).style.borderColor='rgb(55, 194, 192, 0)'
         $('#ImagineAbility span').not("span:first").css('background-color','rgb(55, 194, 192, 0)')
         $('#ImagineAbility span').not("span:first").css('color','rgb(55, 194, 192)')
         $('#ImagineAbility span').not("span:first").css('border-color','rgb(55, 194, 192)')
+        $('#Finalatk').text((sumed[0]+sumed[2]*0.6+sumed[4]*0.4).toFixed(1)+"/"+(sumed[0]+sumed[5]*0.6+sumed[6]*0.4).toFixed(1))
+        $('#Finaldef').text((sumed[1]+sumed[2]*0.4+sumed[3]*0.6).toFixed(1))
+        $('#Finalhea').text((sumed[8]+sumed[5]*0.4+sumed[6]*0.4).toFixed(1))
+        $('#Finalhp').text((sumed[7]+sumed[3]*0.6).toFixed(1))
+        if(parseInt(thingArray.attr[3]) != sumed[2]){
+            $('#Finalj').text(sumed[2]+'(+'+(sumed[2]-parseInt(thingArray.attr[3]))+')')
+        }
+        if(parseInt(thingArray.attr[4]) != sumed[3]){
+            $('#Finaln').text(sumed[3]+'(+'+(sumed[3]-parseInt(thingArray.attr[4]))+')')
+        }
+        if(parseInt(thingArray.attr[5]) != sumed[4]){
+            $('#Finalq').text(sumed[4]+'(+'+(sumed[4]-parseInt(thingArray.attr[5]))+')')
+        }
+        if(parseInt(thingArray.attr[6]) != sumed[5]){
+            $('#Finalz').text(sumed[5]+'(+'+(sumed[5]-parseInt(thingArray.attr[6]))+')')
+        }
+        if(parseInt(thingArray.attr[7]) != sumed[6]){
+            $('#Finals').text(sumed[6]+'(+'+(sumed[6]-parseInt(thingArray.attr[7]))+')')
+        }
+        if(thingArray.max != false){
+            $('#mFinalatk').text((sumedmax[0]+sumedmax[2]*0.6+sumedmax[4]*0.4).toFixed(1)+"/"+(sumedmax[0]+sumedmax[5]*0.6+sumedmax[6]*0.4).toFixed(1))
+            $('#mFinaldef').text((sumedmax[1]+sumedmax[2]*0.4+sumedmax[3]*0.6).toFixed(1))
+            $('#mFinalhea').text((sumedmax[8]+sumedmax[5]*0.4+sumedmax[6]*0.4).toFixed(1))
+            $('#mFinalhp').text((sumedmax[7]+sumedmax[3]*0.6).toFixed(1))
+            if(parseInt(thingArray.max[2]) != sumedmax[2]){
+                $('#mFinalj').text(sumedmax[2]+'(+'+(sumedmax[2]-parseInt(thingArray.max[2]))+')')
+            }
+            if(parseInt(thingArray.max[3]) != sumedmax[3]){
+                $('#mFinaln').text(sumedmax[3]+'(+'+(sumedmax[3]-parseInt(thingArray.max[3]))+')')
+            }
+            if(parseInt(thingArray.max[4]) != sumedmax[4]){
+                $('#mFinalq').text(sumedmax[4]+'(+'+(sumedmax[4]-parseInt(thingArray.max[4]))+')')
+            }
+            if(parseInt(thingArray.max[5]) != sumedmax[5]){
+                $('#mFinalz').text(sumedmax[5]+'(+'+(sumedmax[5]-parseInt(thingArray.max[5]))+')')
+            }
+            if(parseInt(thingArray.max[6]) != sumedmax[6]){
+                $('#mFinals').text(sumedmax[6]+'(+'+(sumedmax[6]-parseInt(thingArray.max[6]))+')')
+            }
+        }
     }
-        $('#Finalatk').text((Finalatk+Finalj*0.6+Finalq*0.4).toFixed(1)+"/"+(Finalatk+Finalz*0.6+Finals*0.4).toFixed(1))
-        $('#Finaldef').text((Finaldef+Finalj*0.4+Finaln*0.6).toFixed(1))
-        $('#Finalhea').text((Finalz*0.4+Finals*0.4).toFixed(1))
-        $('#Finalhp').text((Finalhp+Finaln*0.6).toFixed(1))
-        if(parseInt(thingArray.attr[3]) != Finalj){
-            $('#Finalj').text(Finalj+'(+'+(Finalj-parseInt(thingArray.attr[3]))+')')
-        }
-        if(parseInt(thingArray.attr[4]) != Finaln){
-            $('#Finaln').text(Finaln+'(+'+(Finaln-parseInt(thingArray.attr[4]))+')')
-        }
-        if(parseInt(thingArray.attr[5]) != Finalq){
-            $('#Finalq').text(Finalq+'(+'+(Finalq-parseInt(thingArray.attr[5]))+')')
-        }
-        if(parseInt(thingArray.attr[6]) != Finalz){
-            $('#Finalz').text(Finalz+'(+'+(Finalz-parseInt(thingArray.attr[6]))+')')
-        }
-        if(parseInt(thingArray.attr[7]) != Finals){
-            $('#Finals').text(Finals+'(+'+(Finals-parseInt(thingArray.attr[7]))+')')
-        }
 
     $('#ImagineAbility span').click(function(){
         $('#ImagineAbility span').css('background-color','rgb(55, 194, 192, 0)')
@@ -896,253 +1424,51 @@ function drawImagineInfoWindow(thingArray){
         this.style.backgroundColor='rgb(55, 194, 192)'
         this.style.color='rgb(38, 41, 46)'
         this.style.borderColor='rgb(55, 194, 192, 0)'
-        Finalatk = parseFloat(thingArray.attr[1]),Finaldef = parseFloat(thingArray.attr[2]),Finalj = parseFloat(thingArray.attr[3]),Finaln = parseFloat(thingArray.attr[4]),Finalq = parseFloat(thingArray.attr[5]),Finalz = parseFloat(thingArray.attr[6]),Finals = parseFloat(thingArray.attr[7]),Finalhp = 0
+        var Finalattr = [thingArray.attr[1],thingArray.attr[2],thingArray.attr[3],thingArray.attr[4],thingArray.attr[5],thingArray.attr[6],thingArray.attr[7],0,0]
+        var Finalattrmax = [thingArray.max[0],thingArray.max[1],thingArray.max[2],thingArray.max[3],thingArray.max[4],thingArray.max[5],thingArray.max[6],0,0]
         var NowAbility = this.innerText
-        if(["勇猛G1","勇猛G2","勇猛G3"].indexOf(NowAbility)>-1){
-            if(NowAbility == "勇猛G1"){
-                Finalatk += 10
-            }else if(NowAbility == "勇猛G2"){
-                Finalatk += 25
-            }else if(NowAbility == "勇猛G3"){
-                Finalatk += 50
-            }
-        }else if(["不屈G1","不屈G2","不屈G3"].indexOf(NowAbility)>-1){
-            if(NowAbility == "不屈G1"){
-                Finaldef += 15
-            }else if(NowAbility == "不屈G2"){
-                Finaldef += 40
-            }else if(NowAbility == "不屈G3"){
-                Finaldef += 70
-            }
-        }else if(["生命の奔流G1","生命の奔流G2","生命の奔流G3","生命の奔流G4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "生命の奔流G1"){
-                Finalhp += 100
-            }else if(NowAbility == "生命の奔流G2"){
-                Finalhp += 400
-            }else if(NowAbility == "生命の奔流G3"){
-                Finalhp += 700
-            }else if(NowAbility == "生命の奔流G4"){
-                Finalhp += 1100
-            }
-        }else if(["剛力G1","剛力G2","剛力G3","剛力G4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "剛力G1"){
-                Finalj += 5
-            }else if(NowAbility == "剛力G2"){
-                Finalj += 13
-            }else if(NowAbility == "剛力G3"){
-                Finalj += 25
-            }else if(NowAbility == "剛力G4"){
-                Finalj += 38
-            }
-        }else if(["忍耐力G1","忍耐力G2","忍耐力G3","忍耐力G4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "忍耐力G1"){
-                Finaln += 5
-            }else if(NowAbility == "忍耐力G2"){
-                Finaln += 13
-            }else if(NowAbility == "忍耐力G3"){
-                Finaln += 25
-            }else if(NowAbility == "忍耐力G4"){
-                Finaln += 38
-            }
-        }else if(["巧妙G1","巧妙G2","巧妙G3","巧妙G4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "巧妙G1"){
-                Finalq += 5
-            }else if(NowAbility == "巧妙G2"){
-                Finalq += 13
-            }else if(NowAbility == "巧妙G3"){
-                Finalq += 25
-            }else if(NowAbility == "巧妙G4"){
-                Finalq += 38
-            }
-        }else if(["博識G1","博識G2","博識G3","博識G4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "博識G1"){
-                Finalz += 5
-            }else if(NowAbility == "博識G2"){
-                Finalz += 13
-            }else if(NowAbility == "博識G3"){
-                Finalz += 25
-            }else if(NowAbility == "博識G4"){
-                Finalz += 38
-            }
-        }else if(["集中G1","集中G2","集中G3","集中G4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "集中G1"){
-                Finals += 5
-            }else if(NowAbility == "集中G2"){
-                Finals += 13
-            }else if(NowAbility == "集中G3"){
-                Finals += 25
-            }else if(NowAbility == "集中G4"){
-                Finals += 38
-            }
-        }else if(["タフネスG1","タフネスG2","タフネスG3","タフネスG4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "タフネスG1"){
-                Finalj += 3
-                Finaln += 3
-            }else if(NowAbility == "タフネスG2"){
-                Finalj += 7
-                Finaln += 7
-            }else if(NowAbility == "タフネスG3"){
-                Finalj += 13
-                Finaln += 13
-            }else if(NowAbility == "タフネスG4"){
-                Finalj += 19
-                Finaln += 19
-            }
-        }else if(["エキスパートG1","エキスパートG2","エキスパートG3","エキスパートG4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "エキスパートG1"){
-                Finalj += 3
-                Finalq += 3
-            }else if(NowAbility == "エキスパートG2"){
-                Finalj += 7
-                Finalq += 7
-            }else if(NowAbility == "エキスパートG3"){
-                Finalj += 13
-                Finalq += 13
-            }else if(NowAbility == "エキスパートG4"){
-                Finalj += 19
-                Finalq += 19
-            }
-        }else if(["トランスG1","トランスG2","トランスG3","トランスG4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "トランスG1"){
-                Finalj += 3
-                Finalz += 3
-            }else if(NowAbility == "トランスG2"){
-                Finalj += 7
-                Finalz += 7
-            }else if(NowAbility == "トランスG3"){
-                Finalj += 13
-                Finalz += 13
-            }else if(NowAbility == "トランスG4"){
-                Finalj += 19
-                Finalz += 19
-            }
-        }else if(["インスピレーションG1","インスピレーションG2","インスピレーションG3","インスピレーションG4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "インスピレーションG1"){
-                Finalj += 3
-                Finals += 3
-            }else if(NowAbility == "インスピレーションG2"){
-                Finalj += 7
-                Finals += 7
-            }else if(NowAbility == "インスピレーションG3"){
-                Finalj += 13
-                Finals += 13
-            }else if(NowAbility == "インスピレーションG4"){
-                Finalj += 19
-                Finals += 19
-            }
-        }else if(["ストラテジストG1","ストラテジストG2","ストラテジストG3","ストラテジストG4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "ストラテジストG1"){
-                Finaln += 3
-                Finalz += 3
-            }else if(NowAbility == "ストラテジストG2"){
-                Finaln += 7
-                Finalz += 7
-            }else if(NowAbility == "ストラテジストG3"){
-                Finaln += 13
-                Finalz += 13
-            }else if(NowAbility == "ストラテジストG4"){
-                Finaln += 19
-                Finalz += 19
-            }
-        }else if(["屈強な心身G1","屈強な心身G2","屈強な心身G3","屈強な心身G4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "屈強な心身G1"){
-                Finaln += 3
-                Finals += 3
-            }else if(NowAbility == "屈強な心身G2"){
-                Finaln += 7
-                Finals += 7
-            }else if(NowAbility == "屈強な心身G3"){
-                Finaln += 13
-                Finals += 13
-            }else if(NowAbility == "屈強な心身G4"){
-                Finaln += 19
-                Finals += 19
-            }
-        }else if(["ウィズダムG1","ウィズダムG2","ウィズダムG3","ウィズダムG4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "ウィズダムG1"){
-                Finalq += 3
-                Finalz += 3
-            }else if(NowAbility == "ウィズダムG2"){
-                Finalq += 7
-                Finalz += 7
-            }else if(NowAbility == "ウィズダムG3"){
-                Finalq += 13
-                Finalz += 13
-            }else if(NowAbility == "ウィズダムG4"){
-                Finalq += 19
-                Finalz += 19
-            }
-        }else if(["シックスセンスG1","シックスセンスG2","シックスセンスG3","シックスセンスG4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "シックスセンスG1"){
-                Finalz += 3
-                Finals += 3
-            }else if(NowAbility == "シックスセンスG2"){
-                Finalz += 7
-                Finals += 7
-            }else if(NowAbility == "シックスセンスG3"){
-                Finalz += 13
-                Finals += 13
-            }else if(NowAbility == "シックスセンスG4"){
-                Finalz += 19
-                Finals += 19
-            }
-        }else if(["気功G1","気功G2","気功G3","気功G4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "気功G1"){
-                Finaln += 3
-                Finalq += 3
-            }else if(NowAbility == "気功G2"){
-                Finaln += 7
-                Finalq += 7
-            }else if(NowAbility == "気功G3"){
-                Finaln += 13
-                Finalq += 13
-            }else if(NowAbility == "気功G4"){
-                Finaln += 19
-                Finalq += 19
-            }
-        }else if(["獅子奮迅G1","獅子奮迅G2","獅子奮迅G3"].indexOf(NowAbility)>-1){
-            if(NowAbility == "獅子奮迅G3"){
-                Finalatk += 25
-                Finalhp += 350
-            }
-        }else if(["守護者G1","守護者G2","守護者G3"].indexOf(NowAbility)>-1){
-            if(NowAbility == "守護者G3"){
-                Finaldef += 35
-            }
-        }else if(["戦士の心得G3","戦士の心得G4"].indexOf(NowAbility)>-1){
-            if(NowAbility == "戦士の心得G4"){
-                Finalatk += 38
-                Finaldef += 60
-            }
-        }
-        $('#Finalatk').text((Finalatk+Finalj*0.6+Finalq*0.4).toFixed(1)+"/"+(Finalatk+Finalz*0.6+Finals*0.4).toFixed(1))
-        $('#Finaldef').text((Finaldef+Finalj*0.4+Finaln*0.6).toFixed(1))
-        $('#Finalhea').text((Finalz*0.4+Finals*0.4).toFixed(1))
-        $('#Finalhp').text((Finalhp+Finaln*0.6).toFixed(1))
-        if(parseInt(thingArray.attr[3]) != Finalj){
-            $('#Finalj').text(Finalj+'(+'+(Finalj-parseInt(thingArray.attr[3]))+')')
-        }else{
-            $('#Finalj').text(Finalj)
-        }
-        if(parseInt(thingArray.attr[4]) != Finaln){
-            $('#Finaln').text(Finaln+'(+'+(Finaln-parseInt(thingArray.attr[4]))+')')
-        }else{
-            $('#Finaln').text(Finaln)
-        }
-        if(parseInt(thingArray.attr[5]) != Finalq){
-            $('#Finalq').text(Finalq+'(+'+(Finalq-parseInt(thingArray.attr[5]))+')')
-        }else{
-            $('#Finalq').text(Finalq)
-        }
-        if(parseInt(thingArray.attr[6]) != Finalz){
-            $('#Finalz').text(Finalz+'(+'+(Finalz-parseInt(thingArray.attr[6]))+')')
-        }else{
-            $('#Finalz').text(Finalz)
-        }
-        if(parseInt(thingArray.attr[7]) != Finals){
-            $('#Finals').text(Finals+'(+'+(Finals-parseInt(thingArray.attr[7]))+')')
-        }else{
-            $('#Finals').text(Finals)
+        var sumed = sumattr(NowAbility,Finalattr)
+        var sumedmax = sumattr(NowAbility,Finalattrmax)
+        
+        $('#Finalatk').text((sumed[0]+sumed[2]*0.6+sumed[4]*0.4).toFixed(1)+"/"+(sumed[0]+sumed[5]*0.6+sumed[6]*0.4).toFixed(1))
+        $('#Finaldef').text((sumed[1]+sumed[2]*0.4+sumed[3]*0.6).toFixed(1))
+        $('#Finalhea').text((sumed[8]+sumed[5]*0.4+sumed[6]*0.4).toFixed(1))
+        $('#Finalhp').text((sumed[7]+sumed[3]*0.6).toFixed(1))
+        if(parseInt(thingArray.attr[3]) != sumed[2]){
+            $('#Finalj').text(sumed[2]+'(+'+(sumed[2]-parseInt(thingArray.attr[3]))+')')
+        } else {$('#Finalj').text(sumed[2])}
+        if(parseInt(thingArray.attr[4]) != sumed[3]){
+            $('#Finaln').text(sumed[3]+'(+'+(sumed[3]-parseInt(thingArray.attr[4]))+')')
+        } else {$('#Finaln').text(sumed[3])}
+        if(parseInt(thingArray.attr[5]) != sumed[4]){
+            $('#Finalq').text(sumed[4]+'(+'+(sumed[4]-parseInt(thingArray.attr[5]))+')')
+        } else {$('#Finalq').text(sumed[4])}
+        if(parseInt(thingArray.attr[6]) != sumed[5]){
+            $('#Finalz').text(sumed[5]+'(+'+(sumed[5]-parseInt(thingArray.attr[6]))+')')
+        } else {$('#Finalz').text(sumed[5])}
+        if(parseInt(thingArray.attr[7]) != sumed[6]){
+            $('#Finals').text(sumed[6]+'(+'+(sumed[6]-parseInt(thingArray.attr[7]))+')')
+        } else {$('#Finals').text(sumed[6])}
+        if(thingArray.max != false){
+            $('#mFinalatk').text((sumedmax[0]+sumedmax[2]*0.6+sumedmax[4]*0.4).toFixed(1)+"/"+(sumedmax[0]+sumedmax[5]*0.6+sumedmax[6]*0.4).toFixed(1))
+            $('#mFinaldef').text((sumedmax[1]+sumedmax[2]*0.4+sumedmax[3]*0.6).toFixed(1))
+            $('#mFinalhea').text((sumedmax[8]+sumedmax[5]*0.4+sumedmax[6]*0.4).toFixed(1))
+            $('#mFinalhp').text((sumedmax[7]+sumedmax[3]*0.6).toFixed(1))
+            if(parseInt(thingArray.max[2]) != sumedmax[2]){
+                $('#mFinalj').text(sumedmax[2]+'(+'+(sumedmax[2]-parseInt(thingArray.max[2]))+')')
+            } else {$('#mFinalj').text(sumedmax[2])}
+            if(parseInt(thingArray.max[3]) != sumedmax[3]){
+                $('#mFinaln').text(sumedmax[3]+'(+'+(sumedmax[3]-parseInt(thingArray.max[3]))+')')
+            } else {$('#mFinaln').text(sumedmax[3])}
+            if(parseInt(thingArray.max[4]) != sumedmax[4]){
+                $('#mFinalq').text(sumedmax[4]+'(+'+(sumedmax[4]-parseInt(thingArray.max[4]))+')')
+            } else {$('#mFinalq').text(sumedmax[4])}
+            if(parseInt(thingArray.max[5]) != sumedmax[5]){
+                $('#mFinalz').text(sumedmax[5]+'(+'+(sumedmax[5]-parseInt(thingArray.max[5]))+')')
+            } else {$('#mFinalz').text(sumedmax[5])}
+            if(parseInt(thingArray.max[6]) != sumedmax[6]){
+                $('#mFinals').text(sumedmax[6]+'(+'+(sumedmax[6]-parseInt(thingArray.max[6]))+')')
+            } else {$('#mFinals').text(sumedmax[6])}
         }
     })
 }
