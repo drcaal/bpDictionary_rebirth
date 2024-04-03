@@ -20,8 +20,9 @@ function choiseE(choiseKind){
             var data = E_value.filter(function(value){
                 return value.pid === Gpid
             })
-            all[3].innerText = data[0]['attr'][1]
-            all[4].innerText = data[0]['attr'][2]
+            all[3].innerHTML = data[0]['attr'][8]
+            all[4].innerHTML = data[0]['attr'][9]
+            all[5].innerHTML = data[0]['attr'][10]
 
             if (category == choiseKind) {
                 row.style.display = ''; 

@@ -9,7 +9,7 @@ function writeE(){
     document.getElementsByClassName('floatBox')[0].innerHTML = ``
     
     var E_htmlStr = `<p class="windowTitle">| E - 强化幻想</p>
-    <p class="Topword">强化幻想按形状类型分为五类。单击列名可进行升、降序排列。单击幻想图标可查看其制作材料及获取途径。 <span style="color:red;">单击类型</span>可查看幻想计算词条后最终属性<br>名称前标注有 * 号的为活动限定幻想。<br>2023年11月22日Ver.1.02.100版本更新后副本掉宝率大幅度提高,且掉落奖励中新增了强化幻想,若所选幻想可由副本掉落获取时,前置显示掉落副本。<br><span style="color:red;">红色</span>/<span style="color:orange;">橙色</span>标记为目前版本物理/魔法职业最高攻击幻想</p>
+    <p class="Topword">强化幻想按形状类型分为五类。单击列名可进行升、降序排列。单击幻想图标可查看其制作材料及获取途径。 单击幻想类型</span>可查看幻想计算词条后最终属性<br>名称前标注有 * 号的为活动限定幻想。<br>2023年11月22日Ver.1.02.100版本更新后副本掉宝率大幅度提高,且掉落奖励中新增了强化幻想,若所选幻想可由副本掉落获取时,前置显示掉落副本。</p>
 
     <div class="EchoiseBox">
         <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">三叶</div>
@@ -19,8 +19,10 @@ function writeE(){
         <div>水瓶</div>
     </div>
     <div class="ELchoiseBox">
-        <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">+0</div>
-        <div>+5</div>
+        <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">基础数值</div>
+        <div>物攻最大值</div>
+        <div>魔攻最大值</div>
+        <div>防御最大值</div>
         <p class="B_E_searchNum">三叶幻想有 null 条数据</p>
     </div>
     <table id="Etable">
@@ -29,35 +31,40 @@ function writeE(){
                 <th width="7%">图标</th>
                 <th width="20%">名称</th>
                 <th width="3%" onclick="rewrite(2)" style="cursor: pointer;">等级</th>
-                <th width="3%" onclick="rewrite(3)" style="cursor: pointer;">攻击</th>
-                <th width="3%" onclick="rewrite(4)" style="cursor: pointer;">防御</th>
+                <th width="13%" onclick="rewrite(3)" style="cursor: pointer;">物理攻击</th>
+                <th width="13%" onclick="rewrite(4)" style="cursor: pointer;">魔法攻击</th>
+                <th width="13%" onclick="rewrite(5)" style="cursor: pointer;">防御</th>
                 <th width="20%">词缀</th>
-                <th width="20%">词缀效果</th>
                 <th width="5%">类型</th>
             </tr>`
     
     E_value.forEach((E_every, index)=>{
         var abli = sumend(E_every.end)
+        var wuli = String((E_every.attr[1] + E_every.attr[3]*0.6 + E_every.attr[5]*0.4).toFixed(1)) + "(+" + String((E_every.attr[3]*0.6 + E_every.attr[5]*0.4).toFixed(1)) + ")"
+        var maho = String((E_every.attr[1] + E_every.attr[6]*0.6 + E_every.attr[7]*0.4).toFixed(1)) + "(+" + String((E_every.attr[6]*0.6 + E_every.attr[7]*0.4).toFixed(1)) + ")"
+        var def = String((E_every.attr[2] + E_every.attr[3]*0.4 + E_every.attr[4]*0.6).toFixed(1)) + "(+" + String((E_every.attr[3]*0.4 + E_every.attr[4]*0.6).toFixed(1)) + ")"
+        E_every.attr.push(wuli)
+        E_every.attr.push(maho)
+        E_every.attr.push(def)
         E_htmlStr += `<tr>
         <td style="font-size: 12px;"><img src="./img/icon/e/${E_every.pid}.png" alt="${E_every.pid}" title="${index}"></td>
         <td style="font-size: 14px; padding: 0 5px;">${E_every.name}</td>
         <td>${E_every.attr[0]}</td>
-        <td>${E_every.attr[1]}</td>
-        <td>${E_every.attr[2]}</td>
-        <td style="font-size: 13px; padding: 0 5px;">${E_every.end}</td>
-        <td style="font-size: 13px;">${abli}</td>
+        <td>${wuli}</td>
+        <td>${maho}</td>
+        <td>${def}</td>
+        <td style="font-size: 13px; padding: 0 5px;" class="ImagineData" bak="${abli}">${E_every.end}</td>
         <td style="font-size: 13px;" class="ImagineInfo" title="${index}">${E_every.kind}</td>
     </tr>`
     })
-    
     E_htmlStr += `<tr>
     <th width="7%">图标</th>
     <th width="20%">名称</th>
     <th width="3%" onclick="rewrite(2)" style="cursor: pointer;">等级</th>
-    <th width="3%" onclick="rewrite(3)" style="cursor: pointer;">攻击</th>
-    <th width="3%" onclick="rewrite(4)" style="cursor: pointer;">防御</th>
+    <th width="13%" onclick="rewrite(3)" style="cursor: pointer;">物理攻击</th>
+    <th width="13%" onclick="rewrite(4)" style="cursor: pointer;">魔法攻击</th>
+    <th width="13%" onclick="rewrite(5)" style="cursor: pointer;">防御</th>
     <th width="20%">词缀</th>
-    <th width="20%">词缀效果</th>
     <th width="5%">类型</th>
 </tr></tbody>
     </table>${buttomTag}`
@@ -101,65 +108,44 @@ $('.ELchoiseBox div').click(function(){
         this.style.backgroundColor='rgb(55, 194, 192)'
         this.style.color='rgb(38, 41, 46)'
         this.style.borderColor='rgb(55, 194, 192, 0)'
-        if(ELevel == 0){
+        if(this.innerText != "基础数值"){
+            var type = 0
+            if(this.innerText == "物攻最大值"){
+                type = 0
+            } else if (this.innerText == "魔攻最大值"){
+                type = 1
+            } else if (this.innerText == "防御最大值"){
+                type = 2
+            }
             E_value.forEach((E_every, index)=>{
-                if(E_every.max.length == 7){
-                    var atk_bak = E_every.attr[1]
-                    var def_bak = E_every.attr[2]
-                    var j_bak = E_every.attr[3]
-                    var n_bak = E_every.attr[4]
-                    var q_bak = E_every.attr[5]
-                    var z_bak = E_every.attr[6]
-                    var s_bak = E_every.attr[7]
-                    E_every.attr[1] = E_every.max[0]
-                    E_every.attr[2] = E_every.max[1]
-                    E_every.attr[3] = E_every.max[2]
-                    E_every.attr[4] = E_every.max[3]
-                    E_every.attr[5] = E_every.max[4]
-                    E_every.attr[6] = E_every.max[5]
-                    E_every.attr[7] = E_every.max[6]
-                    E_every.max[0] = atk_bak
-                    E_every.max[1] = def_bak
-                    E_every.max[2] = j_bak
-                    E_every.max[3] = n_bak
-                    E_every.max[4] = q_bak
-                    E_every.max[5] = z_bak
-                    E_every.max[6] = s_bak
-                    }
+                    var lastattr = getLastAxD(E_every.attr,E_every.max,E_every.end,type)
+                    E_every['lastattr'] = lastattr
+                    E_every.attr[8] = E_every.lastattr[0]
+                    E_every.attr[9] = E_every.lastattr[1]
+                    E_every.attr[10] = E_every.lastattr[2]
                 })
-            ELevel = 5
         } else {
             E_value.forEach((E_every, index)=>{
-                if(E_every.max.length == 7){
-                    var atk_bak = E_every.attr[1]
-                    var def_bak = E_every.attr[2]
-                    var j_bak = E_every.attr[3]
-                    var n_bak = E_every.attr[4]
-                    var q_bak = E_every.attr[5]
-                    var z_bak = E_every.attr[6]
-                    var s_bak = E_every.attr[7]
-                    E_every.attr[1] = E_every.max[0]
-                    E_every.attr[2] = E_every.max[1]
-                    E_every.attr[3] = E_every.max[2]
-                    E_every.attr[4] = E_every.max[3]
-                    E_every.attr[5] = E_every.max[4]
-                    E_every.attr[6] = E_every.max[5]
-                    E_every.attr[7] = E_every.max[6]
-                    E_every.max[0] = atk_bak
-                    E_every.max[1] = def_bak
-                    E_every.max[2] = j_bak
-                    E_every.max[3] = n_bak
-                    E_every.max[4] = q_bak
-                    E_every.max[5] = z_bak
-                    E_every.max[6] = s_bak
-                    }
+                    E_every.attr[8]= String((E_every.attr[1] + E_every.attr[3]*0.6 + E_every.attr[5]*0.4).toFixed(1)) + "(+" + String((E_every.attr[3]*0.6 + E_every.attr[5]*0.4).toFixed(1)) + ")"
+                    E_every.attr[9] = String((E_every.attr[1] + E_every.attr[6]*0.6 + E_every.attr[7]*0.4).toFixed(1)) + "(+" + String((E_every.attr[6]*0.6 + E_every.attr[7]*0.4).toFixed(1)) + ")"
+                    E_every.attr[10] = String((E_every.attr[2] + E_every.attr[3]*0.4 + E_every.attr[4]*0.6).toFixed(1)) + "(+" + String((E_every.attr[3]*0.4 + E_every.attr[4]*0.6).toFixed(1)) + ")"
                 })
-                ELevel = 0
             }
         choiseE(Ebox)
     }})
     $('#Etable img').click(function(){drawMakeThingWindow(E_value[this.title])})
     $('.ImagineInfo').click(function(){drawImagineInfoWindow(E_value[this.title])})
+
+    $('.ImagineData').mouseenter(function(){
+        var bak_data = this.innerHTML
+        this.innerHTML = this.getAttribute('bak')
+        this.setAttribute('bak',bak_data)
+    })
+    $('.ImagineData').mouseleave(function(){
+        var bak_data = this.innerHTML
+        this.innerHTML = this.getAttribute('bak')
+        this.setAttribute('bak',bak_data)
+    })    
 }
 function drawMakeThingWindow(thingArray){
     var sc_list = []
@@ -323,7 +309,6 @@ function drawMakeThingWindow(thingArray){
             var isMB=0
     
             MB_value.forEach((MB_every)=>{
-                // console.log(MB_every.name.split('<br>')[0]==thingArray.madeIt.sucai_B);
                 if(MB_every.name.split('<br>')[0]==thingArray.madeIt.sucai_B){
 
                     var mapList = ``
@@ -355,7 +340,6 @@ function drawMakeThingWindow(thingArray){
             })
             if(isMB==0){
             M_value.forEach((M_every)=>{
-                // console.log(M_every.name.split('<br>')[0]==thingArray.madeIt.sucai_B);
                 if(M_every.name.split('<br>')[0]==thingArray.madeIt.sucai_B){
                     windowHtml += `<div class="ThingWindow_madeBox" style="height: 220px;"><table><tbody>
                     <tr style="height: 20px; font-size: 14px;">
@@ -1483,4 +1467,100 @@ function getDropInfo(pid){
         }
     }
     return dropList
+}
+
+function getLastAxD(attr,maxattr,ability,type){
+    var Patk = ["勇猛G3","戦士の心得G4","勇猛G2","獅子奮迅G3","剛力G4","エキスパートG4","巧妙G4","剛力G3","エキスパートG3","タフネスG4","トランスG4","インスピレーションG4","勇猛G1","巧妙G3","剛力G2","タフネスG3","トランスG3","インスピレーションG3","気功G4","ウィズダムG4","エキスパートG2","巧妙G2","気功G3","ウィズダムG3","タフネスG2","トランスG2","インスピレーションG2","剛力G1","エキスパートG1","気功G2","ウィズダムG2","巧妙G1","タフネスG1","トランスG1","インスピレーションG1","気功G1","ウィズダムG1"]
+    var Matk = ["勇猛G3","戦士の心得G4","勇猛G2","獅子奮迅G3","博識G4","シックスセンスG4","集中G4","博識G3","シックスセンスG3","ウィズダムG4","トランスG4","ストラテジストG4","勇猛G1","集中G3","博識G2","ウィズダムG3","トランスG3","ストラテジストG3","インスピレーションG4","屈強な心身G4","シックスセンスG2","集中G2","インスピレーションG3","屈強な心身G3","ウィズダムG2","トランスG2","ストラテジストG2","博識G1","シックスセンスG1","インスピレーションG2","屈強な心身G2","集中G1","ウィズダムG1","トランスG1","ストラテジストG1","インスピレーションG1","屈強な心身G1"]
+    var def = ["不屈G4","不屈G3","戦士の心得G4","不屈G2","守護者G3","忍耐力G4","タフネスG4","剛力G4","不屈G1","忍耐力G3","タフネスG3","気功G4","ストラテジストG4","屈強な心身G4","剛力G3","忍耐力G2","気功G3","ストラテジストG3","屈強な心身G3","エキスパートG4","トランスG4","インスピレーションG4","タフネスG2","剛力G2","エキスパートG3","トランスG3","インスピレーションG3","気功G2","ストラテジストG2","屈強な心身G2","忍耐力G1","タフネスG1","エキスパートG2","トランスG2","インスピレーションG2","剛力G1","気功G1","ストラテジストG1","屈強な心身G1","エキスパートG1","トランスG1","インスピレーションG1"]
+    var Aatk = [50,38,25,25,22.8,19,15.2,15,13,11.4,11.4,11.4,10,10,7.8,7.8,7.8,7.6,7.6,7,5.2,5.2,5.2,5.2,4.2,4.2,4.2,3,3,2.8,2.8,2,1.8,1.8,1.8,1.2,1.2]
+    var Ddef = [120,70,60,40,35,22.8,19,15.2,15,15,13,11.4,11.4,11.4,10,7.8,7.8,7.8,7.8,7.6,7.6,7.6,7,5.2,5.2,5.2,5.2,4.2,4.2,4.2,3,3,2.8,2.8,2.8,2,1.8,1.8,1.8,1.2,1.2,1.2]
+    var wuli = 0
+    var maho = 0
+    var sdef = 0
+    var Awpoint = 0
+    var Ampoint = 0
+    var Dpoint = 0
+    var abili = ability.split("<br>")
+    var bak = 0
+    if(type == 0){
+        for(var i = 0;i<abili.length;i++){
+            Awpoint = Patk.indexOf(abili[i])
+            if(Awpoint != -1 && Aatk[Awpoint] > wuli){
+                wuli = Aatk[Awpoint]
+                bak = abili[i]
+            }
+        }
+        if(wuli != 0){
+            Ampoint = Matk.indexOf(bak)
+            if(Ampoint != -1){
+                maho = Aatk[Ampoint-1]
+            }
+            Dpoint = def.indexOf(bak)
+            if(Dpoint != -1 ){
+                sdef = Ddef[Dpoint-1]
+            }
+        } else {
+            wuli = 0
+            maho = 0
+            sdef = 0
+        }
+    } else if(type == 1){
+        for(var i = 0;i<abili.length;i++){
+            Ampoint = Matk.indexOf(abili[i])
+            if(Ampoint != -1 && Aatk[Ampoint] > maho){
+                maho = Aatk[Ampoint]
+                bak = abili[i]
+            }
+        }
+        if(maho != 0){
+            Awpoint = Patk.indexOf(bak)
+            if(Awpoint != -1){
+                wuli = Aatk[Awpoint-1]
+                
+            }
+            Dpoint = def.indexOf(bak)
+            if(Dpoint != -1 ){
+                sdef = Ddef[Dpoint-1]
+            }
+        } else {
+            wuli = 0
+            maho = 0
+            sdef = 0
+        }
+    } else if(type ==2){
+        for(var i = 0;i<abili.length;i++){
+            Dpoint = def.indexOf(abili[i])
+            if(Dpoint != -1 && Ddef[Dpoint] > sdef){
+                sdef = Ddef[Dpoint]
+                bak = abili[i]
+            }
+        }
+        if(sdef != 0){
+            Awpoint = Patk.indexOf(bak)
+            if(Awpoint != -1){
+                wuli = Aatk[Awpoint]
+
+            }
+            Ampoint = Matk.indexOf(bak)
+            if(Ampoint != -1 ){
+                maho = Aatk[Ampoint]
+            }
+        } else {
+            wuli = 0
+            maho = 0
+            sdef = 0
+        }
+    }
+    if(maxattr != false){
+        wuli = (wuli + maxattr[0] + maxattr[2]*0.6 + maxattr[4]*0.4).toFixed(1)
+        maho = (maho + maxattr[0] + maxattr[5]*0.6 + maxattr[6]*0.4).toFixed(1)
+        sdef = (sdef + maxattr[1] + maxattr[2]*0.4 + maxattr[3]*0.6).toFixed(1)
+    } else {
+        wuli = (wuli + attr[1] + attr[3]*0.6 + attr[5]*0.4).toFixed(1)
+        maho = (maho + attr[1] + attr[6]*0.6 + attr[7]*0.4).toFixed(1)
+        sdef = (sdef + attr[2] + attr[3]*0.4 + attr[4]*0.6).toFixed(1)
+    }
+    var attrlist = [wuli,maho,sdef]
+    return attrlist
 }

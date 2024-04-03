@@ -133,20 +133,21 @@ function searchByIndexOf(keyWord, list){
                 <th width="5%">类型</th>
             </tr>`
     E_value.forEach((E_every, index)=>{
+        abili = sumend(E_every.end)
         if(E_every.name.split('<br>')[0]==message.split('<br>')[0]){
             searchhtml += `<tr>
             <td style="font-size: 12px;" id="Etable"><img src="./img/icon/e/${E_every.pid}.png" alt="暂无" title="${index}"></td>
             <td style="font-size: 14px; padding: 0 5px;">${E_every.name}</td>
-            <td>${E_every.lev}</td>
-            <td>${E_every.atk}</td>
-            <td>${E_every.def}</td>
-            <td>${E_every.j}</td>
-            <td>${E_every.n}</td>
-            <td>${E_every.q}</td>
-            <td>${E_every.z}</td>
-            <td>${E_every.s}</td>
+            <td>${E_every.attr[0]}</td>
+            <td>${E_every.attr[1]}</td>
+            <td>${E_every.attr[2]}</td>
+            <td>${E_every.attr[3]}</td>
+            <td>${E_every.attr[4]}</td>
+            <td>${E_every.attr[5]}</td>
+            <td>${E_every.attr[6]}</td>
+            <td>${E_every.attr[7]}</td>
             <td style="font-size: 13px; padding: 0 5px;">${E_every.end}</td>
-            <td style="font-size: 13px;">${E_every.endexp}</td>
+            <td style="font-size: 13px;">${abili}</td>
             <td style="font-size: 13px;">${E_every.kind}</td>
         </tr>`
         }
