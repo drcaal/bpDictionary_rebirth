@@ -78,8 +78,10 @@ function writeE(){
         table.rows[i].cells[2].style.backgroundColor = '#43434360';
         table.rows[i].cells[3].style.backgroundColor = '#35353533';
         table.rows[i].cells[4].style.backgroundColor = '#35353533';
-        table.rows[i].cells[3].setAttribute('title', '攻击力');
-        table.rows[i].cells[4].setAttribute('title', '防御力');
+        table.rows[i].cells[5].style.backgroundColor = '#35353533';
+        // table.rows[i].cells[3].setAttribute('title', '物理攻击');
+        // table.rows[i].cells[4].setAttribute('title', '魔法攻击');
+        // table.rows[i].cells[5].setAttribute('title', '防御');
     }
 
 $('.EchoiseBox div').click(function(){
@@ -123,7 +125,15 @@ $('.ELchoiseBox div').click(function(){
                     E_every.attr[8] = E_every.lastattr[0]
                     E_every.attr[9] = E_every.lastattr[1]
                     E_every.attr[10] = E_every.lastattr[2]
+                    E_every.attr[11] = E_every.lastattr[3]
                 })
+            let table = document.getElementsByTagName('table')[0];
+            for (var i = 1; i < table.rows.length-1; i++) {
+                var abil = E_value[i-1].attr[11]
+                table.rows[i].cells[3].setAttribute('title', abil);
+                table.rows[i].cells[4].setAttribute('title', abil);
+                table.rows[i].cells[5].setAttribute('title', abil);
+            }
         } else {
             E_value.forEach((E_every, index)=>{
                     E_every.attr[8]= String((E_every.attr[1] + E_every.attr[3]*0.6 + E_every.attr[5]*0.4).toFixed(1)) + "(+" + String((E_every.attr[3]*0.6 + E_every.attr[5]*0.4).toFixed(1)) + ")"
@@ -1482,7 +1492,7 @@ function getLastAxD(attr,maxattr,ability,type){
     var Ampoint = 0
     var Dpoint = 0
     var abili = ability.split("<br>")
-    var bak = 0
+    var bak = "词条无影响"
     if(type == 0){
         for(var i = 0;i<abili.length;i++){
             Awpoint = Patk.indexOf(abili[i])
@@ -1561,6 +1571,6 @@ function getLastAxD(attr,maxattr,ability,type){
         maho = (maho + attr[1] + attr[6]*0.6 + attr[7]*0.4).toFixed(1)
         sdef = (sdef + attr[2] + attr[3]*0.4 + attr[4]*0.6).toFixed(1)
     }
-    var attrlist = [wuli,maho,sdef]
+    var attrlist = [wuli,maho,sdef,bak]
     return attrlist
 }
