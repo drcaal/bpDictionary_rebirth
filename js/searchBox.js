@@ -195,28 +195,27 @@ function searchByIndexOf(keyWord, list){
                 <th width="3%" onclick="rewrite(9)" style="cursor: pointer;">知力</th>
                 <th width="3%" onclick="rewrite(10)" style="cursor: pointer;">精神</th>
                 <th width="16%">词缀</th>
-                <th width="12%">词缀效果</th>
-                <th width="12%">技能</th>
+                <th width="24%">技能</th>
                 <th width="3%" onclick="rewrite(14)" style="cursor: pointer;">冷却</th>
                 <th width="5%">类型</th>
             </tr>`
         
         B_value.forEach((B_every, index)=>{
             if(B_every.name.split('<br>')[0]==message.split('<br>')[0]){
+                var abli = sumend(B_every.end)
                 searchhtml += `<tr>
                 <td style="font-size: 12px;" id="Btable"><img src="./img/icon/b/${B_every.pid}.png" alt="暂无" title="${index}"></td>
                 <td style="font-size: 14px; padding: 0 5px;">${B_every.name}</td>
-                <td>${B_every.lev}</td>
+                <td>${B_every.attr[0]}</td>
                 <td style="font-size: 13px;">${B_every.element}</td>
-                <td>${B_every.atk}</td>
-                <td>${B_every.def}</td>
-                <td>${B_every.j}</td>
-                <td>${B_every.n}</td>
-                <td>${B_every.q}</td>
-                <td>${B_every.z}</td>
-                <td>${B_every.s}</td>
-                <td style="font-size: 13px; padding: 0 5px;">${B_every.end}</td>
-                <td style="font-size: 13px;">${B_every.endexp}</td>
+                <td>${B_every.attr[1]}</td>
+                <td>${B_every.attr[2]}</td>
+                <td>${B_every.attr[3]}</td>
+                <td>${B_every.attr[4]}</td>
+                <td>${B_every.attr[5]}</td>
+                <td>${B_every.attr[6]}</td>
+                <td>${B_every.attr[7]}</td>
+                <td style="font-size: 13px; padding: 0 5px;" class="ImagineData" bak="${abli}">${B_every.end}</td>
                 <td style="font-size: 13px; padding: 8px 5px;">${B_every.skill}</td>
                 <td style="font-size: 13px;">${B_every.cd}</td>
                 <td style="font-size: 13px;">${B_every.kind}</td>
@@ -248,6 +247,17 @@ function searchByIndexOf(keyWord, list){
         $('#Btable img').click(function(){
             drawMakeThingWindow(B_value[this.title])
         })
+        $('.ImagineData').mouseenter(function(){
+            var bak_data = this.innerHTML
+            this.innerHTML = this.getAttribute('bak')
+            this.setAttribute('bak',bak_data)
+        })
+        $('.ImagineData').mouseleave(function(){
+            var bak_data = this.innerHTML
+            this.innerHTML = this.getAttribute('bak')
+            this.setAttribute('bak',bak_data)
+        })
+
     }else if(messageKind==3){
         var searchhtml = `<p class="windowTitle">| 搜索 地图及自由探索小怪</p>
     <p class="Topword">地图点位上的红色标注为有可能刷新该怪物的地点，左键单击图片可将其放大并可用鼠标滚轮再次放大。<br>对于怪物的弱点与抵抗属性的机制，有两种情况造成的伤害将获得提升：一，装备怪物弱点属性的武器，造成任意属性（除开怪物的抵抗属性）的伤害；二，装备任意属性的武器，对怪物造成弱点属性的伤害。战斗幻想造成的伤害不受情况一的影响，即，不会因为你装备了怪物弱点属性的武器而获得伤害提升。<br>注意：<b>小怪的掉落物有区域分别，并非所有地图上的该种小怪都会掉落材料，</b>如有刷材料的需求请于“幻想与武器素材”列表中进行搜索或翻阅。</p>
@@ -255,28 +265,39 @@ function searchByIndexOf(keyWord, list){
             <tbody>
                 <tr>
                     <th width="12%">样貌</th>
-                    <th width="12%">名称</th>
-                    <th width="12%">种系</th>
-                    <th width="5%">弱点属性</th>
-                    <th width="5%">抵抗属性</th>
-                    <th width="20%">分布区域</th>
-                    <th width="50%">地图点位</th>
+                    <th width="20%">名称</th>
+                    <th width="16%">种系</th>
+                    <th width="4%">弱效</th>
+                    <th width="4%">强效</th>
+                    <th width="22%">分布区域</th>
+                    <th width="38%">特性</th>
                 </tr>`
         
         M_value.forEach((M_every)=>{
             if(M_every.name==message){
-                var imgSrcString = ``
-                for(var i=0;i<M_every.mapWhere.length;i++){
-                    imgSrcString += `<img src="./img/monster/`+M_every.mapWhere[i]+`.png" alt="暂无" style="height: 150px;">`
+                var mapList = ``
+                var kinds_list = ``
+                for(var i=0;i<M_every.spaceName.length;i++){
+                    var Nowid = parseInt(M_every.spaceName[i]);
+                    var Map_List = [];
+                    var Point_length = M_every.mapWhere[i].length;
+                    for (var x=0;x<Point_length;x++){
+                        Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(M_every.mapWhere[i][x]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(M_every.mapWhere[i][x]-1)*2+1]})
+                    };
+                    mapList += `<a onclick="mergeImages(${M_every.spaceName[i]},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid-1]['mName']}</a><br>`
                 }
+                for(var i=0;i<M_every.monsKinds.length;i++){
+                    kinds_list += "<div>" + M_every.monsKinds[i] + "</div>"
+                }
+
                 searchhtml += `<tr class="canclick">
-                    <td><img src="./img/icon/m/${M_every.pid}.png" alt="暂无" style="height: 100px;"></td>
+                    <td><img src="./img/icon/m/${M_every.pid}.png" style="height: 100px;"></td>
                     <td style="font-size: 14px;">${M_every.name}</td>
-                    <td style="font-size: 14px;">${M_every.monsKind}</td>
+                    <td style="font-size: 14px;" class="Mkind_button"><div>${M_every.monsKind}</div></td>
                     <td style="font-size: 14px;">${M_every.moreElem}</td>
                     <td style="font-size: 14px;">${M_every.lessElem}</td>
-                    <td>${M_every.spaceName}</td>
-                    <td class="manyImgBar">${imgSrcString}</td>
+                    <td>${mapList}</td>
+                    <td style="font-size: 14px;" class="Mkinds_button">${kinds_list}</td>
                 </tr>`
             }
         })
@@ -290,16 +311,10 @@ function searchByIndexOf(keyWord, list){
         for (var i = 1; i < table.rows.length; i++) {
             table.rows[i].cells[1].style.backgroundColor = '#35353555';
             table.rows[i].cells[3].style.backgroundColor = '#35353555';
-            // table.rows[i].cells[3].style.backgroundColor = '#353535';
-            // table.rows[i].cells[4].style.backgroundColor = '#353535';
-            table.rows[i].cells[2].setAttribute('title', '弱点属性');
-            table.rows[i].cells[3].setAttribute('title', '分布范围');
+            table.rows[i].cells[3].setAttribute('title', '弱点属性');
+            table.rows[i].cells[4].setAttribute('title', '抵抗属性');
+            table.rows[i].cells[5].setAttribute('title', '所在地图');
             table.rows[i].cells[1].setAttribute('title', '名称');
-            // table.rows[i].cells[5].setAttribute('title', '筋力');
-            // table.rows[i].cells[6].setAttribute('title', '耐久');
-            // table.rows[i].cells[7].setAttribute('title', '器用');
-            // table.rows[i].cells[8].setAttribute('title', '知力');
-            // table.rows[i].cells[9].setAttribute('title', '精神力');
         }
         showStart()
     }else if(messageKind==4){
@@ -310,21 +325,30 @@ function searchByIndexOf(keyWord, list){
                     <th width="15%">样貌</th>
                     <th width="5%">等级</th>
                     <th width="12%">名称</th>
-                    <th width="10%">种系</th>
-                    <th width="15%">分布区域</th>
-                    <th width="30%">地图点位</th>
-                    <th width="20%">触发事件</th>
+                    <th width="13%">种系</th>          
+                    <th width="22%">地图点位</th>
+                    <th width="12%">特性</th>
+                    <th width="28%">触发事件</th>
                 </tr>`
     
         MB_value.forEach((MB_every)=>{
             if(MB_every.name==message){
+                var Bkinds_list = ``
+                var mapList = ``
+                var Nowid = parseInt(MB_every.spaceName[0]);
+                var Map_List = [];
+                Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(MB_every.mapWhere[0][0]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(MB_every.mapWhere[0][0]-1)*2+1]})
+                mapList += `<a onclick="mergeImages(${MB_every.spaceName[0]},['1001'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid-1]['mName']}</a><br>`
+                for(var i=0;i<MB_every.monsKinds.length;i++){
+                    Bkinds_list += "<div>" + MB_every.monsKinds[i] + "</div>"
+                }
                 searchhtml += `<tr class="canclick">
-                    <td><img src="./img/icon/m/${MB_every.pid}.png" alt="暂无" style="height: 110px;"></td>
+                    <td><img src="./img/icon/m/${MB_every.pid}.png" style="height: 110px;"></td>
                     <td style="font-size: 14px;">${MB_every.level}</td>
                     <td style="font-size: 14px;">${MB_every.name}</td>
-                    <td style="font-size: 14px;">${MB_every.monsKind}</td>
-                    <td>${MB_every.spaceName}</td>
-                    <td><img src="./img/monster/${MB_every.mapWhere[0]}.png" alt="暂无" style="height: 180px;"></td>
+                    <td style="font-size: 14px;" class="Mkind_button"><div>${MB_every.monsKind}</div></td>
+                    <td>${mapList}</td>
+                    <td style="font-size: 14px;" class="Mkinds_button">${Bkinds_list}</td>
                     <td>${MB_every.showTime}</td>
                 </tr>`
             }
@@ -344,9 +368,9 @@ function searchByIndexOf(keyWord, list){
             // table.rows[i].cells[3].style.backgroundColor = '#353535';
             // table.rows[i].cells[4].style.backgroundColor = '#353535';
             tableB.rows[i].cells[1].setAttribute('title', '等级');
-            tableB.rows[i].cells[3].setAttribute('title', '分布区域');
+            tableB.rows[i].cells[4].setAttribute('title', '分布地图');
             tableB.rows[i].cells[2].setAttribute('title', '名称');
-            tableB.rows[i].cells[5].setAttribute('title', '触发事件');
+            tableB.rows[i].cells[6].setAttribute('title', '触发事件');
             // table.rows[i].cells[6].setAttribute('title', '耐久');
             // table.rows[i].cells[7].setAttribute('title', '器用');
             // table.rows[i].cells[8].setAttribute('title', '知力');
@@ -360,42 +384,132 @@ function searchByIndexOf(keyWord, list){
             <tbody>
                 <tr>
                     <th width="10%">名称</th>
-                    <th width="8%">获取方式</th>
-                    <th width="15%">分布区域</th>
-                    <th width="20%">获取对象</th>
-                    <th width="50%">地图点位</th>
+                    <th width="12%">获取方式</th>
+                    <th width="25%">分布区域</th>
+                    <th width="28%">获取对象</th>
+                    <th width="10%">制造用途</th>
                 </tr>`
         var imgSrcString = ``
         SC_value.forEach((SC_every, index)=>{
             if(SC_every.name==message){
+                var mapList = ``
+                if(SC_every.pid=='7901'){
+                    var trNameId = `<tr id="qita" class="canclick">`
+                }else if(SC_every.pid=='7006'){
+                    var trNameId = `<tr id="zhiwu" class="canclick">`
+                }else if(SC_every.pid=='7207'){
+                    var trNameId = `<tr id="kuangwu" class="canclick">`
+                }else if(SC_every.pid=='7401'){
+                    var trNameId = `<tr id="shuiqi" class="canclick">`
+                }else if(SC_every.pid=='7501'){
+                    var trNameId = `<tr id="xiaoguai" class="canclick">`
+                }else{
+                    var trNameId = `<tr class="canclick">`
+                }
+                if(SC_every.sfrom != "任意小怪" && SC_every.sfrom != "对应属性小怪" && SC_every.sfrom != "全采集物" && SC_every.sfrom != "植物、矿物"){
+                    var Monster = SC_every.sfrom + "<br>"
+                    for(var i=0;i<M_value.length;i++){
+                        if((SC_every.sfrom == "植物" || SC_every.sfrom == "矿物" || SC_every.sfrom == "水栖") && SC_every.mappic == 1){
+                            var Nowid = SC_every.obtain
+                            var Point_id = SC_every.Point;
+                            var Map_List = [];
+                            // var try0 = Map_id[Nowid-1]
+                            // var try1 =SC_every.name
+                            // console.log({try0,try1})
+                            Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][([Point_id]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][([Point_id]-1)*2+1]})
+                            if(SC_every.sfrom == "植物"){
+                                mapList += `<a onclick="mergeImages(${Nowid},['1003'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                            } else if(SC_every.sfrom == "矿物"){
+                                mapList += `<a onclick="mergeImages(${Nowid},['1002'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                            } else {
+                                mapList += `<a onclick="mergeImages(${Nowid},['1004'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                            }
+                            // mapList += `<a onclick="mergeImages(${Nowid},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                            break
+                        }
+                        if(M_value[i]['name'].indexOf(Monster)!=-1 && M_value[i]['name'].charAt(0) == Monster.charAt(0)){
+                            for(var y=0;y<M_value[i]['spaceName'].length;y++){
+                                if(SC_every.obtain == M_value[i]['spaceName'][y]){
+                                    var Nowid = SC_every.obtain
+                                    var Map_List = [];
+                                    var Point_length = M_value[i]['mapWhere'][y].length;
+                                    for (var z=0;z<Point_length;z++){
+                                        Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(M_value[i]['mapWhere'][y][z]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(M_value[i]['mapWhere'][y][z]-1)*2+1]})
+                                    };
+                                    mapList += `<a onclick="mergeImages(${M_value[i]['spaceName'][y]},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                                    // var map = Map_id[parseInt(SC_every.obtain)-1]['mName']
+        
+                                    break
+                                }
+                            }
+                        }
+                    }
+                }
+
                 if(SC_every.mappic=='1'){
-                    searchhtml += `<tr class="canclick">
+                    searchhtml += trNameId+`
                         <td style="font-size: 14px;">${SC_every.name}</td>
                         <td style="font-size: 14px;">${SC_every.kind}</td>
-                        <td>${SC_every.obtain}</td>
+                        <td>${mapList}</td>
                         <td>${SC_every.sfrom}</td>
-                        <td><img src="./img/map/${SC_every.pid}.png" alt="暂无" style="height: 200px;"></td>
+                        <td>-</td>
                     </tr>`
                 }else if(SC_every.mappic=='2'){
-                    for(var i=0;i<SC_every.mapWhere.length;i++){
-                        imgSrcString += `<img src="./img/map/`+SC_every.mapWhere[i]+`.png" alt="暂无" style="height: 150px;">`
-                    }
-                    searchhtml += `<tr class="canclick">
+                    // for(var i=0;i<SC_every.mapWhere.length;i++){
+                        // imgSrcString += `<img src="./img/map/`+SC_every.mapWhere[i]+`.png" alt="暂无" style="height: 150px;">`
+                    // }
+                    searchhtml += trNameId+`
                         <td style="font-size: 14px;">${SC_every.name}</td>
                         <td style="font-size: 14px;">${SC_every.kind}</td>
-                        <td>${SC_every.obtain}</td>
+                        <td>全图采集</td>
                         <td>${SC_every.sfrom}</td>
-                        <td class="manyImgBar">${imgSrcString}</td>
+                        <td>-</td>
+                    </tr>`
+                }else if(SC_every.mappic=='4'){
+                    searchhtml += trNameId+`
+                        <td style="font-size: 14px;">${SC_every.name}</td>
+                        <td style="font-size: 14px;">${SC_every.kind}</td>
+                        <td>${mapList}</td>
+                        <td>${SC_every.sfrom}</td>
+                        <td>-</td>
                     </tr>`
                 }else{
-                    searchhtml += `<tr>
+                    searchhtml += trNameId+`
                         <td style="font-size: 14px;">${SC_every.name}</td>
                         <td style="font-size: 14px;">${SC_every.kind}</td>
-                        <td>${SC_every.obtain}</td>
+                        <td>全图小怪掉落</td>
                         <td>${SC_every.sfrom}</td>
                         <td>-</td>
                     </tr>`
                 }
+                // if(SC_every.mappic=='1'){
+                //     searchhtml += `<tr class="canclick">
+                //         <td style="font-size: 14px;">${SC_every.name}</td>
+                //         <td style="font-size: 14px;">${SC_every.kind}</td>
+                //         <td>${SC_every.obtain}</td>
+                //         <td>${SC_every.sfrom}</td>
+                //         <td><img src="./img/map/${SC_every.pid}.png" alt="暂无" style="height: 200px;"></td>
+                //     </tr>`
+                // }else if(SC_every.mappic=='2'){
+                //     for(var i=0;i<SC_every.mapWhere.length;i++){
+                //         imgSrcString += `<img src="./img/map/`+SC_every.mapWhere[i]+`.png" alt="暂无" style="height: 150px;">`
+                //     }
+                //     searchhtml += `<tr class="canclick">
+                //         <td style="font-size: 14px;">${SC_every.name}</td>
+                //         <td style="font-size: 14px;">${SC_every.kind}</td>
+                //         <td>${SC_every.obtain}</td>
+                //         <td>${SC_every.sfrom}</td>
+                //         <td class="manyImgBar">${imgSrcString}</td>
+                //     </tr>`
+                // }else{
+                //     searchhtml += `<tr>
+                //         <td style="font-size: 14px;">${SC_every.name}</td>
+                //         <td style="font-size: 14px;">${SC_every.kind}</td>
+                //         <td>${SC_every.obtain}</td>
+                //         <td>${SC_every.sfrom}</td>
+                //         <td>-</td>
+                //     </tr>`
+                // }
             }
         })
         
@@ -446,20 +560,20 @@ function searchByIndexOf(keyWord, list){
         W_value.forEach((W_every, index)=>{
             if(W_every.name==message){
                 W_htmlStr += `<tr style="padding: 0px;">
-                <td style="font-size: 12px;" id="Wtable"><img src="./img/icon/w/${W_every.pid}.png" alt="暂缺" title="${index}"></td>
-                <td style="font-size: 16px; padding: 0 5px;color: rgb(235, 235, 235);">${W_every.name}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.level}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.atk}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.huix}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.elem}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.elemAtk}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.j}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.n}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.q}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.z}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.s}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.kind}</td>
-                <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.morePower}</td>
+                    <td style="font-size: 12px;" id="Wtable"><img src="./img/icon/w/${W_every.pid}.png" alt="暂缺" title="${index}"></td>
+                    <td style="font-size: 16px; padding: 0 5px;color: rgb(235, 235, 235);">${W_every.name}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[0]}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[1]}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[2]}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.elem}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[3]}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[4]}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[5]}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[6]}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[7]}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.attr[8]}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.kind}</td>
+                    <td style="font-size: 16px;color: rgb(235, 235, 235);">${W_every.morePower}</td>
             </tr>`
             }
         })

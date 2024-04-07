@@ -21,10 +21,12 @@ function writeB(){
     <div>回复型</div>
     <div>辅助型</div>
 </div>
+<!--
 <div class="BLchoiseBox">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">+0</div>
     <div>+5</div>
 </div>
+//-->
 <div class="BchoiseBoxElement">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>
     <div>冰</div>

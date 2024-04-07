@@ -117,8 +117,8 @@ function writeM(){
             <td>${mapList}</td>
             <td style="font-size: 14px;" class="Mkinds_button">${kinds_list}</td>
         </tr>`
-        if(num == M_value.length-1){
-        }
+        // if(num == M_value.length-1){
+        // }
     })
     M_htmlStr += `<tr>
     <th width="12%">样貌</th>
