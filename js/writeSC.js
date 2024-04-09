@@ -209,7 +209,7 @@ Water +=6
 var List = document.getElementsByTagName('table')[0];
 var rows = List.getElementsByTagName('tr');
 
-B_value.forEach((B_every)=>{
+B_value.forEach((B_every,index)=>{
     // console.log(B_every['name'])
     var sc = B_every.madeIt['sucai_C']
     if(sc.length == 3){
@@ -232,7 +232,7 @@ B_value.forEach((B_every)=>{
                     var Final_Point = parseInt(id)-7506+Plant+Metel+Water
                 }
                 var target_line = rows[Final_Point].getElementsByTagName('td')
-                target_line[4].innerText = "B-" + target_name
+                target_line[4].innerHTML =`<p onclick="searchMessage('${target_name}', 2)" style="cursor:pointer">B-${target_name}</p>`
             }
         }
     }
@@ -265,7 +265,7 @@ E_value.forEach((E_every)=>{
                     target_name = target_name.split(">")[1]
                 }
                 var target_line = rows[Final_Point].getElementsByTagName('td')
-                target_line[4].innerText = "E-" + target_kind +"-" + target_name
+                target_line[4].innerHTML = `<p onclick="searchMessage('${target_name}', 1)" style="cursor:pointer">E-${target_kind}-${target_name}</p>`
             }
         }
     }
