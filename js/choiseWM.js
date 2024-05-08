@@ -24,9 +24,9 @@ function choiseWMKind(WBox, WElement, WLevel){
     // }else{
         for (let i = 1; i < rows.length-1; i++) {
             var row = rows[i];
-            var Wcategory1 = row.getElementsByTagName('td')[1].innerText;
+            var Wcategory1 = row.getElementsByTagName('td')[4].innerText;
             var Wcategory2 = row.getElementsByTagName('td')[2].innerText;
-            var Wcategory3 = row.getElementsByTagName('td')[3].innerText;
+            var Wcategory3 = row.getElementsByTagName('td')[4].innerText;
             if ((isSubstring(WBox, Wcategory1)||WBox == '全部')&&(WElement == Wcategory2||WElement == '全部')&&(isSubstring(WLevel, Wcategory3)|| WLevel == '全部')) {
                 row.style.display = ''; 
                 Wnum+=1

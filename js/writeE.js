@@ -3,6 +3,7 @@ function writeE(){
     document.getElementsByClassName('window')[0].style.paddingTop = '85px'
     nowPage = 1
     Ebox = '三叶'
+    Esp = '全词条'
     ELevel = 0
     clearInterval(interevalPic)
 
@@ -17,6 +18,25 @@ function writeE(){
         <div>矢尻</div>
         <div>风车</div>
         <div>水瓶</div>
+        <span style="height: 30px; width: 0.5px; background-color: #37c2c0; margin: 0 8px; opacity: .4;"></span>
+        <div>全类型</div>
+    </div>
+    <div class="EKchoiseBox" >
+        <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全词条</div>
+        <div>眩晕耐性</div>
+        <div>麻痹耐性</div>
+        <div>疲劳耐性</div>
+        <div>拘束耐性</div>
+        <div>毒耐性</div>
+        <div>沉默耐性</div>
+        <div>致盲耐性</div>
+        <div>B冷缩</div>
+        <div>绝招冷缩</div>
+        <div>右键冷缩</div>
+        <div>全体力减免</div>
+        <div>奔跑体力减免</div>
+        <div>跳跃体力减免</div>
+        <div>回避体力减免</div>
     </div>
     <div class="ELchoiseBox">
         <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">基础数值</div>
@@ -84,6 +104,18 @@ function writeE(){
         // table.rows[i].cells[5].setAttribute('title', '防御');
     }
 
+$('.EKchoiseBox div').click(function(){
+    if(this.style.backgroundColor != 'rgb(55, 194, 192)'){
+    $('.EKchoiseBox div').css('background-color','rgb(55, 194, 192, 0)')
+    $('.EKchoiseBox div').css('color','rgb(55, 194, 192)')
+    $('.EKchoiseBox div').css('border-color','rgb(55, 194, 192)')
+    this.style.backgroundColor='rgb(55, 194, 192)'
+    this.style.color='rgb(38, 41, 46)'
+    this.style.borderColor='rgb(55, 194, 192, 0)'
+    Esp = this.innerText
+    choiseE(Ebox,Esp)
+}})
+
 $('.EchoiseBox div').click(function(){
     $('.EchoiseBox div').css('background-color','rgb(55, 194, 192, 0)')
     $('.EchoiseBox div').css('color','rgb(55, 194, 192)')
@@ -92,9 +124,9 @@ $('.EchoiseBox div').click(function(){
     this.style.color='rgb(38, 41, 46)'
     this.style.borderColor='rgb(55, 194, 192, 0)'
     Ebox = this.innerText
-    choiseE(Ebox)
+    choiseE(Ebox,Esp)
 })
-    choiseE(Ebox)
+    choiseE(Ebox,Esp)
 
 $('.ELchoiseBox div').click(function(){
     if(this.style.backgroundColor != 'rgb(55, 194, 192)'){
@@ -104,45 +136,40 @@ $('.ELchoiseBox div').click(function(){
     this.style.backgroundColor='rgb(55, 194, 192)'
     this.style.color='rgb(38, 41, 46)'
     this.style.borderColor='rgb(55, 194, 192, 0)'
-        $('.BLchoiseBox div').css('background-color','rgb(55, 194, 192, 0)')
-        $('.BLchoiseBox div').css('color','rgb(55, 194, 192)')
-        $('.BLchoiseBox div').css('border-color','rgb(55, 194, 192)')
-        this.style.backgroundColor='rgb(55, 194, 192)'
-        this.style.color='rgb(38, 41, 46)'
-        this.style.borderColor='rgb(55, 194, 192, 0)'
-        if(this.innerText != "基础数值"){
-            var type = 0
-            if(this.innerText == "物攻最大值"){
-                type = 0
-            } else if (this.innerText == "魔攻最大值"){
-                type = 1
-            } else if (this.innerText == "防御最大值"){
-                type = 2
-            }
-            E_value.forEach((E_every, index)=>{
-                    var lastattr = getLastAxD(E_every.attr,E_every.max,E_every.end,type)
-                    E_every['lastattr'] = lastattr
-                    E_every.attr[8] = E_every.lastattr[0]
-                    E_every.attr[9] = E_every.lastattr[1]
-                    E_every.attr[10] = E_every.lastattr[2]
-                    E_every.attr[11] = E_every.lastattr[3]
-                })
-            let table = document.getElementsByTagName('table')[0];
-            for (var i = 1; i < table.rows.length-1; i++) {
-                var abil = E_value[i-1].attr[11]
-                table.rows[i].cells[3].setAttribute('title', abil);
-                table.rows[i].cells[4].setAttribute('title', abil);
-                table.rows[i].cells[5].setAttribute('title', abil);
-            }
-        } else {
-            E_value.forEach((E_every, index)=>{
-                    E_every.attr[8]= String((E_every.attr[1] + E_every.attr[3]*0.6 + E_every.attr[5]*0.4).toFixed(1)) + "(+" + String((E_every.attr[3]*0.6 + E_every.attr[5]*0.4).toFixed(1)) + ")"
-                    E_every.attr[9] = String((E_every.attr[1] + E_every.attr[6]*0.6 + E_every.attr[7]*0.4).toFixed(1)) + "(+" + String((E_every.attr[6]*0.6 + E_every.attr[7]*0.4).toFixed(1)) + ")"
-                    E_every.attr[10] = String((E_every.attr[2] + E_every.attr[3]*0.4 + E_every.attr[4]*0.6).toFixed(1)) + "(+" + String((E_every.attr[3]*0.4 + E_every.attr[4]*0.6).toFixed(1)) + ")"
-                })
-            }
-        choiseE(Ebox)
-    }})
+    if(this.innerText != "基础数值"){
+        var type = 0
+        if(this.innerText == "物攻最大值"){
+            type = 0
+        } else if (this.innerText == "魔攻最大值"){
+            type = 1
+        } else if (this.innerText == "防御最大值"){
+            type = 2
+        }
+        E_value.forEach((E_every, index)=>{
+            var lastattr = getLastAxD(E_every.attr,E_every.max,E_every.end,type)
+            E_every['lastattr'] = lastattr
+            E_every.attr[8] = E_every.lastattr[0]
+            E_every.attr[9] = E_every.lastattr[1]
+            E_every.attr[10] = E_every.lastattr[2]
+            E_every.attr[11] = E_every.lastattr[3]
+        })
+        let table = document.getElementsByTagName('table')[0];
+        for (var i = 1; i < table.rows.length-1; i++) {
+            var abil = E_value[i-1].attr[11]
+            table.rows[i].cells[3].setAttribute('title', abil);
+            table.rows[i].cells[4].setAttribute('title', abil);
+            table.rows[i].cells[5].setAttribute('title', abil);
+        }
+    } else {
+        E_value.forEach((E_every, index)=>{
+            E_every.attr[8]= String((E_every.attr[1] + E_every.attr[3]*0.6 + E_every.attr[5]*0.4).toFixed(1)) + "(+" + String((E_every.attr[3]*0.6 + E_every.attr[5]*0.4).toFixed(1)) + ")"
+            E_every.attr[9] = String((E_every.attr[1] + E_every.attr[6]*0.6 + E_every.attr[7]*0.4).toFixed(1)) + "(+" + String((E_every.attr[6]*0.6 + E_every.attr[7]*0.4).toFixed(1)) + ")"
+            E_every.attr[10] = String((E_every.attr[2] + E_every.attr[3]*0.4 + E_every.attr[4]*0.6).toFixed(1)) + "(+" + String((E_every.attr[3]*0.4 + E_every.attr[4]*0.6).toFixed(1)) + ")"
+        })
+    }
+    choiseE(Ebox,Esp)
+    }
+})
     $('#Etable img').click(function(){drawMakeThingWindow(E_value[this.title])})
     $('.ImagineInfo').click(function(){drawImagineInfoWindow(E_value[this.title])})
 
@@ -157,6 +184,7 @@ $('.ELchoiseBox div').click(function(){
         this.setAttribute('bak',bak_data)
     })    
 }
+
 function drawMakeThingWindow(thingArray){
     var sc_list = []
     var ms_list = []
@@ -629,6 +657,8 @@ function sumattr(ability,attr){
             attr[0] += 25
         }else if(ability == "勇猛G3"){
             attr[0] += 50
+        }else if(ability == "勇猛G4"){
+            attr[0] += 75
         }
     }else if(ability.indexOf("不屈")>-1){
         if(ability == "不屈G1"){
@@ -841,6 +871,10 @@ function sumattr(ability,attr){
             attr[0] += 38
             attr[1] += 60
         }
+    }else if(ability.indexOf("内丹術")>-1){
+        if(ability == "内丹術G4"){
+            attr[8] += 150
+        }
     }
     return attr
 }
@@ -857,6 +891,8 @@ function sumend(abilitylist){
                 AbilityList += "攻击力+25<br>"
             }else if(ability == "勇猛G3"){
                 AbilityList += "攻击力+50<br>"
+            }else if(ability == "勇猛G4"){
+                AbilityList += "攻击力+75<br>"
             }
         }else if(ability.indexOf("不屈")>-1){
             if(ability == "不屈G1"){
@@ -1045,6 +1081,10 @@ function sumend(abilitylist){
         }else if(ability.indexOf("守護者")>-1){
             if(ability == "守護者G3"){
                 AbilityList += "防御力+35 回复力+75<br>"
+            }
+        }else if(ability.indexOf("内丹術")>-1){
+            if(ability == "内丹術G4"){
+                AbilityList += "回复力+150"
             }
         }else if(ability.indexOf("戦士の心得")>-1){
             if(ability == "戦士の心得G4"){
@@ -1480,10 +1520,10 @@ function getDropInfo(pid){
 }
 
 function getLastAxD(attr,maxattr,ability,type){
-    var Patk = ["勇猛G3","戦士の心得G4","勇猛G2","獅子奮迅G3","剛力G4","エキスパートG4","巧妙G4","剛力G3","エキスパートG3","タフネスG4","トランスG4","インスピレーションG4","勇猛G1","巧妙G3","剛力G2","タフネスG3","トランスG3","インスピレーションG3","気功G4","ウィズダムG4","エキスパートG2","巧妙G2","気功G3","ウィズダムG3","タフネスG2","トランスG2","インスピレーションG2","剛力G1","エキスパートG1","気功G2","ウィズダムG2","巧妙G1","タフネスG1","トランスG1","インスピレーションG1","気功G1","ウィズダムG1"]
-    var Matk = ["勇猛G3","戦士の心得G4","勇猛G2","獅子奮迅G3","博識G4","シックスセンスG4","集中G4","博識G3","シックスセンスG3","ウィズダムG4","トランスG4","ストラテジストG4","勇猛G1","集中G3","博識G2","ウィズダムG3","トランスG3","ストラテジストG3","インスピレーションG4","屈強な心身G4","シックスセンスG2","集中G2","インスピレーションG3","屈強な心身G3","ウィズダムG2","トランスG2","ストラテジストG2","博識G1","シックスセンスG1","インスピレーションG2","屈強な心身G2","集中G1","ウィズダムG1","トランスG1","ストラテジストG1","インスピレーションG1","屈強な心身G1"]
+    var Patk = ["勇猛G4","勇猛G3","戦士の心得G4","勇猛G2","獅子奮迅G3","剛力G4","エキスパートG4","巧妙G4","剛力G3","エキスパートG3","タフネスG4","トランスG4","インスピレーションG4","勇猛G1","巧妙G3","剛力G2","タフネスG3","トランスG3","インスピレーションG3","気功G4","ウィズダムG4","エキスパートG2","巧妙G2","気功G3","ウィズダムG3","タフネスG2","トランスG2","インスピレーションG2","剛力G1","エキスパートG1","気功G2","ウィズダムG2","巧妙G1","タフネスG1","トランスG1","インスピレーションG1","気功G1","ウィズダムG1"]
+    var Matk = ["勇猛G4","勇猛G3","戦士の心得G4","勇猛G2","獅子奮迅G3","博識G4","シックスセンスG4","集中G4","博識G3","シックスセンスG3","ウィズダムG4","トランスG4","ストラテジストG4","勇猛G1","集中G3","博識G2","ウィズダムG3","トランスG3","ストラテジストG3","インスピレーションG4","屈強な心身G4","シックスセンスG2","集中G2","インスピレーションG3","屈強な心身G3","ウィズダムG2","トランスG2","ストラテジストG2","博識G1","シックスセンスG1","インスピレーションG2","屈強な心身G2","集中G1","ウィズダムG1","トランスG1","ストラテジストG1","インスピレーションG1","屈強な心身G1"]
     var def = ["不屈G4","不屈G3","戦士の心得G4","不屈G2","守護者G3","忍耐力G4","タフネスG4","剛力G4","不屈G1","忍耐力G3","タフネスG3","気功G4","ストラテジストG4","屈強な心身G4","剛力G3","忍耐力G2","気功G3","ストラテジストG3","屈強な心身G3","エキスパートG4","トランスG4","インスピレーションG4","タフネスG2","剛力G2","エキスパートG3","トランスG3","インスピレーションG3","気功G2","ストラテジストG2","屈強な心身G2","忍耐力G1","タフネスG1","エキスパートG2","トランスG2","インスピレーションG2","剛力G1","気功G1","ストラテジストG1","屈強な心身G1","エキスパートG1","トランスG1","インスピレーションG1"]
-    var Aatk = [50,38,25,25,22.8,19,15.2,15,13,11.4,11.4,11.4,10,10,7.8,7.8,7.8,7.6,7.6,7,5.2,5.2,5.2,5.2,4.2,4.2,4.2,3,3,2.8,2.8,2,1.8,1.8,1.8,1.2,1.2]
+    var Aatk = [75,50,38,25,25,22.8,19,15.2,15,13,11.4,11.4,11.4,10,10,7.8,7.8,7.8,7.6,7.6,7,5.2,5.2,5.2,5.2,4.2,4.2,4.2,3,3,2.8,2.8,2,1.8,1.8,1.8,1.2,1.2]
     var Ddef = [120,70,60,40,35,22.8,19,15.2,15,15,13,11.4,11.4,11.4,10,7.8,7.8,7.8,7.8,7.6,7.6,7.6,7,5.2,5.2,5.2,5.2,4.2,4.2,4.2,3,3,2.8,2.8,2.8,2,1.8,1.8,1.8,1.2,1.2,1.2]
     var wuli = 0
     var maho = 0

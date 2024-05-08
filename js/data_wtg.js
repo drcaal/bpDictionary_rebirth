@@ -27,5 +27,5 @@ var WTG_value = [
     {'num':'26', 'jName':'ファットマン系','cName':'肥胖兽系','mons_normol':[89,90], 'mons_boss':[]},
     {'num':'27', 'jName':'ペッカー系','cName':'佩卡系','mons_normol':[108,109,118], 'mons_boss':[65]},
     {'num':'28', 'jName':'ギルミー系','cName':'基尔米系','mons_normol':[110,111,112,113,114], 'mons_boss':[60,62,64]},
-    {'num':'29', 'jName':'マノー系','cName':'曼诺系','mons_normol':[120], 'mons_boss':[61]},
+    {'num':'29', 'jName':'マノー系','cName':'玛诺系','mons_normol':[120], 'mons_boss':[61]},
 ]

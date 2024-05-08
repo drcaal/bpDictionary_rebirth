@@ -14,7 +14,7 @@ function writeW(){
     WLevel = '全部'
     var W_htmlStr = `
     <p class="windowTitle">| 武器图鉴</p>
-<p class="Topword">角色武器目前具有六种类型，七种元素以及11个等级段。单击列名可进行升、降序排列。<br>单击武器图标可查看其制作材料、图纸及获取途径。 <br><del><span style="color:red;">红色字体</span>特攻表示该特攻仅出现于副本直接掉落。</del> <br>2023年11月22日Ver.1.02.100版本更新后副本掉落武器的概率大幅度提高,但该方式掉落的武器特攻仍为原先的制作特攻。 <br>目前<span style="color:red;">红色字体</span>标记的特攻为原先概率掉落的特攻类型。</p>
+<p class="Topword">角色武器目前具有七种类型，七种元素以及11个等级段。单击列名可进行升、降序排列。<br>单击武器图标可查看其制作材料、图纸及获取途径。 <br><del><span style="color:red;">红色字体</span>特攻表示该特攻仅出现于副本直接掉落。</del> <br>2023年11月22日Ver.1.02.100版本更新后副本掉落武器的概率大幅度提高,但该方式掉落的武器特攻仍为原先的制作特攻。 <br>目前<span style="color:red;">红色字体</span>标记的特攻为原先概率掉落的特攻类型。</p>
 
 <div class="BchoiseBox">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>
@@ -24,6 +24,7 @@ function writeW(){
     <div>法杖</div>
     <div>锤子</div>
     <div>枪</div>
+    <div>吉他</div>
 </div>
 <div class="BchoiseBoxElement">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>

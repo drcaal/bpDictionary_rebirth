@@ -281,8 +281,8 @@ document.getElementsByClassName('MshowMoreTag')[1].onclick=function(){
     document.getElementsByClassName('MshowMoreTag')[1].innerHTML = '[展开]'}
 }
 document.getElementsByClassName('MshowMoreTag')[0].onclick=function(){
-    if(document.getElementById('MapKindShowAll').style.height!='260px'){
-    document.getElementById('MapKindShowAll').style.height = '260px'
+    if(document.getElementById('MapKindShowAll').style.height!='280px'){
+    document.getElementById('MapKindShowAll').style.height = '280px'
     document.getElementsByClassName('MshowMoreTag')[0].innerHTML = '[收起]'}
     else{
     document.getElementById('MapKindShowAll').style.height = '28px'

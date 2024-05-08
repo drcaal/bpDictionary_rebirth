@@ -182,8 +182,8 @@ function writeSC(){
     })
 
 document.getElementsByClassName('MshowMoreTag')[0].onclick=function(){
-    if(document.getElementById('MapKindShowAll').style.height!='260px'){
-    document.getElementById('MapKindShowAll').style.height = '260px'
+    if(document.getElementById('MapKindShowAll').style.height!='280px'){
+    document.getElementById('MapKindShowAll').style.height = '280px'
     document.getElementsByClassName('MshowMoreTag')[0].innerHTML = '[收起]'}
     else{
     document.getElementById('MapKindShowAll').style.height = '28px'

@@ -49,6 +49,16 @@ td{
     margin: 12px 50px;
     user-select: none;
 }
+
+.EKchoiseBox{
+    position: relative;
+    display: flex;
+    margin: 10px 50px;
+    margin-bottom: -10px;
+    user-select: none;
+    flex-wrap: wrap;
+}
+
 .EchoiseBox div,.BchoiseBox div,.BchoiseBoxElement div,.BchoiseBoxLevel div,.BLchoiseBox div{
     width: 50px;
     height: 30px;
@@ -80,6 +90,23 @@ td{
     color: rgb(50, 180, 165);
     font-size: 14px;
     font-weight: 600;
+}
+.EKchoiseBox div{
+    width: 90px;
+    height: 30px;
+    margin: 0 10px;
+    background-color: rgb(55, 194, 192, 0);
+    border-radius: 10px 0;
+    cursor: pointer;
+    transition: .3s;
+    border: rgb(50, 180, 165) 1px solid;
+    box-sizing: border-box;
+    line-height: 26px;
+    text-align: center;
+    color: rgb(50, 180, 165);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 .BchoiseBoxLevelWM div,.BchoiseBoxLevelWhere div,.BchoiseBoxLevelMK div{
     margin-bottom: 12px;

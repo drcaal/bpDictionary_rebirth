@@ -48,6 +48,8 @@ var SC_value = [
     { pid: '7038', name: 'スレンダーグリーン', obtain: '24', kind: '植物采集', mappic:'1', sfrom:'植物', Point:110},
     { pid: '7039', name: 'ルインドプラント', obtain: '25', kind: '植物采集', mappic:'1', sfrom:'植物', Point:14},
     { pid: '7040', name: '夜明かり花', obtain: '28', kind: '植物采集', mappic:'1', sfrom:'植物', Point:26},
+    { pid: '7041', name: 'アルストンシャープ', obtain: '29', kind: '植物采集', mappic:'1', sfrom:'植物', Point:12},
+
     
 
     { pid: '7207', name: '水晶の原石', kind: '矿物采集', obtain: '0', mappic: '2', sfrom:'矿物'},
@@ -94,6 +96,8 @@ var SC_value = [
     { pid: '7248', name: 'スクラップシャフト', kind: '矿物采集', obtain: '26', mappic: '1', sfrom:'矿物', Point:17},
     { pid: '7249', name: 'カースドストーン', kind: '矿物采集', obtain: '27', mappic: '1', sfrom:'矿物', Point:13},
     { pid: '7250', name: '月明かりの樹結晶', kind: '矿物采集', obtain: '28', mappic: '1', sfrom:'矿物', Point:25},
+    { pid: '7251', name: '鉱割石', kind: '矿物采集', obtain: '29', mappic: '1', sfrom:'矿物', Point:13},
+    { pid: '7252', name: '海積層石', kind: '矿物采集', obtain: '30', mappic: '1', sfrom:'矿物', Point:26},
       
 
     { pid: '7401', name: '割れた貝殻', kind: '水栖采集', obtain: '0', mappic: '2', sfrom:'水栖'},
@@ -108,6 +112,7 @@ var SC_value = [
     { pid: '7410', name: '常夏巻貝', kind: '水栖采集', obtain: '24', mappic: '1', sfrom:'水栖', Point:114},
     { pid: '7411', name: 'サンセットプラント', kind: '水栖采集', obtain: '24', mappic: '1', sfrom:'水栖', Point:111},
     { pid: '7412', name: 'マダラガイ', kind: '水栖采集', obtain: '24', mappic: '1', sfrom:'水栖', Point:115},
+    { pid: '7413', name: '入江穴貝', kind: '水栖采集', obtain: '30', mappic: '1', sfrom:'水栖', Point:27},
 
     
     { pid: '7501', name: '動的エングラムの欠片', kind: '小怪掉落', obtain: '0', mappic: '0' , sfrom:'任意小怪'},
@@ -271,4 +276,12 @@ var SC_value = [
     { pid: '7659', name: 'マインドペッカーの雅羽', kind: '小怪掉落', obtain: '28', mappic: '4', sfrom: 'マインドペッカー' },
     { pid: '7660', name: 'ウリボの毛皮', kind: '小怪掉落', obtain: '28', mappic: '4', sfrom: 'ウリボ' },
     { pid: '7661', name: 'タイラントボアの牙', kind: '小怪掉落', obtain: '28', mappic: '4', sfrom: 'タイラントボア' },
+    { pid: '7662', name: 'ヒートファットマンの毛皮', kind: '小怪掉落', obtain: '29', mappic: '4', sfrom: 'ヒートファットマン' },
+    { pid: '7663', name: 'ムークウォーリアーの大角', kind: '小怪掉落', obtain: '29', mappic: '4', sfrom: 'ムークウォーリアー' },
+    { pid: '7664', name: 'エレキファットマンの生爪', kind: '小怪掉落', obtain: '29', mappic: '4', sfrom: 'エレキファットマン' },
+    { pid: '7665', name: 'ムークアーチャーの麗たてがみ', kind: '小怪掉落', obtain: '29', mappic: '4', sfrom: 'ムークアーチャー' },
+    { pid: '7666', name: 'イージスポッドの機鎧', kind: '小怪掉落', obtain: '30', mappic: '4', sfrom: 'イージスポッド' },
+    { pid: '7667', name: 'イグニスエレメントの結晶', kind: '小怪掉落', obtain: '30', mappic: '4', sfrom: 'イグニスエレメント' },
+    { pid: '7668', name: 'フレイムスカイフィッシュの大羽', kind: '小怪掉落', obtain: '30', mappic: '4', sfrom: 'フレイムスカイフィッシュ' },
+    { pid: '7669', name: 'ギルミーの生爪', kind: '小怪掉落', obtain: '30', mappic: '4', sfrom: 'ギルミー' },
 ]
