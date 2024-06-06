@@ -226,7 +226,7 @@ var rows = List.getElementsByTagName('tr');
 B_value.forEach((B_every,index)=>{
     // console.log(B_every['name'])
     var sc = B_every.madeIt['sucai_C']
-    if(sc.length == 3){
+    if(sc.length >= 2){
         for(var i = 0;i<sc.length;i++){
             if(uni_sc.indexOf(sc[i]) == -1){
                 var modo_sc = sc[i]
@@ -247,6 +247,7 @@ B_value.forEach((B_every,index)=>{
                 }
                 var target_line = rows[Final_Point].getElementsByTagName('td')
                 target_line[4].innerHTML =`<p onclick="searchMessage('${target_name}', 2)" style="cursor:pointer">B-${target_name}</p>`
+                console.log(target_name)
             }
         }
     }
