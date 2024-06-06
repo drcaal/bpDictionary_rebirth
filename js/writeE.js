@@ -67,7 +67,7 @@ function writeE(){
         E_every.attr.push(maho)
         E_every.attr.push(def)
         E_htmlStr += `<tr>
-        <td style="font-size: 12px;"><img src="./img/icon/e/${E_every.pid}.png" alt="${E_every.pid}" title="${index}"></td>
+        <td style="font-size: 12px;"><img src="img/icon/e/${E_every.pid}.png" alt="${E_every.pid}" title="${index}"></td>
         <td style="font-size: 14px; padding: 0 5px;">${E_every.name}</td>
         <td>${E_every.attr[0]}</td>
         <td>${wuli}</td>
@@ -250,13 +250,20 @@ function drawMakeThingWindow(thingArray){
                     if(M_value[x]['name'].indexOf(Monster)!=-1 && M_value[x]['name'].charAt(0) == Monster.charAt(0)){
                         for(var y=0;y<M_value[x]['spaceName'].length;y++){
                             if(SC_value[sc_list[i]].obtain == M_value[x]['spaceName'][y]){
-                                var Nowid = SC_value[sc_list[i]].obtain
+                                var id = SC_value[sc_list[i]].obtain
+                                var Nowid = 0
                                 var SC_List = [];
+                                for (var k=0;k<Map_id.length;k++){
+                                    if (Map_id[k]['num'] == id){
+                                        Nowid = k
+                                        break
+                                    }
+                                }
                                 var Point_length = M_value[x]['mapWhere'][y].length;
                                 for (var z=0;z<Point_length;z++){
-                                    SC_List.push({x: Map_id[Nowid-1]['aPoint_List'][(M_value[x]['mapWhere'][y][z]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(M_value[x]['mapWhere'][y][z]-1)*2+1]})
+                                    SC_List.push({x: Map_id[Nowid]['aPoint_List'][(M_value[x]['mapWhere'][y][z])*2] , y: Map_id[Nowid]['aPoint_List'][(M_value[x]['mapWhere'][y][z])*2+1]})
                                 };
-                                scList += `<a onclick="mergeImages(${M_value[x]['spaceName'][y]},['1000'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                                scList += `<a onclick="mergeImages(${Nowid},['1000'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                                 // var map = Map_id[parseInt(SC_every.obtain)-1]['mName']
                                 break
                             }
@@ -264,16 +271,23 @@ function drawMakeThingWindow(thingArray){
                     }
                 }
             } else if(SC_value[sc_list[i]]['mappic'] == 1){
-                var Nowid = SC_value[sc_list[i]].obtain
+                var id = SC_value[sc_list[i]].obtain
+                var Nowid = 0
                 var SC_List = [];
-                var Point = SC_value[sc_list[i]].Point-1
-                SC_List.push({x: Map_id[Nowid-1]['aPoint_List'][Point*2] , y: Map_id[Nowid-1]['aPoint_List'][Point*2+1]})
+                for (var k=0;k<Map_id.length;k++){
+                    if (Map_id[k]['num'] == id){
+                        Nowid = k
+                        break
+                    }
+                }
+                var Point = SC_value[sc_list[i]].Point
+                SC_List.push({x: Map_id[Nowid]['aPoint_List'][Point*2] , y: Map_id[Nowid]['aPoint_List'][Point*2+1]})
                 if(SC_value[sc_list[i]]['sfrom'] == '植物'){
-                    scList += `<a onclick="mergeImages(${Nowid},['1003'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                    scList += `<a onclick="mergeImages(${Nowid},['1003'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                 } else if(SC_value[sc_list[i]]['sfrom'] == '矿物'){
-                    scList += `<a onclick="mergeImages(${Nowid},['1002'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                    scList += `<a onclick="mergeImages(${Nowid},['1002'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                 } else if(SC_value[sc_list[i]]['sfrom'] == '水栖'){
-                    scList += `<a onclick="mergeImages(${Nowid},['1004'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                    scList += `<a onclick="mergeImages(${Nowid},['1004'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                 }
             }
             var place = '全地域'
@@ -298,7 +312,7 @@ function drawMakeThingWindow(thingArray){
             }else if(SC_value[sc_list[i]].mappic=='2'){
                 // var imgSrcString  =``
                 // for(var y=0;y<SC_value[sc_list[i]].mapWhere.length;y++){
-                //     imgSrcString += `<img src="./img/map/`+SC_value[sc_list[i]].mapWhere[y]+`.png" alt="暂无" style="height: 150px;">`
+                //     imgSrcString += `<img src="img/map/`+SC_value[sc_list[i]].mapWhere[y]+`.png" alt="暂无" style="height: 150px;">`
                 // }
                 windowHtml += `<tr class="canclick">
                 <td style="font-size: 14px;">${SC_value[sc_list[i]].name}</td>
@@ -348,12 +362,18 @@ function drawMakeThingWindow(thingArray){
     
             MB_value.forEach((MB_every)=>{
                 if(MB_every.name.split('<br>')[0]==thingArray.madeIt.sucai_B){
-
                     var mapList = ``
-                    var Nowid = parseInt(MB_every.spaceName[0]);
+                    var id = MB_every.spaceName[0];
+                    var Nowid = 0
                     var Map_List = [];
-                    Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(MB_every.mapWhere[0][0]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(MB_every.mapWhere[0][0]-1)*2+1]})
-                    mapList += `<a onclick="mergeImages(${MB_every.spaceName[0]},['1001'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid-1]['mName']}</a><br>`
+                    for (var k=0;k<Map_id.length;k++){
+                        if (Map_id[k]['num'] == id){
+                            Nowid = k
+                            break
+                        }
+                    }
+                    Map_List.push({x: Map_id[Nowid]['aPoint_List'][(MB_every.mapWhere[0][0])*2] , y: Map_id[Nowid]['aPoint_List'][(MB_every.mapWhere[0][0])*2+1]})
+                    mapList += `<a onclick="mergeImages(${Nowid},['1001'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid]['mName']}</a><br>`
                     windowHtml += `<div class="ThingWindow_madeBox" style="height: 180px;"><table><tbody>
                     <tr style="height: 20px; font-size: 14px;">
                         <th width="15%">样貌</th>
@@ -365,7 +385,7 @@ function drawMakeThingWindow(thingArray){
                         <th width="20%">数量</th>
                     </tr>`
                     windowHtml += `<tr>
-                        <td><img src="./img/icon/m/${MB_every.pid}.png" alt="暂无" style="height: 80px;"></td>
+                        <td><img src="img/icon/m/${MB_every.pid}.png" alt="暂无" style="height: 80px;"></td>
                         <td style="font-size: 14px;">${MB_every.level}</td>
                         <td style="font-size: 14px;">${MB_every.name}</td>
                         <td style="font-size: 14px;">${MB_every.monsKind}</td>
@@ -389,17 +409,24 @@ function drawMakeThingWindow(thingArray){
                     </tr>`
                     var mapList = ``
                     for(var i=0;i<M_every.spaceName.length;i++){
-                            var Nowid = parseInt(M_every.spaceName[i]);
+                            var id = M_every.spaceName[i];
+                            var Nowid = 0
                             var Map_List = [];
+                            for (var k=0;k<Map_id.length;k++){
+                                if (Map_id[k]['num'] == id){
+                                    Nowid = k
+                                    break
+                                }
+                            }
                             var Point_length = M_every.mapWhere[i].length;
                             for (var x=0;x<Point_length;x++){
-                                Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(M_every.mapWhere[i][x]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(M_every.mapWhere[i][x]-1)*2+1]})
+                                Map_List.push({x: Map_id[Nowid]['aPoint_List'][(M_every.mapWhere[i][x])*2] , y: Map_id[Nowid]['aPoint_List'][(M_every.mapWhere[i][x])*2+1]})
                             };
-                            mapList += `<a onclick="mergeImages(${M_every.spaceName[i]},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid-1]['mName']}</a><br>`
+                            mapList += `<a onclick="mergeImages(${Nowid},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid]['mName']}</a><br>`
                         }
 
                     windowHtml += `<tr class="canclick" style="height: 120px;">
-                        <td><img src="./img/icon/m/${M_every.pid}.png" alt="暂无" style="height: 70px;"></td>
+                        <td><img src="img/icon/m/${M_every.pid}.png" alt="暂无" style="height: 70px;"></td>
                         <td style="font-size: 14px;">${M_every.name}</td>
                         <td>${thingArray.madeIt.otherWords}</td>
                         <td style="max-width: 350px;">${mapList}</td>
@@ -440,13 +467,20 @@ function drawMakeThingWindow(thingArray){
                             if(M_value[x]['name'].indexOf(Monster)!=-1 && M_value[x]['name'].charAt(0) == Monster.charAt(0)){
                                 for(var y=0;y<M_value[x]['spaceName'].length;y++){
                                     if(SC_value[sc_list[i]].obtain == M_value[x]['spaceName'][y]){
-                                        var Nowid = SC_value[sc_list[i]].obtain
+                                        var id = SC_value[sc_list[i]].obtain
+                                        var Nowid = 0
                                         var SC_List = [];
+                                        for (var k=0;k<Map_id.length;k++){
+                                            if (Map_id[k]['num'] == id){
+                                                Nowid = k
+                                                break
+                                            }
+                                        }
                                         var Point_length = M_value[x]['mapWhere'][y].length;
                                         for (var z=0;z<Point_length;z++){
-                                            SC_List.push({x: Map_id[Nowid-1]['aPoint_List'][(M_value[x]['mapWhere'][y][z]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(M_value[x]['mapWhere'][y][z]-1)*2+1]})
+                                            SC_List.push({x: Map_id[Nowid]['aPoint_List'][(M_value[x]['mapWhere'][y][z])*2] , y: Map_id[Nowid]['aPoint_List'][(M_value[x]['mapWhere'][y][z])*2+1]})
                                         };
-                                        scList += `<a onclick="mergeImages(${M_value[x]['spaceName'][y]},['1000'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                                        scList += `<a onclick="mergeImages(${Nowid},['1000'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                                         // var map = Map_id[parseInt(SC_every.obtain)-1]['mName']
                                         break
                                     }
@@ -454,16 +488,23 @@ function drawMakeThingWindow(thingArray){
                             }
                         }
                     } else if(SC_value[sc_list[i]]['mappic'] == 1){
-                        var Nowid = SC_value[sc_list[i]].obtain
+                        var id = SC_value[sc_list[i]].obtain
+                        var Nowid = 0
+                        for (var k=0;k<Map_id.length;k++){
+                            if (Map_id[k]['num'] == id){
+                                Nowid = k
+                                break
+                            }
+                        }
                         var SC_List = [];
                         var Point = SC_value[sc_list[i]].Point-1
-                        SC_List.push({x: Map_id[Nowid-1]['aPoint_List'][Point*2] , y: Map_id[Nowid-1]['aPoint_List'][Point*2+1]})
+                        SC_List.push({x: Map_id[Nowid]['aPoint_List'][Point*2] , y: Map_id[Nowid]['aPoint_List'][Point*2+1]})
                         if(SC_value[sc_list[i]]['sfrom'] == '植物'){
-                            scList += `<a onclick="mergeImages(${Nowid},['1003'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                            scList += `<a onclick="mergeImages(${Nowid},['1003'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                         } else if(SC_value[sc_list[i]]['sfrom'] == '矿物'){
-                            scList += `<a onclick="mergeImages(${Nowid},['1002'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                            scList += `<a onclick="mergeImages(${Nowid},['1002'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                         } else if(SC_value[sc_list[i]]['sfrom'] == '水栖'){
-                            scList += `<a onclick="mergeImages(${Nowid},['1004'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                            scList += `<a onclick="mergeImages(${Nowid},['1004'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                         }
                     }
                     
@@ -567,13 +608,20 @@ function drawMakeThingWindow(thingArray){
                             if(M_value[x]['name'].indexOf(Monster)!=-1 && M_value[x]['name'].charAt(0) == Monster.charAt(0)){
                                 for(var y=0;y<M_value[x]['spaceName'].length;y++){
                                     if(SC_value[sc_list[i]].obtain == M_value[x]['spaceName'][y]){
-                                        var Nowid = SC_value[sc_list[i]].obtain
+                                        var id = SC_value[sc_list[i]].obtain
+                                        var Nowid = 0
                                         var SC_List = [];
+                                        for (var k=0;k<Map_id.length;k++){
+                                            if (Map_id[k]['num'] == id){
+                                                Nowid = k
+                                                break
+                                            }
+                                        }
                                         var Point_length = M_value[x]['mapWhere'][y].length;
                                         for (var z=0;z<Point_length;z++){
-                                            SC_List.push({x: Map_id[Nowid-1]['aPoint_List'][(M_value[x]['mapWhere'][y][z]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(M_value[x]['mapWhere'][y][z]-1)*2+1]})
+                                            SC_List.push({x: Map_id[Nowid]['aPoint_List'][(M_value[x]['mapWhere'][y][z])*2] , y: Map_id[Nowid]['aPoint_List'][(M_value[x]['mapWhere'][y][z])*2+1]})
                                         };
-                                        scList += `<a onclick="mergeImages(${M_value[x]['spaceName'][y]},['1000'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                                        scList += `<a onclick="mergeImages(${Nowid},['1000'],${JSON.stringify(SC_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                                         // var map = Map_id[parseInt(SC_every.obtain)-1]['mName']
                                         break
                                     }
@@ -603,7 +651,7 @@ function drawMakeThingWindow(thingArray){
                     }else if(SC_value[sc_list[i]].mappic=='2'){
                         var imgSrcString  =``
                         // for(var y=0;y<SC_value[sc_list[i]].mapWhere.length;y++){
-                        //     imgSrcString += `<img src="./img/map/`+SC_value[sc_list[i]].mapWhere[y]+`.png" alt="暂无" style="height: 150px;">`
+                        //     imgSrcString += `<img src="img/map/`+SC_value[sc_list[i]].mapWhere[y]+`.png" alt="暂无" style="height: 150px;">`
                         // }
                         windowHtml += `<tr class="canclick">
                         <td style="font-size: 14px;">${SC_value[sc_list[i]].name}</td>
@@ -1159,6 +1207,8 @@ function sumend(abilitylist){
         }else if(ability.indexOf("強撃:Bイマジン")>-1){
             if(ability == "強撃:BイマジンG1"){
                 AbilityList += "战斗幻想造成的伤害提高6%<br>"
+            }else if(ability == "強撃:BイマジンG3"){
+                AbilityList += "战斗幻想造成的伤害提高8%<br>"
             }
         }else if(ability.indexOf("強撃:近接攻撃")>-1){
             if(ability == "強撃:近接攻撃G1"){

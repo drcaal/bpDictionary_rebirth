@@ -55,19 +55,26 @@ function writeSC(){
             var Monster = SC_every.sfrom + "<br>"
             for(var i=0;i<M_value.length;i++){
                 if((SC_every.sfrom == "植物" || SC_every.sfrom == "矿物" || SC_every.sfrom == "水栖") && SC_every.mappic == 1){
-                    var Nowid = SC_every.obtain
+                    var id = SC_every.obtain
+                    var Nowid = 0
                     var Point_id = SC_every.Point;
                     var Map_List = [];
+                    for (var k=0;k<Map_id.length;k++){
+                        if (Map_id[k]['num'] == id){
+                            Nowid = k
+                            break
+                        }
+                    }
                     // var try0 = Map_id[Nowid-1]
                     // var try1 =SC_every.name
                     // console.log({try0,try1})
-                    Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][([Point_id]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][([Point_id]-1)*2+1]})
+                    Map_List.push({x: Map_id[Nowid]['aPoint_List'][([Point_id])*2] , y: Map_id[Nowid]['aPoint_List'][([Point_id])*2+1]})
                     if(SC_every.sfrom == "植物"){
-                        mapList += `<a onclick="mergeImages(${Nowid},['1003'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                        mapList += `<a onclick="mergeImages(${Nowid},['1003'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                     } else if(SC_every.sfrom == "矿物"){
-                        mapList += `<a onclick="mergeImages(${Nowid},['1002'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                        mapList += `<a onclick="mergeImages(${Nowid},['1002'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                     } else {
-                        mapList += `<a onclick="mergeImages(${Nowid},['1004'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                        mapList += `<a onclick="mergeImages(${Nowid},['1004'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                     }
                     // mapList += `<a onclick="mergeImages(${Nowid},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
                     break
@@ -75,13 +82,20 @@ function writeSC(){
                 if(M_value[i]['name'].indexOf(Monster)!=-1 && M_value[i]['name'].charAt(0) == Monster.charAt(0)){
                     for(var y=0;y<M_value[i]['spaceName'].length;y++){
                         if(SC_every.obtain == M_value[i]['spaceName'][y]){
-                            var Nowid = SC_every.obtain
+                            var id = SC_every.obtain
+                            var Nowid = 0
                             var Map_List = [];
                             var Point_length = M_value[i]['mapWhere'][y].length;
+                            for (var k=0;k<Map_id.length;k++){
+                                if (Map_id[k]['num'] == id){
+                                    Nowid = k
+                                    break
+                                }
+                            }
                             for (var z=0;z<Point_length;z++){
-                                Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(M_value[i]['mapWhere'][y][z]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(M_value[i]['mapWhere'][y][z]-1)*2+1]})
+                                Map_List.push({x: Map_id[Nowid]['aPoint_List'][(M_value[i]['mapWhere'][y][z])*2] , y: Map_id[Nowid]['aPoint_List'][(M_value[i]['mapWhere'][y][z])*2+1]})
                             };
-                            mapList += `<a onclick="mergeImages(${M_value[i]['spaceName'][y]},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid-1]['mName']}</a><br>`
+                            mapList += `<a onclick="mergeImages(${Nowid},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")},0)">${Map_id[Nowid]['mName']}</a><br>`
                             // var map = Map_id[parseInt(SC_every.obtain)-1]['mName']
 
                             break
@@ -101,7 +115,7 @@ function writeSC(){
             </tr>`
         }else if(SC_every.mappic=='2'){
             // for(var i=0;i<SC_every.mapWhere.length;i++){
-                // imgSrcString += `<img src="./img/map/`+SC_every.mapWhere[i]+`.png" alt="暂无" style="height: 150px;">`
+                // imgSrcString += `<img src="img/map/`+SC_every.mapWhere[i]+`.png" alt="暂无" style="height: 150px;">`
             // }
             SC_htmlStr += trNameId+`
                 <td style="font-size: 14px;">${SC_every.name}</td>

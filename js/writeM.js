@@ -95,21 +95,28 @@ function writeM(){
         // }
         for(var i=0;i<M_every.spaceName.length;i++){
         // for(var i=0;i<M_every.spaceName.length;i++){
-            var Nowid = parseInt(M_every.spaceName[i]);
+            var id = M_every.spaceName[i];
+            var Nowid = 0;
             var Map_List = [];
+            for (var k=0;k<Map_id.length;k++){
+                if (Map_id[k]['num'] == id){
+                    Nowid = k
+                    break
+                }
+            }
             // var Point_length = M_every.mapWhere[i].length/2;
             // for (var x=0;x<Point_length;x++){
             var Point_length = M_every.mapWhere[i].length;
             for (var x=0;x<Point_length;x++){
-                Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(M_every.mapWhere[i][x]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(M_every.mapWhere[i][x]-1)*2+1]})
+                Map_List.push({x: Map_id[Nowid]['aPoint_List'][(M_every.mapWhere[i][x])*2] , y: Map_id[Nowid]['aPoint_List'][(M_every.mapWhere[i][x])*2+1]})
             };
-            mapList += `<a onclick="mergeImages(${M_every.spaceName[i]},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid-1]['mName']}</a><br>`
+            mapList += `<a onclick="mergeImages(${Nowid},['1000'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid]['mName']}</a><br>`
         }
         for(var i=0;i<M_every.monsKinds.length;i++){
             kinds_list += "<div>" + M_every.monsKinds[i] + "</div>"
         }
         M_htmlStr += `<tr class="canclick">
-            <td><img src="./img/icon/m/${M_every.pid}.png" style="height: 100px;"></td>
+            <td><img src="img/icon/m/${M_every.pid}.png" style="height: 100px;"></td>
             <td style="font-size: 14px;">${M_every.name}</td>
             <td style="font-size: 14px;" class="Mkind_button"><div>${M_every.monsKind}</div></td>
             <td style="font-size: 14px;">${M_every.moreElem}</td>
@@ -148,15 +155,22 @@ function writeM(){
     MB_value.forEach((MB_every)=>{
         var Bkinds_list = ``
         var mapList = ``
-        var Nowid = parseInt(MB_every.spaceName[0]);
+        var id = MB_every.spaceName[0];
+        var Nowid = 0;
         var Map_List = [];
-        Map_List.push({x: Map_id[Nowid-1]['aPoint_List'][(MB_every.mapWhere[0][0]-1)*2] , y: Map_id[Nowid-1]['aPoint_List'][(MB_every.mapWhere[0][0]-1)*2+1]})
-        mapList += `<a onclick="mergeImages(${MB_every.spaceName[0]},['1001'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid-1]['mName']}</a><br>`
+        for (var k=0;k<Map_id.length;k++){
+            if (Map_id[k]['num'] == id){
+                Nowid = k
+                break
+            }
+        }
+        Map_List.push({x: Map_id[Nowid]['aPoint_List'][(MB_every.mapWhere[0][0])*2] , y: Map_id[Nowid]['aPoint_List'][(MB_every.mapWhere[0][0])*2+1]})
+        mapList += `<a onclick="mergeImages(${Nowid},['1001'],${JSON.stringify(Map_List).replace(/\"/g,"'")})">${Map_id[Nowid]['mName']}</a><br>`
         for(var i=0;i<MB_every.monsKinds.length;i++){
             Bkinds_list += "<div>" + MB_every.monsKinds[i] + "</div>"
         }
         M_htmlStr += `<tr>
-            <td><img src="./img/icon/m/${MB_every.pid}.png" style="height: 110px;"></td>
+            <td><img src="img/icon/m/${MB_every.pid}.png" style="height: 110px;"></td>
             <td style="font-size: 14px;">${MB_every.level}</td>
             <td style="font-size: 14px;">${MB_every.name}</td>
             <td style="font-size: 14px;" class="Mkind_button"><div>${MB_every.monsKind}</div></td>
@@ -302,7 +316,8 @@ function mergeImages(baseImagePath, overlayImagePaths, positions) {
     var canvas = document.createElement('canvas');
     var context = canvas.getContext('2d');
     var baseImage = new Image();
-    baseImage.src = '\img/monster/' + baseImagePath + '.png';
+    Imagesrc = Map_id[baseImagePath]['num']
+    baseImage.src = '/img/monster/' + Imagesrc + '.png';
     baseImage.onload = function() {
       canvas.width = baseImage.width;
       canvas.height = baseImage.height;
@@ -312,7 +327,7 @@ function mergeImages(baseImagePath, overlayImagePaths, positions) {
       }
       overlayImagePaths.forEach(function(overlayImagePath, index) {
         var overlayImage = new Image();
-        overlayImage.src = '\img/monster/' + overlayImagePath + '.png';
+        overlayImage.src = '/img/monster/' + overlayImagePath + '.png';
         loadedCount = 0;
         overlayImage.onload = function() {
             context.drawImage(overlayImage, positions[index].x, positions[index].y);
