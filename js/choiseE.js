@@ -14,10 +14,10 @@ function choiseE(choiseKind,ChoiseTag){
     else if (ChoiseTag == 'B冷缩')targetTag='短縮:Bイマジン'
     else if (ChoiseTag == '绝招冷缩')targetTag='短縮:ULT'
     else if (ChoiseTag == '右键冷缩')targetTag='短縮:クラスA'
-    else if (ChoiseTag == '全体力减免')targetTag='スタミナセーブ:全'
-    else if (ChoiseTag == '奔跑体力减免')targetTag='スタミナセーブ:走'
-    else if (ChoiseTag == '跳跃体力减免')targetTag='スタミナセーブ:跳'
-    else if (ChoiseTag == '回避体力减免')targetTag='スタミナセーブ:避'
+    else if (ChoiseTag == '全体力减免')targetTag='スタミナセーブ・全'
+    else if (ChoiseTag == '奔跑体力减免')targetTag='スタミナセーブ・走'
+    else if (ChoiseTag == '跳跃体力减免')targetTag='スタミナセーブ・跳'
+    else if (ChoiseTag == '回避体力减免')targetTag='スタミナセーブ・避'
     // if(isShow == 0){
     //     for (let i = 1; i < rows.length; i++) {
     //         const row = rows[i];

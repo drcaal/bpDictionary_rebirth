@@ -38,6 +38,7 @@ function writeW(){
 </div>
 <div class="BchoiseBoxLevel">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>
+    <div>80</div>
     <div>70</div>
     <div>60</div>
     <div>55</div>

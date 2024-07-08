@@ -43,7 +43,7 @@ var MB_value=[
     {'pid': '8542', 'name': '剛禍の巨魁<br>刚祸之巨魁', 'monsKind': 'ドゴルマン系', 'spaceName': ['dng004'], 'isBoss': 'Boss', 'mapWhere': [[19]], 'showTime': '讨伐附近的同类型敌人<br>打开打怪掉的黑箱子<br>15分钟', 'level': '52', 'monsKinds': ['デミヒューマン', 'グランド', 'アバリティア']},
     {'pid': '8543', 'name': 'プロビデンスアイ<br>天佑之眼', 'monsKind': 'スフィア系', 'spaceName': ['pub0102'], 'isBoss': 'Boss', 'mapWhere': [[11]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '51', 'monsKinds': ['バファリア遺産', 'フロート']},
     {'pid': '8544', 'name': 'プリドーク<br>', 'monsKind': 'クアッドアーム系', 'spaceName': ['pub0102', 'pub0902'], 'isBoss': 'Boss', 'mapWhere': [[12], [13]], 'showTime': '讨伐附近的同类型敌人<br>周围存在任意玩家10分钟以上<br>12分钟', 'level': '52', 'monsKinds': ['バファリア遺産', 'グランド']},
-    {'pid': '8545', 'name': '大地鳴り<br>大地之鸣', 'monsKind': 'ドゴルマン系', 'spaceName': ['pub0804', 'pub0808'], 'isBoss': 'Boss', 'mapWhere': [[18], [22]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '49', 'monsKinds': ['デミヒューマン', 'グランド']},
+    {'pid': '8545', 'name': '大地鳴り<br>大地轰鸣', 'monsKind': 'ドゴルマン系', 'spaceName': ['pub0804', 'pub0808'], 'isBoss': 'Boss', 'mapWhere': [[18], [22]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '49', 'monsKinds': ['デミヒューマン', 'グランド']},
     {'pid': '8546', 'name': '潜む糸鋏<br>', 'monsKind': 'カニクモ系', 'spaceName': ['fld005'], 'isBoss': 'Boss', 'mapWhere': [[87]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '54', 'monsKinds': ['バグ', 'クラステイシャン', 'グランド', 'アクア']},
     {'pid': '8547', 'name': 'プライリーアニマ<br>', 'monsKind': 'ゴート系', 'spaceName': ['fld005'], 'isBoss': 'Boss', 'mapWhere': [[86]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '52', 'monsKinds': ['ビースト', 'グランド']},
     {'pid': '8548', 'name': '夢現の宿主<br>梦境之主', 'monsKind': 'エビキノコ系', 'spaceName': ['fld005'], 'isBoss': 'Boss', 'mapWhere': [[80]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '53', 'monsKinds': ['クラステイシャン', 'フロート', 'アクア']},
@@ -84,4 +84,6 @@ var MB_value=[
     {'pid': '8583', 'name': '血餓の闇夜狼<br>嗜血的暗夜狼', 'monsKind': 'フォックス系', 'spaceName': ['pub0904'], 'isBoss': 'Boss', 'mapWhere': [[23]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '79', 'monsKinds': ['ビースト', 'グランド']},
     {'pid': '8584', 'name': 'フレイム・ラピス<br>洞穿之石・火焰', 'monsKind': 'ドラウグ系', 'spaceName': ['pub0104'], 'isBoss': 'Boss', 'mapWhere': [[16]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '77', 'monsKinds': ['グランド', 'アンデッド']},
     {'pid': '8585', 'name': 'キャプテンウリボ<br>', 'monsKind': 'ボア系', 'spaceName': ['fld006'], 'isBoss': 'Boss', 'mapWhere': [[109]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '74', 'monsKinds': ['ビースト', 'グランド']},
+    {'pid': '8586', 'name': '大地鳴り<br>大地轰鸣', 'monsKind': 'ドゴルマン系', 'spaceName': ['pub0808'], 'isBoss': 'Boss', 'mapWhere': [[22]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '79', 'monsKinds': ['デミヒューマン', 'グランド']},
+    {'pid': '8587', 'name': 'キングマノー<br>玛诺王', 'monsKind': 'マノー系', 'spaceName': ['pub0602'], 'isBoss': 'Boss', 'mapWhere': [[17]], 'showTime': '讨伐附近的同类型敌人<br>15分钟', 'level': '79', 'monsKinds': ['デミヒューマン', 'グランド']},
 ]

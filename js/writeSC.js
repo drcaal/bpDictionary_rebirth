@@ -249,6 +249,8 @@ B_value.forEach((B_every,index)=>{
                 target_line[4].innerHTML =`<p onclick="searchMessage('${target_name}', 2)" style="cursor:pointer">B-${target_name}</p>`
             }
         }
+    }else{
+        console.log(B_every.name)
     }
 })
 E_value.forEach((E_every)=>{

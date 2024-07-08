@@ -14,7 +14,7 @@ function writeWM(){
     WMWord = '全部'
     var WM_htmlStr = `
     <p class="windowTitle">| 武器插头图鉴</p>
-<p class="Topword">武器插头根据其产生的效果分为两类，一类为对基础属性的提升，一类为对特点职业的技能的提升。<br>不同级别（G1、G2、G3、G4、G5）的插头起到的提升幅度区间不同，同级别插头也会因镶嵌在武器上时随机的星级不同起到不同的提升效果。</p>
+<p class="Topword">武器插头根据其产生的效果分为两类，一类为对基础属性的提升，一类为对特点职业的技能的提升。<br>不同级别（G1、G2、G3、G4、G5、G6）的插头起到的提升幅度区间不同，同级别插头也会因镶嵌在武器上时随机的星级不同起到不同的提升效果。</p>
 
 <div class="BchoiseBox">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>
@@ -35,6 +35,7 @@ function writeWM(){
     <div>G3</div>
     <div>G4</div>
     <div>G5</div>
+    <div>G6</div>
 </div>
 <div class="BchoiseBoxLevel BchoiseBoxLevelWM" style="flex-wrap: wrap; padding-bottom: 10px;">
     <div style="background-color: rgb(55, 194, 192); color: rgb(38, 41, 46); border-color: rgb(55, 194, 192, 0);">全部</div>

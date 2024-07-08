@@ -708,6 +708,9 @@ function sumattr(ability,attr,type){
                 attr[0] += 50
             }else if(ability == "勇猛G4"){
                 attr[0] += 75
+            }else if(ability == "勇猛果敢G4"){
+                attr[0] += 113
+                attr[7] -= 550
             }
         }else{
             if(ability == "勇猛SPG6"){
@@ -1065,11 +1068,6 @@ function sumattr(ability,attr,type){
             attr[0] -= 38
             attr[7] += 1650
         }
-    }else if(ability.indexOf("勇猛果敢")>-1){
-        if(ability == "勇猛果敢G4"){
-            attr[0] += 113
-            attr[7] -= 550
-        }
     }else if(ability.indexOf("猛進")>-1){
         if(ability == "猛進G4"){
             attr[0] += 113
@@ -1108,6 +1106,8 @@ function sumend(abilitylist,type){
                     AbilityList += "攻击力+50<br>"
                 }else if(ability == "勇猛G4"){
                     AbilityList += "攻击力+75<br>"
+                }else if(ability == "勇猛果敢G4"){
+                    AbilityList += "攻击力+113 HP-550<br>"
                 }
             }else{
                 if(ability == "勇猛SPG6"){
@@ -1540,67 +1540,67 @@ function sumend(abilitylist,type){
                     AbilityList += "救援时,获得霸体效果<br>"
                 }
             }
-        }else if(ability.indexOf("強撃:通常攻撃")>-1){
+        }else if(ability.indexOf("強撃・通常攻撃")>-1){
             if(type == '0'){
-                if(ability == "強撃:通常攻撃G1"){
+                if(ability == "強撃・通常攻撃G1"){
                     AbilityList += "普通攻击造成伤害+7%<br>"
-                }else if(ability == "強撃:通常攻撃G3"){
+                }else if(ability == "強撃・通常攻撃G3"){
                     AbilityList += "普通攻击造成伤害+11%<br>"
                 }
             }else{
-                if(ability == "強撃:通常攻撃G4"){
+                if(ability == "強撃・通常攻撃G4"){
                     AbilityList += "普通攻击造成伤害+11%~15%<br>"
                 }
             }
-        }else if(ability.indexOf("強撃:遠隔攻撃")>-1){
+        }else if(ability.indexOf("強撃・遠隔攻撃")>-1){
             if(type == '0'){
-                if(ability == "強撃:遠隔攻撃G1"){
+                if(ability == "強撃・遠隔攻撃G1"){
                     AbilityList += "远程攻击造成的伤害提高5%<br>"
-                }else if(ability == "強撃:遠隔攻撃G3"){
+                }else if(ability == "強撃・遠隔攻撃G3"){
                     AbilityList += "远程攻击造成的伤害提高7%<br>"
                 }
             }else{
-                if(ability == "強撃:遠隔攻撃G4"){
+                if(ability == "強撃・遠隔攻撃G4"){
                     AbilityList += "远程攻击造成的伤害提高7%~11%<br>"
                 }
             }
-        }else if(ability.indexOf("強撃:全攻撃")>-1){
+        }else if(ability.indexOf("強撃・全攻撃")>-1){
             if(type == '0'){
-                if(ability == "強撃:全攻撃G1"){
+                if(ability == "強撃・全攻撃G1"){
                     AbilityList += "全攻击造成的伤害提高4%<br>"
-                }else if(ability == "強撃:全攻撃G3"){
+                }else if(ability == "強撃・全攻撃G3"){
                     AbilityList += "全攻击造成的伤害提高6%<br>"
                 }
             }
-        }else if(ability.indexOf("強撃:Rスキル")>-1){
+        }else if(ability.indexOf("強撃・Rスキル")>-1){
             if(type == '0'){
-                if(ability == "強撃:RスキルG3"){
+                if(ability == "強撃・RスキルG3"){
                     AbilityList += "职业动作(右键)造成的伤害提高11%<br>"
                 }
             }else{
-                if(ability == "強撃:RスキルG4"){
+                if(ability == "強撃・RスキルG4"){
                     AbilityList += "职业动作(右键)造成的伤害提高11%~15%<br>"
                 }
             }
-        }else if(ability.indexOf("強撃:Bイマジン")>-1){
+        }else if(ability.indexOf("強撃・Bイマジン")>-1){
             if(type == '0'){
-                if(ability == "強撃:BイマジンG1"){
+                if(ability == "強撃・BイマジンG1"){
                     AbilityList += "战斗幻想造成的伤害提高6%<br>"
-                }else if(ability == "強撃:BイマジンG3"){
+                }else if(ability == "強撃・BイマジンG3"){
                     AbilityList += "战斗幻想造成的伤害提高8%<br>"
                 }
             }
-        }else if(ability.indexOf("強撃:近接攻撃")>-1){
+        }else if(ability.indexOf("強撃・近接攻撃")>-1){
             if(type == '0'){
-                if(ability == "強撃:近接攻撃G1"){
+                if(ability == "強撃・近接攻撃G1"){
                     AbilityList += "近战攻击造成的伤害提高5%<br>"
-                }else if(ability == "強撃:近接攻撃G2"){
+                }else if(ability == "強撃・近接攻撃G2"){
                     AbilityList += "近战攻击造成的伤害提高6%<br>"
-                }else if(ability == "強撃:近接攻撃G3"){
+                }else if(ability == "強撃・近接攻撃G3"){
                     AbilityList += "近战攻击造成的伤害提高7%<br>"
                 }
             }else{
-                if(ability == "強撃:近接攻撃G4"){
+                if(ability == "強撃・近接攻撃G4"){
                     AbilityList += "近战攻击造成的伤害提高7%~11%<br>"
                 }
             }
@@ -1922,6 +1922,8 @@ function sumend(abilitylist,type){
             if(type == '0'){
                 if(ability == "防御の極意・闇属性攻撃G1"){
                     AbilityList += "受到的闇属性伤害降低8%<br>"
+                }else if(ability == "防御の極意・闇属性攻撃G3"){
+                    AbilityList += "受到的闇属性伤害降低16%<br>"
                 }
             }else{
                 if(ability == "防御の極意・闇属性攻撃G4"){
@@ -1929,8 +1931,14 @@ function sumend(abilitylist,type){
                 }
             }
         }else if(ability.indexOf("ドロップドレイン")>-1){
-            if(ability == "ドロップドレインG4"){
-                AbilityList += "强袭(高度下落)攻击时,回复HP+70~110<br>"
+            if(type == '0'){
+                if(ability == "ドロップドレインG4"){
+                    AbilityList += "强袭(高度下落)攻击时,回复HP+90<br>"
+                }
+            }else{
+                if(ability == "ドロップドレインG4"){
+                    AbilityList += "强袭(高度下落)攻击时,回复HP+70~110<br>"
+                }
             }
         }else if(ability.indexOf("吸魂")>-1){
             if(ability == "吸魂G4"){
@@ -1939,6 +1947,34 @@ function sumend(abilitylist,type){
         }else if(ability.indexOf("癒しの波動・スキル")>-1){
             if(ability == "癒しの波動・スキルG4"){
                 AbilityList += "治疗技能的回复量提高35%<br>"
+            }
+        }else if(ability.indexOf("継戦術")>-1){
+            if(ability == "継戦術G4"){
+                AbilityList += "攻击力-38 HP+1650<br>"
+            }
+        }else if(ability.indexOf("ディープブレス")>-1){
+            if(ability == "ディープブレスG1"){
+                AbilityList += "收起武器时,每秒恢复1%HP<br>"
+            }
+        }else if(ability.indexOf("パラメディック")>-1){
+            if(ability == "パラメディックG4"){
+                AbilityList += "攻击力-38 回复力+375<br>"
+            }
+        }else if(ability.indexOf("癒しの波動・Bイマジン")>-1){
+            if(ability == "癒しの波動・BイマジンG3"){
+                AbilityList += "战斗幻想的回复量提高25%<br>"
+            }
+        }else if(ability.indexOf("猛進")>-1){
+            if(ability == "猛進G4"){
+                AbilityList += "攻击力+113 防御力-60<br>"
+            }
+        }else if(ability.indexOf("鉄壁")>-1){
+            if(ability == "鉄壁G4"){
+                AbilityList += "攻击力-38 防御力+180<br>"
+            }
+        }else if(ability.indexOf("護身術")>-1){
+            if(ability == "護身術G4"){
+                AbilityList += "受身(倒地快速起身后)成功后,回复400HP<br>"
             }
         }
     }
