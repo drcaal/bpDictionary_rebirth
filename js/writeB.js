@@ -55,7 +55,7 @@ function writeB(){
     
     B_value.forEach((B_every, index)=>{
         // <td style="font-size: 13px; padding: 0 5px;" class="ImagineData" bak="${B_every.endexp}">${B_every.end}</td>
-        var abli = sumend(B_every.end)
+        var abli = sumend(B_every.end,B_every.type)
         B_htmlStr += `<tr>
         <td style="font-size: 12px;" id="Btable"><img src="./img/icon/b/${B_every.pid}.png" alt="${B_every.pid}" title="${index}"></td>
         <td style="font-size: 14px; padding: 0 5px;">${B_every.name}</td>

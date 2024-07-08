@@ -238,3 +238,7 @@ tr{
     margin: 0 3px;
 }
 
+.boxP{
+    text-decoration: underline;
+    cursor: pointer;
+}

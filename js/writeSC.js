@@ -196,8 +196,8 @@ function writeSC(){
     })
 
 document.getElementsByClassName('MshowMoreTag')[0].onclick=function(){
-    if(document.getElementById('MapKindShowAll').style.height!='280px'){
-    document.getElementById('MapKindShowAll').style.height = '280px'
+    if(document.getElementById('MapKindShowAll').style.height!='364px'){
+    document.getElementById('MapKindShowAll').style.height = '364px'
     document.getElementsByClassName('MshowMoreTag')[0].innerHTML = '[收起]'}
     else{
     document.getElementById('MapKindShowAll').style.height = '28px'
@@ -247,7 +247,6 @@ B_value.forEach((B_every,index)=>{
                 }
                 var target_line = rows[Final_Point].getElementsByTagName('td')
                 target_line[4].innerHTML =`<p onclick="searchMessage('${target_name}', 2)" style="cursor:pointer">B-${target_name}</p>`
-                console.log(target_name)
             }
         }
     }
